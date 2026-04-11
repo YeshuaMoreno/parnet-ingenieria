@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #  Sistema Web - Ticket de Turno
 
 Proyecto desarrollado para el **Examen Parcial 2** de Desarrollo Web.
