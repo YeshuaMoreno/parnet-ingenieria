@@ -1,35 +1,35 @@
 import { Routes } from '@angular/router';
-import { FormComponent } from './form/form.component';
-import { AdminComponent } from './admin/admin.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { AuthGuard } from './guards/auth.guard';
-import { ModificarComponent } from './modificar/modificar.component';
+
 
 export const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-
-  { path: '', component: FormComponent },
-
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-
-  { path: 'usuarios', loadComponent: () =>
-      import('./admin-usuarios/admin-usuarios.component')
-      .then(m => m.AdminUsuariosComponent),
-      canActivate: [AuthGuard]
-  },
-
-  { path: 'municipios', loadComponent: () =>
-      import('./admin-municipios/admin-municipios.component')
-      .then(m => m.AdminMunicipiosComponent),
-      canActivate: [AuthGuard]
-  },
     {
-    path: 'modificar',
-    loadComponent: () => import('./modificar/modificar.component')
-        .then(m => m.ModificarComponent)
+        path: 'login',
+        loadComponent: () =>
+            import('./login/login.component').then(m => m.LoginComponent)
+    },
+    {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full'
+    },
+    {
+        path: 'dashboard',
+        loadComponent: () =>
+            import('./dashboard/dashboard.component').then(m => m.DashboardComponent)
+    },
+    {
+        path: 'admin-productos',
+        loadComponent: () =>
+            import('./admin-productos/admin-productos.component').then(m => m.AdminProductosComponent)
+    },
+    {
+    path: 'sugerencias',
+    loadComponent: () =>
+        import('./sugerencias/sugerencias.component').then(m => m.SugerenciasComponent)
+    },
+    {
+    path: 'admin-sugerencias',
+    loadComponent: () =>
+        import('./admin-sugerencias/admin-sugerencias.component').then(m => m.AdminSugerenciasComponent)
     }
 ];

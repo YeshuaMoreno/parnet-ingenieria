@@ -1,91 +1,48 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
 
+interface DashboardGeneral {
+  productos: number;
+  servicios: number;
+  sugerencias: number;
+  noticias: number;
+  visitas: number;
+}
 
 @Component({
-  standalone: true,
   selector: 'app-dashboard',
-  imports: [CommonModule, FormsModule],
+  standalone: true,
+  imports: [CommonModule, RouterLink, FormsModule],
   templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
 
-  data = {
-    total: 0,
-    pendientes: 0,
-    resueltos: 0
+  stats: DashboardGeneral = {
+    productos: 0,
+    servicios: 0,
+    sugerencias: 0,
+    noticias: 0,
+    visitas: 0
   };
 
-  municipios: any[] = [];
-  municipio_id: number | null = null;
+  cargando = true;
 
-  chart: any = null;
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient, private router: Router) {}
-
-  volver() {
-    this.router.navigate(['/admin']);
-  }
-  ngOnInit() {
-
-    const role = localStorage.getItem('auth');
-
-    if (role !== 'admin') {
-      window.location.href = '/';
-      return;
-    }
-
-    this.cargarMunicipios();
-    this.municipio_id = null;
-    this.cargarDatos();
-  }
-
-  cargarMunicipios() {
-    this.http.get<any[]>('http://127.0.0.1:8000/api/municipios')
-      .subscribe(res => this.municipios = res);
-  }
-
-  cargarDatos() {
-
-    let url = 'http://127.0.0.1:8000/api/dashboard';
-
-    if (this.municipio_id) {
-      url += `?municipio_id=${this.municipio_id}`;
-    }
-
-    this.http.get<any>(url)
-      .subscribe(res => {
-        this.data = res;
-        this.renderChart();
+  ngOnInit(): void {
+    this.http.get<DashboardGeneral>('http://127.0.0.1:8000/api/dashboard/general')
+      .subscribe({
+        next: (res) => {
+          this.stats = res;
+          this.cargando = false;
+        },
+        error: (err) => {
+          console.error('Error cargando dashboard', err);
+          this.cargando = false;
+        }
       });
-  }
-
-  renderChart() {
-
-    const canvas: any = document.getElementById('grafica');
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-
-    if (this.chart) {
-      this.chart.destroy();
-    }
-
-    this.chart = new (window as any).Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels: ['Pendientes', 'Resueltos'],
-        datasets: [{
-          data: [this.data.pendientes, this.data.resueltos]
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false
-      }
-    });
   }
 }

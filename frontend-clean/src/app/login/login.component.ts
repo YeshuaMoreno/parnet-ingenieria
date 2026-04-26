@@ -1,57 +1,47 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Router, RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
-  standalone: true,
   selector: 'app-login',
-  imports: [CommonModule, FormsModule, RouterModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
+
   username = '';
   password = '';
+  error = '';
 
-  num1 = Math.floor(Math.random() * 10);
-  num2 = Math.floor(Math.random() * 10);
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
-  captchaUser: number | null = null;
+  login(): void {
+    this.error = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
-
-  login() {
-    if (this.captchaUser !== this.num1 + this.num2) {
-      alert('Captcha incorrecto');
-      return;
-    }
-
-    if (!this.username || !this.password) {
-      alert('Llena usuario y contraseña');
-      return;
-    }
-
-    this.http.post<any>('http://127.0.0.1:8000/api/login', {
+    const data = {
       username: this.username,
       password: this.password
-    }).subscribe({
+    };
+
+    this.authService.login(data).subscribe({
       next: (res) => {
-        localStorage.setItem('auth', res.rol);
+        this.authService.guardarSesion(res.token, res.rol);
 
         if (res.rol === 'admin') {
-          this.router.navigate(['/admin']);
+          this.router.navigate(['/dashboard']);
         } else {
-          this.router.navigate(['/']);
+          this.router.navigate(['/productos']);
         }
       },
       error: () => {
-        alert('Credenciales incorrectas');
+        this.error = 'Usuario o contraseña incorrectos';
       }
     });
-  }
-
-  recuperar() {
-    alert('Contacta al administrador');
   }
 }

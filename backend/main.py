@@ -3,12 +3,31 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from backend.database import engine, Base
-from backend.routes import ticket_routes, auth_routes
 
-# CREAR APP PRIMERO
-app = FastAPI()
+from backend.routes import (
+    auth_routes,
+    producto_routes,
+    servicio_routes,
+    sugerencia_routes,
+    noticia_routes,
+    dashboard_routes
+)
 
-# CORS
+from backend.models import (
+    usuario,
+    producto,
+    servicio,
+    sugerencia,
+    noticia,
+    visita
+)
+
+app = FastAPI(
+    title="ParNet Ingeniería API",
+    description="API REST para sistema web ParNet Ingeniería",
+    version="1.0.0"
+)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -17,12 +36,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# STATIC (para PDF / QR)
-app.mount("/static", StaticFiles(directory="."), name="static")
+app.mount("/static", StaticFiles(directory="backend/static"), name="static")
 
-# CREAR TABLAS
 Base.metadata.create_all(bind=engine)
 
-# RUTAS (UNA SOLA VEZ)
-app.include_router(ticket_routes.router, prefix="/api")
 app.include_router(auth_routes.router, prefix="/api")
+app.include_router(producto_routes.router, prefix="/api")
+app.include_router(servicio_routes.router, prefix="/api")
+app.include_router(sugerencia_routes.router, prefix="/api")
+app.include_router(noticia_routes.router, prefix="/api")
+app.include_router(dashboard_routes.router, prefix="/api")

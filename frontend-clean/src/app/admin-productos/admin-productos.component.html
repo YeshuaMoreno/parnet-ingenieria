@@ -1,0 +1,144 @@
+<div class="min-h-screen bg-gray-100 p-8">
+
+  <h1 class="text-3xl font-bold text-blue-900 mb-6">
+    Administración de Productos
+  </h1>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+    <div class="bg-white rounded-xl shadow p-6">
+      <h2 class="text-xl font-bold mb-4">
+        {{ editando ? 'Editar producto' : 'Nuevo producto' }}
+      </h2>
+
+      <form (ngSubmit)="guardar()" class="space-y-3">
+
+        <input [(ngModel)]="producto.nombre" name="nombre"
+               class="w-full border p-3 rounded-lg"
+               placeholder="Nombre del producto" required>
+
+        <input [(ngModel)]="producto.categoria" name="categoria"
+               class="w-full border p-3 rounded-lg"
+               placeholder="Categoría" required>
+
+        <textarea [(ngModel)]="producto.descripcion" name="descripcion"
+                  class="w-full border p-3 rounded-lg"
+                  placeholder="Descripción"></textarea>
+
+        <input [(ngModel)]="producto.precio" name="precio"
+               type="number"
+               class="w-full border p-3 rounded-lg"
+               placeholder="Precio">
+
+        <select [(ngModel)]="producto.estatus" name="estatus"
+                class="w-full border p-3 rounded-lg">
+          <option value="Existencia">Existencia</option>
+          <option value="Agotado">Agotado</option>
+        </select>
+
+        <input type="file"
+              accept="image/*"
+              (change)="subirImagen($event)"
+              class="w-full border p-3 rounded-lg">
+
+        <input [(ngModel)]="producto.imagen"
+              name="imagen"
+              class="w-full border p-3 rounded-lg"
+              placeholder="URL de imagen"
+              readonly>
+
+        <img *ngIf="imagenPreview"
+            [src]="imagenPreview"
+            class="w-full h-40 object-cover rounded-lg border">
+
+        <button class="w-full bg-blue-900 text-white p-3 rounded-lg font-bold">
+          {{ editando ? 'Actualizar' : 'Guardar' }}
+        </button>
+
+        <button type="button"
+                (click)="resetForm()"
+                class="w-full bg-gray-500 text-white p-3 rounded-lg font-bold">
+          Limpiar
+        </button>
+
+      </form>
+    </div>
+
+    <div class="lg:col-span-2 bg-white rounded-xl shadow p-6">
+
+      <div class="flex gap-2 mb-4">
+        <input [(ngModel)]="busqueda"
+               class="border p-3 rounded-lg w-full"
+               placeholder="Buscar producto..."
+               (keyup.enter)="buscar()">
+
+        <button type="button"
+                (click)="buscar()"
+                class="bg-blue-900 text-white px-4 rounded-lg">
+          Buscar
+        </button>
+      </div>
+
+      <div class="flex gap-2 mb-4">
+        <button type="button" 
+                (click)="abrirReportePdf()"
+                class="bg-red-700 text-white px-4 py-2 rounded-lg">
+          Reporte PDF
+        </button>
+
+        <button type="button" 
+                (click)="abrirReporteExcel()"
+                class="bg-green-700 text-white px-4 py-2 rounded-lg">
+          Reporte Excel
+        </button>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full border">
+          <thead class="bg-blue-900 text-white">
+            <tr>
+              <th class="p-2">ID</th>
+              <th class="p-2">Producto</th>
+              <th class="p-2">Categoría</th>
+              <th class="p-2">Precio</th>
+              <th class="p-2">Estatus</th>
+              <th class="p-2">Acciones</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let p of productos" class="border-b">
+              <td class="p-2">{{ p.id }}</td>
+              <td class="p-2">{{ p.nombre }}</td>
+              <td class="p-2">{{ p.categoria }}</td>
+              <td class="p-2">${{ p.precio }}</td>
+              <td class="p-2">{{ p.estatus }}</td>
+              <td class="p-2 flex gap-2">
+                <button type="button"
+                        (click)="editar(p)"
+                        class="bg-yellow-500 text-white px-3 py-1 rounded">
+                Editar
+                </button>
+
+                <button type="button"
+                        (click)="eliminar(p.id)"
+                        class="bg-red-600 text-white px-3 py-1 rounded">
+                Eliminar
+                </button>
+
+                <button type="button"
+                        (click)="abrirPdf(p.id)"
+                        class="bg-purple-700 text-white px-3 py-1 rounded">
+                PDF
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
