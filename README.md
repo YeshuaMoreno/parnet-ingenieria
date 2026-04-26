@@ -106,6 +106,7 @@ frontend-clean/
 ## 🔗 API Endpoints
 
 ### 📦 Productos
+
 ```bash
 GET    /api/productos
 POST   /api/productos
@@ -115,17 +116,27 @@ GET    /api/productos/buscar?q=
 GET    /api/productos/{id}/pdf
 GET    /api/productos/reporte/pdf
 GET    /api/productos/reporte/excel
-💬 Sugerencias
+```
+
+### 💬 Sugerencias
+
+```bash
 GET    /api/sugerencias
 POST   /api/sugerencias
 PUT    /api/sugerencias/{id}
 DELETE /api/sugerencias/{id}
 GET    /api/sugerencias/reporte/pdf
 GET    /api/sugerencias/reporte/excel
-📊 Dashboard
+```
+
+### 📊 Dashboard
+
+```bash
 GET /api/dashboard/general
 GET /api/dashboard/productos
 GET /api/dashboard/servicios
+```
+
 ▶️ Cómo ejecutar el proyecto
 🔹 Backend
 uvicorn backend.main:app --reload
