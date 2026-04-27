@@ -32,11 +32,13 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.clear();
+    localStorage.removeItem('token');
+    localStorage.removeItem('rol');
+    localStorage.removeItem('auth');
   }
 
   estaLogueado(): boolean {
-    return localStorage.getItem('auth') === 'true';
+    return !!localStorage.getItem('token');
   }
 
   obtenerRol(): string | null {

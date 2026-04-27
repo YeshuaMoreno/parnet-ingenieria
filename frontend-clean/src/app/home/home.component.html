@@ -1,0 +1,297 @@
+<div class="min-h-screen bg-slate-100 text-slate-900">
+
+  <!-- NAVBAR -->
+  <nav class="bg-blue-950 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+      <div>
+        <h1 class="text-2xl font-bold tracking-wide">ParNet Ingeniería</h1>
+        <p class="text-xs text-blue-200">Redes · Telecomunicaciones · Soluciones TI</p>
+      </div>
+
+      <div class="hidden md:flex gap-6 text-sm font-semibold">
+        <a href="#inicio" class="hover:text-blue-300">Inicio</a>
+        <a href="#servicios" class="hover:text-blue-300">Servicios</a>
+        <a href="#productos" class="hover:text-blue-300">Productos</a>
+        <a href="#clientes" class="hover:text-blue-300">Clientes</a>
+        <a href="#noticias" class="hover:text-blue-300">Noticias</a>
+        <a routerLink="/sugerencias" class="hover:text-blue-300">Sugerencias</a>
+        <a routerLink="/login" class="bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-500">Admin</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- HERO / SLIDER FAKE -->
+  <section id="inicio" class="relative bg-gradient-to-r from-blue-950 via-blue-900 to-sky-700 text-white">
+    <div class="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+
+      <div>
+        <p class="uppercase text-blue-300 font-bold mb-3">Soluciones profesionales</p>
+
+        <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+          Conectividad segura para empresas modernas
+        </h2>
+
+        <p class="text-blue-100 text-lg mb-8">
+          Diseño, instalación y soporte de redes, fibra óptica, voz, datos y soluciones de telecomunicaciones.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <a href="#servicios"
+             class="bg-white text-blue-950 px-6 py-3 rounded-lg font-bold hover:bg-blue-100">
+            Ver servicios
+          </a>
+
+          <a href="#productos"
+             class="border border-white px-6 py-3 rounded-lg font-bold hover:bg-white hover:text-blue-950">
+            Ver productos
+          </a>
+        </div>
+      </div>
+
+      <div class="bg-white/10 backdrop-blur rounded-3xl p-8 shadow-2xl border border-white/20">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white/10 p-5 rounded-xl">
+            <p class="text-4xl mb-2">🌐</p>
+            <h3 class="font-bold">Redes LAN/WAN</h3>
+          </div>
+
+          <div class="bg-white/10 p-5 rounded-xl">
+            <p class="text-4xl mb-2">📡</p>
+            <h3 class="font-bold">Telecom</h3>
+          </div>
+
+          <div class="bg-white/10 p-5 rounded-xl">
+            <p class="text-4xl mb-2">🔒</p>
+            <h3 class="font-bold">Seguridad</h3>
+          </div>
+
+          <div class="bg-white/10 p-5 rounded-xl">
+            <p class="text-4xl mb-2">🛠️</p>
+            <h3 class="font-bold">Soporte</h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- QUIENES SOMOS -->
+  <section class="max-w-7xl mx-auto px-6 py-16">
+    <div class="bg-white rounded-2xl shadow p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <div class="md:col-span-2">
+        <h2 class="text-3xl font-bold text-blue-950 mb-4">¿Quiénes somos?</h2>
+        <p class="text-gray-700 leading-relaxed">
+          ParNet Ingeniería es una empresa enfocada en soluciones de redes y telecomunicaciones,
+          ofreciendo infraestructura tecnológica para empresas que requieren conectividad confiable,
+          segura y escalable.
+        </p>
+      </div>
+
+      <div class="bg-blue-950 text-white rounded-xl p-6">
+        <h3 class="text-xl font-bold mb-2">Objetivo</h3>
+        <p class="text-blue-100">
+          Brindar soluciones tecnológicas eficientes mediante servicios profesionales y productos especializados.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="bg-white py-16">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <h2 class="text-3xl font-bold text-blue-950 mb-10">Servicios</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+
+        <div class="p-6 rounded-xl shadow bg-slate-50 border">
+          <p class="text-4xl mb-3">🖧</p>
+          <h3 class="text-xl font-bold mb-2">Cableado estructurado</h3>
+          <p class="text-gray-600">Instalación y mantenimiento de infraestructura de red.</p>
+        </div>
+
+        <div class="p-6 rounded-xl shadow bg-slate-50 border">
+          <p class="text-4xl mb-3">📶</p>
+          <h3 class="text-xl font-bold mb-2">Redes inalámbricas</h3>
+          <p class="text-gray-600">Configuración de WiFi empresarial y enlaces punto a punto.</p>
+        </div>
+
+        <div class="p-6 rounded-xl shadow bg-slate-50 border">
+          <p class="text-4xl mb-3">🔐</p>
+          <h3 class="text-xl font-bold mb-2">Seguridad TI</h3>
+          <p class="text-gray-600">Soluciones para proteger la infraestructura tecnológica.</p>
+        </div>
+
+        <div class="p-6 rounded-xl shadow bg-slate-50 border">
+          <p class="text-4xl mb-3">☎️</p>
+          <h3 class="text-xl font-bold mb-2">Voz y datos</h3>
+          <p class="text-gray-600">Integración de servicios de comunicación empresarial.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section id="productos" class="max-w-7xl mx-auto px-6 py-16">
+
+    <div class="flex justify-between items-center mb-8">
+      <h2 class="text-3xl font-bold text-blue-950">Productos destacados</h2>
+      <a routerLink="/login" class="text-blue-800 font-bold hover:underline">Administrar</a>
+    </div>
+
+    <div *ngIf="productos.length === 0" class="bg-white p-6 rounded-xl shadow text-gray-600">
+      No hay productos registrados todavía.
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div *ngFor="let p of productos" class="bg-white rounded-xl shadow overflow-hidden">
+
+        <img *ngIf="p.imagen"
+             [src]="p.imagen"
+             class="w-full h-48 object-cover"
+             alt="Producto">
+
+        <div *ngIf="!p.imagen"
+             class="w-full h-48 bg-blue-100 flex items-center justify-center text-5xl">
+          📦
+        </div>
+
+        <div class="p-5">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm bg-blue-100 text-blue-900 px-3 py-1 rounded-full">
+              {{ p.categoria }}
+            </span>
+
+            <span class="text-sm font-bold"
+                  [class.text-green-700]="p.estatus === 'Existencia'"
+                  [class.text-red-700]="p.estatus !== 'Existencia'">
+              {{ p.estatus }}
+            </span>
+          </div>
+
+          <h3 class="text-xl font-bold mb-2">{{ p.nombre }}</h3>
+
+          <p class="text-gray-600 line-clamp-3 mb-3">
+            {{ p.descripcion }}
+          </p>
+
+          <p class="text-2xl font-bold text-blue-900">
+            ${{ p.precio }}
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- CLIENTES -->
+  <section id="clientes" class="bg-blue-950 text-white py-16">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <h2 class="text-3xl font-bold mb-8">Clientes</h2>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+        <a href="https://www.cisco.com" target="_blank"
+           class="bg-white text-blue-950 p-6 rounded-xl text-center font-bold hover:scale-105 transition">
+          Cisco
+        </a>
+
+        <a href="https://www.tp-link.com" target="_blank"
+           class="bg-white text-blue-950 p-6 rounded-xl text-center font-bold hover:scale-105 transition">
+          TP-Link
+        </a>
+
+        <a href="https://www.ubiquiti.com" target="_blank"
+           class="bg-white text-blue-950 p-6 rounded-xl text-center font-bold hover:scale-105 transition">
+          Ubiquiti
+        </a>
+
+        <a href="https://www.fortinet.com" target="_blank"
+           class="bg-white text-blue-950 p-6 rounded-xl text-center font-bold hover:scale-105 transition">
+          Fortinet
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NOTICIAS -->
+  <section id="noticias" class="max-w-7xl mx-auto px-6 py-16">
+
+    <h2 class="text-3xl font-bold text-blue-950 mb-8">Noticias</h2>
+
+    <div *ngIf="noticias.length === 0" class="bg-white p-6 rounded-xl shadow text-gray-600">
+      No hay noticias registradas todavía.
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div *ngFor="let n of noticias" class="bg-white rounded-xl shadow p-6">
+        <h3 class="text-xl font-bold text-blue-950 mb-3">{{ n.titulo }}</h3>
+        <p class="text-gray-600">{{ n.contenido }}</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- VIDEO -->
+  <section class="bg-slate-200 py-16">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+
+      <h2 class="text-3xl font-bold text-blue-950 mb-4">Video institucional</h2>
+
+      <p class="text-gray-700 mb-8">
+        Espacio reservado para el video explicativo del objetivo de la página y la finalidad del proyecto.
+      </p>
+
+      <div class="aspect-video bg-black rounded-2xl shadow flex items-center justify-center text-white text-2xl">
+        ▶ Video ParNet Ingeniería
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="max-w-7xl mx-auto px-6 py-16">
+    <div class="bg-white rounded-2xl shadow p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <div>
+        <h2 class="text-3xl font-bold text-blue-950 mb-4">Contacto</h2>
+        <p class="text-gray-700 mb-4">
+          Solicita información sobre productos, servicios o soporte técnico.
+        </p>
+
+        <p><b>Correo:</b> contacto&#64;parnet.com</p>
+        <p><b>Teléfono:</b> 844 000 0000</p>
+        <p><b>Ubicación:</b> Saltillo, Coahuila</p>
+      </div>
+
+      <div class="bg-blue-950 text-white rounded-xl p-6">
+        <h3 class="text-xl font-bold mb-3">¿Tienes una sugerencia?</h3>
+        <p class="text-blue-100 mb-4">
+          Ayúdanos a mejorar nuestros servicios registrando tu comentario.
+        </p>
+
+        <a routerLink="/sugerencias"
+           class="inline-block bg-white text-blue-950 px-5 py-3 rounded-lg font-bold">
+          Enviar sugerencia
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-blue-950 text-blue-100 py-6 text-center">
+    <p>© 2026 ParNet Ingeniería · Proyecto Final Ordinario</p>
+  </footer>
+
+</div>
