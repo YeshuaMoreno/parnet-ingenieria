@@ -1,9 +1,12 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from backend.database import SessionLocal
-from backend.models.servicio import Servicio
 from pydantic import BaseModel
 from typing import Optional
+from datetime import datetime
+
+from backend.database import SessionLocal
+from backend.models.servicio import Servicio
+from backend.models.solicitud_servicio import SolicitudServicio
 
 router = APIRouter()
 
@@ -30,14 +33,38 @@ class ServicioUpdate(BaseModel):
     estatus: str = "Activo"
 
 
+class SolicitudCreate(BaseModel):
+    nombre: str
+    correo: str
+    area: str
+    detalle: str
+
+
+@router.post("/servicios/solicitar")
+def solicitar_servicio(data: SolicitudCreate, db: Session = Depends(get_db)):
+    solicitud = SolicitudServicio(
+        nombre=data.nombre,
+        correo=data.correo,
+        area=data.area,
+        detalle=data.detalle,
+        fecha=datetime.utcnow()
+    )
+
+    db.add(solicitud)
+    db.commit()
+    db.refresh(solicitud)
+
+    return {"msg": "Solicitud enviada correctamente", "solicitud": solicitud}
+
+
+@router.get("/servicios/solicitudes")
+def obtener_solicitudes(db: Session = Depends(get_db)):
+    return db.query(SolicitudServicio).order_by(SolicitudServicio.id.desc()).all()
+
+
 @router.post("/servicios")
 def crear_servicio(data: ServicioCreate, db: Session = Depends(get_db)):
-    servicio = Servicio(
-        nombre=data.nombre,
-        area=data.area,
-        descripcion=data.descripcion,
-        estatus=data.estatus
-    )
+    servicio = Servicio(**data.dict())
 
     db.add(servicio)
     db.commit()

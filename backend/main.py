@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-
+from backend.models import solicitud_servicio
 from backend.database import engine, Base
 
 from backend.routes import (
