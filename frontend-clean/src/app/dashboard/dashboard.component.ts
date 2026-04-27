@@ -1,26 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-
-interface DashboardGeneral {
-  productos: number;
-  servicios: number;
-  sugerencias: number;
-  noticias: number;
-  visitas: number;
-}
+import Chart from 'chart.js/auto';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
 
-  stats: DashboardGeneral = {
+  apiUrl = 'http://127.0.0.1:8000/api';
+  cargando = true;
+
+  general = {
     productos: 0,
     servicios: 0,
     sugerencias: 0,
@@ -28,21 +23,110 @@ export class DashboardComponent implements OnInit {
     visitas: 0
   };
 
-  cargando = true;
+  productosStats = {
+    total: 0,
+    existencia: 0,
+    agotado: 0,
+    por_categoria: {} as Record<string, number>
+  };
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-    this.http.get<DashboardGeneral>('http://127.0.0.1:8000/api/dashboard/general')
-      .subscribe({
-        next: (res) => {
-          this.stats = res;
-          this.cargando = false;
-        },
-        error: (err) => {
-          console.error('Error cargando dashboard', err);
-          this.cargando = false;
+    this.cargarDatos();
+  }
+
+  cargarDatos(): void {
+    this.http.get<any>(`${this.apiUrl}/dashboard/general`).subscribe({
+      next: (res) => {
+        this.general = res;
+        this.cargarProductosStats();
+      },
+      error: (err) => {
+        console.error(err);
+        this.cargando = false;
+        this.cdr.detectChanges();
+      }
+    });
+  }
+
+  cargarProductosStats(): void {
+    this.http.get<any>(`${this.apiUrl}/dashboard/productos`).subscribe({
+      next: (res) => {
+        this.productosStats = res;
+
+        this.cargando = false;
+        this.cdr.detectChanges();
+
+        setTimeout(() => {
+          this.crearGraficas();
+        }, 300);
+      },
+      error: (err) => {
+        console.error(err);
+        this.cargando = false;
+        this.cdr.detectChanges();
+      }
+    });
+  }
+
+  crearGraficas(): void {
+    new Chart('chartEstatus', {
+      type: 'doughnut',
+      data: {
+        labels: ['Existencia', 'Agotado'],
+        datasets: [{
+          data: [
+            this.productosStats.existencia,
+            this.productosStats.agotado
+          ]
+        }]
+      }
+    });
+
+    new Chart('chartCategorias', {
+      type: 'bar',
+      data: {
+        labels: Object.keys(this.productosStats.por_categoria),
+        datasets: [{
+          label: 'Productos por categoría',
+          data: Object.values(this.productosStats.por_categoria)
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
         }
-      });
+      }
+    });
+
+    new Chart('chartGeneral', {
+      type: 'bar',
+      data: {
+        labels: ['Productos', 'Servicios', 'Sugerencias', 'Noticias', 'Visitas'],
+        datasets: [{
+          label: 'Registros generales',
+          data: [
+            this.general.productos,
+            this.general.servicios,
+            this.general.sugerencias,
+            this.general.noticias,
+            this.general.visitas
+          ]
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
   }
 }
