@@ -1,0 +1,60 @@
+.header {
+  position: relative;
+  width: 100%;
+  height: 365px;
+  overflow: hidden;
+  background: linear-gradient(#9bc8e5 0%, #2877a6 48%, #003f8f 100%);
+}
+
+.logo {
+  position: absolute;
+  left: 20px;
+  width: 420px;   
+  top: 10px;
+  z-index: 5;
+}
+
+.titulo {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);  
+  width: 480px;                 
+  z-index: 6;
+}
+
+.slogan {
+  position: absolute;
+  top: 130px;
+  left: 50%;
+  transform: translateX(-50%);  
+  width: 600px;                 
+  z-index: 7;
+}
+
+.antenas {
+  position: absolute;
+  right: 0;
+  top: 85px;
+  width: 280px;
+  height: 180px;
+  object-fit: cover;
+  z-index: 4;
+}
+
+.torre {
+  position: absolute;
+  left: 360px;
+  top: 0;
+  height: 170px;
+  z-index: 6;
+}
+
+.linea {
+  position: absolute;
+  left: 0;
+  top: 190px;
+  width: 1300px;
+  height: 8px;
+  z-index: 8;
+}

@@ -25,9 +25,12 @@ interface Noticia {
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule, RouterLink],
-  templateUrl: './home.component.html'
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
+
+  seccion: string = 'inicio'; 
 
   productos: Producto[] = [];
   noticias: Noticia[] = [];

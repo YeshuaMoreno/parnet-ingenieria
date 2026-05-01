@@ -1,0 +1,69 @@
+<div class="min-h-screen bg-gray-100 p-8">
+
+  <div class="flex justify-between items-center mb-8">
+    <div>
+      <h1 class="text-3xl font-bold text-blue-900">
+        Solicitudes de Servicio
+      </h1>
+      <p class="text-gray-600">
+        Solicitudes enviadas por clientes desde el formulario público
+      </p>
+    </div>
+
+    <div class="flex gap-3">
+      <a routerLink="/dashboard"
+         class="bg-gray-700 text-white px-4 py-2 rounded-lg font-bold">
+        Dashboard
+      </a>
+
+      <a routerLink="/admin-servicios"
+         class="bg-purple-700 text-white px-4 py-2 rounded-lg font-bold">
+        Servicios
+      </a>
+
+      <a routerLink="/admin-productos"
+         class="bg-blue-900 text-white px-4 py-2 rounded-lg font-bold">
+        Productos
+      </a>
+    </div>
+  </div>
+
+  <div *ngIf="cargando" class="bg-white p-6 rounded-xl shadow">
+    Cargando solicitudes...
+  </div>
+
+  <div *ngIf="!cargando && solicitudes.length === 0"
+       class="bg-white p-6 rounded-xl shadow">
+    No hay solicitudes registradas.
+  </div>
+
+  <div *ngIf="!cargando && solicitudes.length > 0"
+       class="bg-white rounded-xl shadow p-6 overflow-x-auto">
+
+    <table class="w-full border-collapse">
+      <thead>
+        <tr class="bg-blue-900 text-white">
+          <th class="p-3 text-left">ID</th>
+          <th class="p-3 text-left">Nombre</th>
+          <th class="p-3 text-left">Correo</th>
+          <th class="p-3 text-left">Área</th>
+          <th class="p-3 text-left">Detalle</th>
+          <th class="p-3 text-left">Fecha</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let s of solicitudes" class="border-b">
+          <td class="p-3">{{ s.id }}</td>
+          <td class="p-3 font-bold">{{ s.nombre }}</td>
+          <td class="p-3">{{ s.correo }}</td>
+          <td class="p-3">{{ s.area }}</td>
+          <td class="p-3">{{ s.detalle }}</td>
+          <td class="p-3">{{ s.fecha | date:'short' }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>

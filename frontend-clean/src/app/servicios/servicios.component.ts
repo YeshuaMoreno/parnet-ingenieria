@@ -23,13 +23,42 @@ export class ServiciosComponent {
   constructor(private http: HttpClient) {}
 
   enviar() {
+
+      if (
+      !this.form.nombre.trim() ||
+      !this.form.correo.trim() ||
+      !this.form.area.trim() ||
+      !this.form.detalle.trim()
+    ) {
+      alert('Todos los campos son obligatorios 🚫');
+      return;
+    }
+
+    // Validar correo
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(this.form.correo)) {
+      alert('Correo inválido ❌');
+      return;
+    }
+
+    // ENVÍO
     this.http.post(`${this.apiUrl}/servicios/solicitar`, this.form)
       .subscribe({
         next: () => {
-          alert('Solicitud enviada 🚀');
-          this.form = { nombre:'', correo:'', area:'', detalle:'' };
+          alert('Solicitud enviada ');
+
+          // limpiar form
+          this.form = {
+            nombre: '',
+            correo: '',
+            area: '',
+            detalle: ''
+          };
         },
-        error: () => alert('Error al enviar')
+        error: (err) => {
+          console.error(err);
+          alert('Error al enviar ❌');
+        }
       });
   }
 }

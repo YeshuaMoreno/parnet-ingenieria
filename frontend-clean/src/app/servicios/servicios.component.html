@@ -18,8 +18,11 @@
     <textarea [(ngModel)]="form.detalle" placeholder="Detalle del servicio"
       class="w-full border p-2 mb-3 rounded"></textarea>
 
-    <button (click)="enviar()"
-      class="bg-blue-900 text-white px-4 py-2 rounded w-full">
+    <button
+      (click)="enviar()"
+      [disabled]="!form.nombre || !form.correo || !form.area || !form.detalle"
+      class="bg-blue-900 text-white px-4 py-2 rounded w-full disabled:opacity-50"
+    >
       Enviar solicitud
     </button>
 

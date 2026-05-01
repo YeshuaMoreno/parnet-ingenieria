@@ -36,12 +36,25 @@ export const routes: Routes = [
       import('./admin-sugerencias/admin-sugerencias.component').then(m => m.AdminSugerenciasComponent)
   },
   {
-    path: '**',
-    redirectTo: ''
-  },
-  {
     path: 'servicios',
     loadComponent: () =>
       import('./servicios/servicios.component').then(m => m.ServiciosComponent)
+  },
+  {
+    path: 'admin-servicios',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./admin-servicios/admin-servicios.component').then(m => m.AdminServiciosComponent)
+  },
+  {
+    path: 'admin-solicitudes-servicio',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./admin-solicitudes-servicio/admin-solicitudes-servicio.component')
+        .then(m => m.AdminSolicitudesServicioComponent)
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];

@@ -40,7 +40,9 @@ export class AdminProductosComponent implements OnInit {
   eliminandoId: number | null = null;
   imagenPreview: string | null = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    console.log('HTTP CLIENT:', this.http);
+  }
 
   ngOnInit(): void {
     this.cargarProductos();

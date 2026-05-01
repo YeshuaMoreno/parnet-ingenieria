@@ -40,6 +40,10 @@ class SolicitudCreate(BaseModel):
     detalle: str
 
 
+# =========================
+# SOLICITUDES DE SERVICIO
+# =========================
+
 @router.post("/servicios/solicitar")
 def solicitar_servicio(data: SolicitudCreate, db: Session = Depends(get_db)):
     solicitud = SolicitudServicio(
@@ -61,6 +65,23 @@ def solicitar_servicio(data: SolicitudCreate, db: Session = Depends(get_db)):
 def obtener_solicitudes(db: Session = Depends(get_db)):
     return db.query(SolicitudServicio).order_by(SolicitudServicio.id.desc()).all()
 
+
+@router.delete("/servicios/solicitudes/{id}")
+def eliminar_solicitud(id: int, db: Session = Depends(get_db)):
+    solicitud = db.query(SolicitudServicio).filter(SolicitudServicio.id == id).first()
+
+    if not solicitud:
+        raise HTTPException(status_code=404, detail="Solicitud no encontrada")
+
+    db.delete(solicitud)
+    db.commit()
+
+    return {"msg": "Solicitud eliminada correctamente"}
+
+
+# =========================
+# CRUD SERVICIOS
+# =========================
 
 @router.post("/servicios")
 def crear_servicio(data: ServicioCreate, db: Session = Depends(get_db)):
