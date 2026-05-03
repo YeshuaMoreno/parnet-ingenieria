@@ -43,6 +43,9 @@ export class HomeComponent implements OnInit {
     this.cargarNoticias();
   }
 
+  cambiarSeccion(seccion: string) {
+    this.seccion = seccion;
+  }
   registrarVisita(): void {
     this.http.post('http://127.0.0.1:8000/api/visitas', {}).subscribe({
       next: () => {},

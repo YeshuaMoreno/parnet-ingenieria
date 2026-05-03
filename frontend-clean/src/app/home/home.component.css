@@ -4,7 +4,7 @@
   background: white;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 .header {
   position: relative;
@@ -67,7 +67,7 @@
   z-index: 8;
 }
 
-/* ================= BARRA MENSAJE ================= */
+/* MENSAJE */
 
 .mensaje-bar {
   position: relative;
@@ -111,7 +111,7 @@
   }
 }
 
-/* ================= MENU TABS ================= */
+/* MENU TABS */
 
 .menu-tabs {
   width: 100%;
@@ -146,7 +146,7 @@
   color: white;
 }
 
-/* ================= MAIN LAYOUT ================= */
+/* MAIN */
 
 .main-layout {
   display: flex;
@@ -155,7 +155,7 @@
   background: #08749c;
 }
 
-/* ================= SIDEBAR IZQUIERDO ================= */
+/* SIDEBAR */
 
 .sidebar-left {
   width: 185px;
@@ -167,7 +167,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* ================= NOTICIAS ================= */
+/* NOTICIAS */
 
 .noticias-section {
   width: 100%;
@@ -234,7 +234,7 @@
   cursor: pointer;
 }
 
-/* ================= AREAS PARNET ================= */
+/* AREAS */
 
 .areas-panel {
   width: 100%;
@@ -287,12 +287,7 @@
   filter: brightness(1.08);
 }
 
-.area-btn span {
-  position: relative;
-  top: -1px;
-}
-
-/* ================= MARCAS ================= */
+/* MARCAS Y CONTADOR */
 
 .marcas-panel {
   background: #0a3971;
@@ -322,13 +317,10 @@
   color: yellow;
 }
 
-/* ================= CONTADOR ================= */
-
 .contador-panel {
   font-size: 10px;
   color: white;
   padding: 4px 8px 2px;
-  text-align: left;
 }
 
 .contador-line {
@@ -336,10 +328,6 @@
   align-items: center;
   gap: 3px;
   margin-bottom: 2px;
-}
-
-.contador-icon {
-  font-size: 14px;
 }
 
 .visitas-numeros {
@@ -367,12 +355,11 @@
   font-size: 10px;
 }
 
-/* ================= CONTENT ================= */
+/* CONTENT */
 
 .content-area {
   flex: 1;
   background: #08749c;
-  padding: 0;
   color: white;
   min-height: 470px;
 }
@@ -384,10 +371,6 @@
   color: white;
   padding: 0 10px 20px;
   box-sizing: border-box;
-}
-
-.inicio-content {
-  position: relative;
 }
 
 .content-title-img {
@@ -456,27 +439,36 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+  color: white;
+  font-size: 14px;
 }
 
-.item-servicio {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+.item-servicio span {
+  color: orange;
+  font-size: 10px;
+  margin-right: 5px;
 }
 
-.icono-servicio {
-  width: 10px;
-  height: 10px;
-  object-fit: contain;
+/* PÁGINAS CAMBIANTES */
+
+.page-section {
+  padding: 35px 45px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.texto-servicio {
-  height: 13px;
-  width: auto;
-  object-fit: contain;
+.page-section h2 {
+  color: yellow;
+  font-size: 26px;
+  margin-bottom: 18px;
 }
 
-/* ================= FOOTER ================= */
+.page-section p {
+  max-width: 780px;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+/* FOOTER */
 
 .footer {
   position: relative;
@@ -518,10 +510,6 @@
 .footer-links img {
   height: 14px;
   cursor: pointer;
-}
-
-.footer-links img:hover {
-  filter: brightness(1.5);
 }
 
 .footer-logo {
