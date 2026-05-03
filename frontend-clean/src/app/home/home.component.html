@@ -13,7 +13,6 @@
   <!-- BARRA DE MENSAJE -->
   <div class="mensaje-bar">
     <img src="/assets/mensaje/linea.png" class="mensaje-bg">
-
     <div class="mensaje-viewport">
       <img src="/assets/mensaje/bienvenido.png" class="mensaje-texto">
     </div>
@@ -39,7 +38,6 @@
 
       <!-- NOTICIAS -->
       <section class="noticias-section">
-
         <div class="noticias-header">
           <img src="assets/noticias box/mapa_mundo_left.png" class="noticia-globo">
           <img src="assets/noticias box/noticias.png" class="noticia-titulo-img">
@@ -54,7 +52,6 @@
         </div>
 
         <img src="assets/noticias box/control_panel.png" class="control-panel-img">
-
       </section>
 
       <!-- AREAS PARNET -->
@@ -64,59 +61,23 @@
         </div>
 
         <div class="areas-buttons">
-
-          <button class="area-btn">
-            <span>Certificaciones</span>
-          </button>
-
-          <button class="area-btn">
-            <span>Telecomunicaciones</span>
-          </button>
-
-          <button class="area-btn">
-            <span>Redes Eléctricas</span>
-          </button>
-
-          <button class="area-btn">
-            <span>Circuito Cerrado TV</span>
-          </button>
-
-          <button class="area-btn">
-            <span>Corriente Regulada</span>
-          </button>
-
-          <button class="area-btn">
-            <span>Data Centers</span>
-          </button>
-
-          <button class="area-btn">
-            <span>Fibra Óptica</span>
-          </button>
-
-          <button class="area-btn">
-            <span>Cables Estructurados</span>
-          </button>
-
-          <button class="area-btn">
-            <span>Pólizas</span>
-          </button>
-
-          <button class="area-btn">
-            <span>Outsourcing</span>
-          </button>
-
-          <button class="area-btn">
-            <span>Administración</span>
-          </button>
-
+          <button class="area-btn"><span>Certificaciones</span></button>
+          <button class="area-btn"><span>Telecomunicaciones</span></button>
+          <button class="area-btn"><span>Redes Eléctricas</span></button>
+          <button class="area-btn"><span>Circuito Cerrado TV</span></button>
+          <button class="area-btn"><span>Corriente Regulada</span></button>
+          <button class="area-btn"><span>Data Centers</span></button>
+          <button class="area-btn"><span>Fibra Óptica</span></button>
+          <button class="area-btn"><span>Cables Estructurados</span></button>
+          <button class="area-btn"><span>Pólizas</span></button>
+          <button class="area-btn"><span>Outsourcing</span></button>
+          <button class="area-btn"><span>Administración</span></button>
         </div>
       </section>
 
       <!-- MARCAS -->
       <section class="marcas-panel">
-        <div class="marcas-title">
-          Marcas y Proveedores
-        </div>
+        <div class="marcas-title">Marcas y Proveedores</div>
 
         <p>
           <b>PANDUIT™</b> es líder mundial en el diseño y fabricación de productos para cableado y comunicaciones.
@@ -149,46 +110,97 @@
           </div>
         </div>
 
-        <div class="copyright">
-          Copyright 2012
-        </div>
+        <div class="copyright">Copyright 2012</div>
       </section>
 
     </aside>
 
     <!-- CONTENT -->
     <section class="content-area">
-      <div *ngIf="seccion === 'inicio'" class="content-tab">
-        Página Principal
+
+      <div *ngIf="seccion === 'inicio'" class="content-tab inicio-content">
+
+        <img src="/assets/content/Página Principal.png" class="content-title-img">
+
+        <img src="/assets/content/representacion_flash.png" class="hero-flash">
+
+        <!-- BLOQUE 1 -->
+        <div class="bloque-info bloque-1">
+          <img src="/assets/content/bloque 1 content/Callcentre.png" class="bloque-img">
+
+          <div class="bloque-texto">
+            <img src="/assets/content/bloque 1 content/¿Cual es el objetivo principal de PARNET_.png" class="titulo-pregunta">
+            <img src="/assets/content/bloque 1 content/Nuestra empresa tiene como objetivo suministrar Soluciones  Int.png" class="parrafo-img">
+            <img src="/assets/content/bloque 1 content/Las fibras ópticas y los sistemas de comunicaciones, constituye.png" class="parrafo-img">
+          </div>
+        </div>
+
+        <!-- BLOQUE 2 -->
+        <div class="bloque-info bloque-2">
+          <img src="/assets/content/bloque 2 content/Imax.png" class="bloque-img">
+
+          <div class="bloque-texto">
+            <img src="/assets/content/bloque 2 content/¿Hay buena energía dentro de su empresa_.png" class="titulo-pregunta">
+            <img src="/assets/content/bloque 2 content/Normalmente, las personas y los encargados de la informática  e.png" class="parrafo-img">
+            <img src="/assets/content/bloque 2 content/Picos, sobrevoltajes, trasientes, interrupciones, apagones y.png" class="parrafo-img">
+            <img src="/assets/content/bloque 2 content/distorsiones, entre otros, son algunos de los males más comunes.png" class="parrafo-img">
+          </div>
+        </div>
+
+        <!-- BLOQUE 3 -->
+        <div class="bloque-3">
+          <img src="/assets/content/bloque 3 content/Con el afán de brindarle soluciones integrales, Parnet Ingenier.png" class="titulo-servicios">
+
+          <div class="lista-servicios">
+
+            <div class="item-servicio">
+              <img src="/assets/content/bloque 3 content/ico_archive2.png" class="icono-servicio">
+              <img src="/assets/content/bloque 3 content/Aplicaciones a la Medida.png" class="texto-servicio">
+            </div>
+
+            <div class="item-servicio">
+              <img src="/assets/content/bloque 3 content/ico_archive2.png" class="icono-servicio">
+              <img src="/assets/content/bloque 3 content/Aplicaciones Web.png" class="texto-servicio">
+            </div>
+
+            <div class="item-servicio">
+              <img src="/assets/content/bloque 3 content/ico_archive2.png" class="icono-servicio">
+              <img src="/assets/content/bloque 3 content/Aplicaciones Cliente-Servidor.png" class="texto-servicio">
+            </div>
+
+            <div class="item-servicio">
+              <img src="/assets/content/bloque 3 content/ico_archive2.png" class="icono-servicio">
+              <img src="/assets/content/bloque 3 content/Desarrollo de Aplicaciones Multimedia.png" class="texto-servicio">
+            </div>
+
+            <div class="item-servicio">
+              <img src="/assets/content/bloque 3 content/ico_archive2.png" class="icono-servicio">
+              <img src="/assets/content/bloque 3 content/Software de Nómina para el control total de sus empleados.png" class="texto-servicio">
+            </div>
+
+            <div class="item-servicio">
+              <img src="/assets/content/bloque 3 content/ico_archive2.png" class="icono-servicio">
+              <img src="/assets/content/bloque 3 content/Aplicaciones mòviles para celulares y PDA's.png" class="texto-servicio">
+            </div>
+
+            <div class="item-servicio">
+              <img src="/assets/content/bloque 3 content/ico_archive2.png" class="icono-servicio">
+              <img src="/assets/content/bloque 3 content/Bases de Datos.png" class="texto-servicio">
+            </div>
+
+          </div>
+        </div>
+
       </div>
 
-      <div *ngIf="seccion === 'quienes'" class="content-tab">
-        ¿Quiénes Somos?
-      </div>
+      <div *ngIf="seccion === 'quienes'" class="content-tab">¿Quiénes Somos?</div>
+      <div *ngIf="seccion === 'clientes'" class="content-tab">Clientes</div>
+      <div *ngIf="seccion === 'servicios'" class="content-tab">Servicios</div>
+      <div *ngIf="seccion === 'productos'" class="content-tab">Productos</div>
+      <div *ngIf="seccion === 'casos'" class="content-tab">Casos de Éxito</div>
+      <div *ngIf="seccion === 'contacto'" class="content-tab">Contactos</div>
+      <div *ngIf="seccion === 'socios'" class="content-tab">Socios</div>
 
-      <div *ngIf="seccion === 'clientes'" class="content-tab">
-        Clientes
-      </div>
-
-      <div *ngIf="seccion === 'servicios'" class="content-tab">
-        Servicios
-      </div>
-
-      <div *ngIf="seccion === 'productos'" class="content-tab">
-        Productos
-      </div>
-
-      <div *ngIf="seccion === 'casos'" class="content-tab">
-        Casos de Éxito
-      </div>
-
-      <div *ngIf="seccion === 'contacto'" class="content-tab">
-        Contactos
-      </div>
-
-      <div *ngIf="seccion === 'socios'" class="content-tab">
-        Socios
-      </div>
     </section>
 
   </main>
