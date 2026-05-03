@@ -10,7 +10,7 @@
     <img src="/assets/header/linea.png" class="linea">
   </div>
 
-   <!-- BAR -->
+  <!-- BARRA DE MENSAJE -->
   <div class="mensaje-bar">
     <img src="/assets/mensaje/linea.png" class="mensaje-bg">
 
@@ -19,27 +19,43 @@
     </div>
   </div>
 
+  <!-- MENU TABS -->
+  <nav class="menu-tabs">
+    <button (click)="seccion='inicio'">Página Principal</button>
+    <button (click)="seccion='quienes'">¿Quienes Somos?</button>
+    <button (click)="seccion='clientes'">Clientes</button>
+    <button (click)="seccion='servicios'">Servicios</button>
+    <button (click)="seccion='productos'">Productos</button>
+    <button (click)="seccion='casos'">Casos De Éxito</button>
+    <button (click)="seccion='contacto'">Contactos</button>
+    <button (click)="seccion='socios'">Socios</button>
+  </nav>
+
+  <!-- CONTENIDO TEMPORAL -->
+  <main class="content">
+  </main>
+
   <!-- FOOTER -->
   <footer class="footer">
     <img src="/assets/footer/bg.png" class="footer-bg">
     <img src="/assets/footer/linea.png" class="footer-linea">
 
     <nav class="footer-links">
-      <img src="/assets/footer/Página Principal.png">
+      <img src="/assets/footer/Página Principal.png" (click)="seccion='inicio'">
       <img src="/assets/footer/separador.png">
-      <img src="/assets/footer/quienes-somos.png">
+      <img src="/assets/footer/quienes-somos.png" (click)="seccion='quienes'">
       <img src="/assets/footer/separador.png">
-      <img src="/assets/footer/clientes.png">
+      <img src="/assets/footer/clientes.png" (click)="seccion='clientes'">
       <img src="/assets/footer/separador.png">
-      <img src="/assets/footer/servicios.png">
+      <img src="/assets/footer/servicios.png" (click)="seccion='servicios'">
       <img src="/assets/footer/separador.png">
-      <img src="/assets/footer/productos.png">
+      <img src="/assets/footer/productos.png" (click)="seccion='productos'">
       <img src="/assets/footer/separador.png">
-      <img src="/assets/footer/casos-exito.png">
+      <img src="/assets/footer/casos-exito.png" (click)="seccion='casos'">
       <img src="/assets/footer/separador.png">
-      <img src="/assets/footer/contacto.png">
+      <img src="/assets/footer/contacto.png" (click)="seccion='contacto'">
       <img src="/assets/footer/separador.png">
-      <img src="/assets/footer/soporte.png">
+      <img src="/assets/footer/soporte.png" (click)="seccion='soporte'">
     </nav>
 
     <img src="/assets/footer/parnet-logo.png" class="footer-logo">
