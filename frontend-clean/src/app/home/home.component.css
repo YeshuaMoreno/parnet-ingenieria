@@ -120,7 +120,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;              /* separación real */
+  gap: 6px;
   padding: 0 10px;
   overflow: hidden;
 }
@@ -136,10 +136,9 @@
   font-style: italic;
   text-shadow: 1px 1px 2px #001f3f;
   cursor: pointer;
-
   border-left: 1px solid #0b79bd;
   border-right: 1px solid #002f5a;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .menu-tabs button:hover {
@@ -147,11 +146,229 @@
   color: white;
 }
 
+/* ================= MAIN LAYOUT ================= */
+
+.main-layout {
+  display: flex;
+  width: 100%;
+  min-height: 470px;
+  background: #08749c;
+}
+
+/* ================= SIDEBAR IZQUIERDO ================= */
+
+.sidebar-left {
+  width: 185px;
+  min-width: 185px;
+  background: linear-gradient(#0d5d9d, #0b4380 45%, #07346c);
+  color: white;
+  padding: 5px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ================= NOTICIAS ================= */
+
+.noticias-section {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.noticias-title {
+  height: 32px;
+  background: linear-gradient(#2a78b3, #0b4b86);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #0e3157;
+  font-size: 22px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #67b9e8;
+  border-bottom: 1px solid #2c8ac7;
+}
+
+.noticias-title .globo {
+  width: 20px;
+  height: 20px;
+}
+
+.noticias-scroll {
+  height: 92px;
+  overflow: hidden;
+  padding: 8px 6px;
+  font-size: 10px;
+  font-style: italic;
+  line-height: 1.25;
+  background: #0c4380;
+}
+
+.noticias-scroll p {
+  margin: 0 0 12px;
+}
+
+.control-panel-btn {
+  width: 100%;
+  height: 16px;
+  border: none;
+  margin-top: 4px;
+  background: linear-gradient(#79a4d4, #1f5793);
+  color: white;
+  font-size: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ================= AREAS PARNET ================= */
+
+.areas-panel {
+  width: 100%;
+  padding: 6px 4px 8px;
+  box-sizing: border-box;
+  background: linear-gradient(#087daf, #044b82);
+  border: 1px solid #51b9eb;
+  margin-bottom: 8px;
+}
+
+.areas-title {
+  height: 30px;
+  background: linear-gradient(#0878aa, #034b86);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.areas-title img {
+  max-width: 130px;
+  height: auto;
+}
+
+.areas-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.area-btn {
+  position: relative;
+  height: 26px;
+  border-radius: 8px;
+  border: 2px solid #0394df;
+  background: linear-gradient(#e7f8ff 0%, #9ed7ff 45%, #48aeea 100%);
+  color: #102a74;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+  text-align: left;
+  padding-left: 8px;
+  cursor: pointer;
+  box-shadow:
+    inset 0 2px 5px rgba(255,255,255,0.95),
+    inset 0 -2px 4px rgba(0,84,156,0.45);
+}
+
+.area-btn:hover {
+  background: linear-gradient(#ffffff 0%, #bde8ff 45%, #62c6ff 100%);
+  filter: brightness(1.08);
+}
+
+.area-btn span {
+  position: relative;
+  top: -1px;
+}
+
+/* ================= MARCAS ================= */
+
+.marcas-panel {
+  background: #0a3971;
+  margin-bottom: 8px;
+  font-size: 10px;
+  line-height: 1.2;
+  padding-bottom: 6px;
+}
+
+.marcas-title {
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  background: linear-gradient(#436f9e, #1e4776);
+  font-size: 12px;
+  color: white;
+  margin-bottom: 7px;
+}
+
+.marcas-panel p {
+  padding: 0 8px;
+  margin: 0 0 10px;
+  font-style: italic;
+}
+
+.marcas-panel b {
+  color: yellow;
+}
+
+/* ================= CONTADOR ================= */
+
+.contador-panel {
+  font-size: 10px;
+  color: white;
+  padding: 4px 8px 2px;
+  text-align: left;
+}
+
+.contador-line {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-bottom: 2px;
+}
+
+.contador-icon {
+  font-size: 14px;
+}
+
+.visitas-numeros {
+  display: flex;
+  gap: 1px;
+  margin-left: 2px;
+}
+
+.visitas-numeros span {
+  display: inline-block;
+  min-width: 12px;
+  height: 13px;
+  line-height: 13px;
+  background: white;
+  color: black;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  border: 1px solid #bcd6e6;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 6px;
+  font-size: 10px;
+}
+
 /* ================= CONTENT ================= */
 
-.content {
-  min-height: 260px;
-  background: white;
+.content-area {
+  flex: 1;
+  background: #08749c;
+  padding: 0;
+  color: white;
+  min-height: 470px;
+}
+
+.content-tab {
+  width: 100%;
+  min-height: 470px;
+  background: #08749c;
+  color: white;
+  padding: 8px 10px;
+  box-sizing: border-box;
 }
 
 /* ================= FOOTER ================= */

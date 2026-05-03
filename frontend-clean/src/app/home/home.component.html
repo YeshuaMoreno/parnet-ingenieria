@@ -31,8 +31,168 @@
     <button (click)="seccion='socios'">Socios</button>
   </nav>
 
-  <!-- CONTENIDO TEMPORAL -->
-  <main class="content">
+  <!-- CUERPO PRINCIPAL -->
+  <main class="main-layout">
+
+    <!-- SIDEBAR IZQUIERDO -->
+    <aside class="sidebar-left">
+
+      <!-- NOTICIAS -->
+      <section class="sidebar-section noticias-section">
+        <div class="noticias-title">
+
+          <img src="/assets/menu_vertical/header_menu_version_1/globo.png" class="globo">
+
+          <span>Noticias</span>
+
+          <img src="/assets/menu_vertical/header_menu_version_1/globo.png" class="globo">
+
+        </div>
+
+        <div class="noticias-scroll">
+          <p>Alianzas en telecomunicaciones generará competencia: Standard &amp; Poor's. [Leer más...]</p>
+          <p>La TV satelital cumple 50 años. [Leer más...]</p>
+        </div>
+
+        <button class="control-panel-btn">
+          Control Panel PARNET
+        </button>
+      </section>
+
+      <!-- AREAS PARNET -->
+      <section class="areas-panel">
+        <div class="areas-title">
+          <img src="/assets/menu_vertical/areas_parnet.png">
+        </div>
+
+        <div class="areas-buttons">
+
+          <button class="area-btn">
+            <span>Certificaciones</span>
+          </button>
+
+          <button class="area-btn">
+            <span>Telecomunicaciones</span>
+          </button>
+
+          <button class="area-btn">
+            <span>Redes Eléctricas</span>
+          </button>
+
+          <button class="area-btn">
+            <span>Circuito Cerrado TV</span>
+          </button>
+
+          <button class="area-btn">
+            <span>Corriente Regulada</span>
+          </button>
+
+          <button class="area-btn">
+            <span>Data Centers</span>
+          </button>
+
+          <button class="area-btn">
+            <span>Fibra Óptica</span>
+          </button>
+
+          <button class="area-btn">
+            <span>Cables Estructurados</span>
+          </button>
+
+          <button class="area-btn">
+            <span>Pólizas</span>
+          </button>
+
+          <button class="area-btn">
+            <span>Outsourcing</span>
+          </button>
+
+          <button class="area-btn">
+            <span>Administración</span>
+          </button>
+
+        </div>
+      </section>
+
+      <!-- MARCAS -->
+      <section class="marcas-panel">
+        <div class="marcas-title">
+          Marcas y Proveedores
+        </div>
+
+        <p>
+          <b>PANDUIT™</b> es líder mundial en el diseño y fabricación de productos para cableado y comunicaciones.
+          [Leer más...]
+        </p>
+
+        <p>
+          <b>Cisco Systems</b> es líder mundial en redes para Internet.
+          [Leer más...]
+        </p>
+      </section>
+
+      <!-- CONTADORES -->
+      <section class="contador-panel">
+        <div class="contador-line">
+          <span class="contador-icon">👥</span>
+          <span>Conectados: <b>674</b></span>
+        </div>
+
+        <div class="contador-line">
+          <span class="contador-icon">🏠</span>
+          <span>Visitas:</span>
+
+          <div class="visitas-numeros">
+            <span>0</span>
+            <span>7</span>
+            <span>8</span>
+            <span>9</span>
+            <span>9</span>
+          </div>
+        </div>
+
+        <div class="copyright">
+          Copyright 2012
+        </div>
+      </section>
+
+    </aside>
+
+    <!-- CONTENT -->
+    <section class="content-area">
+      <div *ngIf="seccion === 'inicio'" class="content-tab">
+        Página Principal
+      </div>
+
+      <div *ngIf="seccion === 'quienes'" class="content-tab">
+        ¿Quiénes Somos?
+      </div>
+
+      <div *ngIf="seccion === 'clientes'" class="content-tab">
+        Clientes
+      </div>
+
+      <div *ngIf="seccion === 'servicios'" class="content-tab">
+        Servicios
+      </div>
+
+      <div *ngIf="seccion === 'productos'" class="content-tab">
+        Productos
+      </div>
+
+      <div *ngIf="seccion === 'casos'" class="content-tab">
+        Casos de Éxito
+      </div>
+
+      <div *ngIf="seccion === 'contacto'" class="content-tab">
+        Contactos
+      </div>
+
+      <div *ngIf="seccion === 'socios'" class="content-tab">
+        Socios
+      </div>
+    </section>
+
   </main>
 
   <!-- FOOTER -->
