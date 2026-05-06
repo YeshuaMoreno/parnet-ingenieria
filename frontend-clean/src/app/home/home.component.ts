@@ -1,17 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { RouterLink } from '@angular/router';
-
-interface Producto {
-  id: number;
-  nombre: string;
-  categoria: string;
-  descripcion: string;
-  precio: number;
-  estatus: string;
-  imagen: string;
-}
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 interface Noticia {
   id: number;
@@ -24,46 +13,39 @@ interface Noticia {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, HttpClientModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
 
-  seccion: string = 'inicio'; 
-
-  productos: Producto[] = [];
+  seccion = 'inicio';
   noticias: Noticia[] = [];
+  visitas = 7899;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.registrarVisita();
-    this.cargarProductos();
     this.cargarNoticias();
-  }
-
-  cambiarSeccion(seccion: string) {
-    this.seccion = seccion;
-  }
-  registrarVisita(): void {
-    this.http.post('http://127.0.0.1:8000/api/visitas', {}).subscribe({
-      next: () => {},
-      error: err => console.error('Error registrando visita', err)
-    });
-  }
-
-  cargarProductos(): void {
-    this.http.get<Producto[]>('http://127.0.0.1:8000/api/productos').subscribe({
-      next: res => this.productos = res.slice(0, 6),
-      error: err => console.error('Error cargando productos', err)
-    });
   }
 
   cargarNoticias(): void {
     this.http.get<Noticia[]>('http://127.0.0.1:8000/api/noticias').subscribe({
-      next: res => this.noticias = res.slice(0, 3),
+      next: res => {
+        this.noticias = res.filter(n => n.estatus === 'Activo').slice(0, 5);
+      },
       error: err => console.error('Error cargando noticias', err)
     });
+  }
+
+  registrarVisita(): void {
+    const guardadas = localStorage.getItem('parnet_visitas');
+    this.visitas = guardadas ? parseInt(guardadas) + 1 : this.visitas + 1;
+    localStorage.setItem('parnet_visitas', this.visitas.toString());
+  }
+
+  get visitasArray(): string[] {
+    return this.visitas.toString().padStart(5, '0').split('');
   }
 }

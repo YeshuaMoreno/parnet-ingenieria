@@ -13,12 +13,13 @@
   <!-- MENSAJE -->
   <div class="mensaje-bar">
     <img src="/assets/mensaje/linea.png" class="mensaje-bg">
+
     <div class="mensaje-viewport">
       <img src="/assets/mensaje/bienvenido.png" class="mensaje-texto">
     </div>
   </div>
 
-  <!-- MENU TABS -->
+  <!-- MENU -->
   <nav class="menu-tabs">
     <button (click)="seccion='inicio'">Página Principal</button>
     <button (click)="seccion='quienes'">¿Quienes Somos?</button>
@@ -36,196 +37,298 @@
     <!-- SIDEBAR -->
     <aside class="sidebar-left">
 
+      <!-- NOTICIAS -->
       <section class="noticias-section">
+
         <div class="noticias-header">
           <img src="assets/noticias box/mapa_mundo_left.png" class="noticia-globo">
-          <img src="assets/noticias box/noticias.png" class="noticia-titulo-img">
-          <img src="assets/noticias box/mapa_mundo_right.png" class="noticia-globo">
+
+          <img src="assets/noticias box/noticias.png"
+               class="noticia-titulo-img">
+
+          <img src="assets/noticias box/mapa_mundo_right.png"
+               class="noticia-globo">
         </div>
 
         <div class="noticias-box">
+
           <div class="noticias-move">
-            <img src="assets/noticias box/alianzas.png" class="noticia-img">
-            <img src="assets/noticias box/tv_satelital.png" class="noticia-img">
+
+            <div *ngFor="let n of noticias"
+                 class="noticia-dinamica">
+
+              <p class="noticia-titulo">
+                {{ n.titulo }}
+              </p>
+
+              <p class="noticia-contenido">
+                {{ n.contenido }}
+              </p>
+
+              <span>[Leer más...]</span>
+
+            </div>
+
+            <div *ngIf="noticias.length === 0"
+                 class="noticia-dinamica">
+
+              <p class="noticia-titulo">
+                Sin noticias
+              </p>
+
+              <p class="noticia-contenido">
+                No hay noticias disponibles.
+              </p>
+
+            </div>
+
           </div>
+
         </div>
 
-        <img src="assets/noticias box/control_panel.png" class="control-panel-img">
+        <img src="assets/noticias box/control_panel.png"
+             class="control-panel-img">
+
       </section>
 
+      <!-- AREAS -->
       <section class="areas-panel">
+
         <div class="areas-title">
           <img src="/assets/menu_vertical/areas_parnet.png">
         </div>
 
         <div class="areas-buttons">
-          <button class="area-btn" (click)="seccion='certificaciones'"><span>Certificaciones</span></button>
-          <button class="area-btn" (click)="seccion='telecomunicaciones'"><span>Telecomunicaciones</span></button>
-          <button class="area-btn" (click)="seccion='redes'"><span>Redes Eléctricas</span></button>
-          <button class="area-btn" (click)="seccion='cctv'"><span>Circuito Cerrado TV</span></button>
-          <button class="area-btn" (click)="seccion='corriente'"><span>Corriente Regulada</span></button>
-          <button class="area-btn" (click)="seccion='datacenters'"><span>Data Centers</span></button>
-          <button class="area-btn" (click)="seccion='fibra'"><span>Fibra Óptica</span></button>
-          <button class="area-btn" (click)="seccion='cables'"><span>Cables Estructurados</span></button>
-          <button class="area-btn" (click)="seccion='polizas'"><span>Pólizas</span></button>
-          <button class="area-btn" (click)="seccion='outsourcing'"><span>Outsourcing</span></button>
-          <button class="area-btn" (click)="seccion='administracion'"><span>Administración</span></button>
+
+          <button class="area-btn"
+                  (click)="seccion='certificaciones'">
+            Certificaciones
+          </button>
+
+          <button class="area-btn"
+                  (click)="seccion='telecomunicaciones'">
+            Telecomunicaciones
+          </button>
+
+          <button class="area-btn"
+                  (click)="seccion='redes'">
+            Redes Eléctricas
+          </button>
+
+          <button class="area-btn"
+                  (click)="seccion='cctv'">
+            Circuito Cerrado TV
+          </button>
+
+          <button class="area-btn"
+                  (click)="seccion='corriente'">
+            Corriente Regulada
+          </button>
+
+          <button class="area-btn"
+                  (click)="seccion='datacenters'">
+            Data Centers
+          </button>
+
+          <button class="area-btn"
+                  (click)="seccion='fibra'">
+            Fibra Óptica
+          </button>
+
+          <button class="area-btn"
+                  (click)="seccion='cables'">
+            Cables Estructurados
+          </button>
+
+          <button class="area-btn"
+                  (click)="seccion='polizas'">
+            Pólizas
+          </button>
+
+          <button class="area-btn"
+                  (click)="seccion='outsourcing'">
+            Outsourcing
+          </button>
+
+          <button class="area-btn"
+                  (click)="seccion='administracion'">
+            Administración
+          </button>
+
         </div>
+
       </section>
 
+      <!-- MARCAS -->
       <section class="marcas-panel">
-        <div class="marcas-title">Marcas y Proveedores</div>
-        <p><b>PANDUIT™</b> es líder mundial en el diseño y fabricación de productos para cableado y comunicaciones. [Leer más...]</p>
-        <p><b>Cisco Systems</b> es líder mundial en redes para Internet. [Leer más...]</p>
+
+        <div class="marcas-title">
+          Marcas y Proveedores
+        </div>
+
+        <p>
+          <b>PANDUIT™</b>
+          es líder mundial en el diseño y fabricación de productos
+          para cableado y comunicaciones.
+          [Leer más...]
+        </p>
+
+        <p>
+          <b>Cisco Systems</b>
+          es líder mundial en redes para Internet.
+          [Leer más...]
+        </p>
+
       </section>
 
+      <!-- CONTADOR -->
       <section class="contador-panel">
-        <div class="contador-line">👥 Conectados: <b>674</b></div>
+
         <div class="contador-line">
-          🏠 Visitas:
-          <div class="visitas-numeros">
-            <span>0</span><span>7</span><span>8</span><span>9</span><span>9</span>
-          </div>
+          👥 Conectados:
+          <b>674</b>
         </div>
-        <div class="copyright">Copyright 2012</div>
+
+        <div class="contador-line">
+
+          🏠 Visitas:
+
+          <div class="visitas-numeros">
+
+            <span *ngFor="let n of visitasArray">
+              {{ n }}
+            </span>
+
+          </div>
+
+        </div>
+
+        <div class="copyright">
+          Copyright 2012
+        </div>
+
       </section>
 
     </aside>
 
-    <!-- CONTENT CAMBIANTE -->
+    <!-- CONTENT -->
     <section class="content-area">
 
       <!-- INICIO -->
-      <div *ngIf="seccion === 'inicio'" class="content-tab inicio-content">
-        <img src="/assets/content/Página Principal.png" class="content-title-img">
-        <img src="/assets/content/representacion_flash.png" class="hero-flash">
+      <div *ngIf="seccion === 'inicio'"
+           class="content-tab">
 
+        <img src="/assets/content/Página Principal.png"
+             class="content-title-img">
+
+        <img src="/assets/content/representacion_flash.png"
+             class="hero-flash">
+
+        <!-- BLOQUE 1 -->
         <div class="bloque-info">
-          <img src="/assets/content/bloque 1 content/Callcentre.png" class="bloque-img">
+
+          <img src="/assets/content/bloque 1 content/Callcentre.png"
+               class="bloque-img">
 
           <div class="bloque-texto">
-            <img src="/assets/content/bloque 1 content/¿Cual es el objetivo principal de PARNET_.png" class="titulo-pregunta">
-            <img src="/assets/content/bloque 1 content/Nuestra empresa tiene como objetivo suministrar Soluciones  Int.png" class="parrafo-img">
-            <img src="/assets/content/bloque 1 content/Las fibras ópticas y los sistemas de comunicaciones, constituye.png" class="parrafo-img">
+
+            <img src="/assets/content/bloque 1 content/¿Cual es el objetivo principal de PARNET_.png"
+                 class="titulo-pregunta">
+
+            <img src="/assets/content/bloque 1 content/Nuestra empresa tiene como objetivo suministrar Soluciones  Int.png"
+                 class="parrafo-img">
+
+            <img src="/assets/content/bloque 1 content/Las fibras ópticas y los sistemas de comunicaciones, constituye.png"
+                 class="parrafo-img">
+
           </div>
+
         </div>
 
+        <!-- BLOQUE 2 -->
         <div class="bloque-info">
-          <img src="/assets/content/bloque 2 content/Imax.png" class="bloque-img">
+
+          <img src="/assets/content/bloque 2 content/Imax.png"
+               class="bloque-img">
 
           <div class="bloque-texto">
-            <img src="/assets/content/bloque 2 content/¿Hay buena energía dentro de su empresa_.png" class="titulo-pregunta">
-            <img src="/assets/content/bloque 2 content/Normalmente, las personas y los encargados de la informática  e.png" class="parrafo-img">
-            <img src="/assets/content/bloque 2 content/Picos, sobrevoltajes, trasientes, interrupciones, apagones y.png" class="parrafo-img">
-            <img src="/assets/content/bloque 2 content/distorsiones, entre otros, son algunos de los males más comunes.png" class="parrafo-img">
+
+            <img src="/assets/content/bloque 2 content/¿Hay buena energía dentro de su empresa_.png"
+                 class="titulo-pregunta">
+
+            <img src="/assets/content/bloque 2 content/Normalmente, las personas y los encargados de la informática  e.png"
+                 class="parrafo-img">
+
+            <img src="/assets/content/bloque 2 content/Picos, sobrevoltajes, trasientes, interrupciones, apagones y.png"
+                 class="parrafo-img">
+
+            <img src="/assets/content/bloque 2 content/distorsiones, entre otros, son algunos de los males más comunes.png"
+                 class="parrafo-img">
+
           </div>
+
         </div>
 
+        <!-- BLOQUE 3 -->
         <div class="bloque-3">
-          <img src="/assets/content/bloque 3 content/Con el afán de brindarle soluciones integrales, Parnet Ingenier.png" class="titulo-servicios">
+
+          <img src="/assets/content/bloque 3 content/Con el afán de brindarle soluciones integrales, Parnet Ingenier.png"
+               class="titulo-servicios">
 
           <div class="lista-servicios">
-            <div class="item-servicio"><span>▣</span> Aplicaciones a la Medida</div>
-            <div class="item-servicio"><span>▣</span> Aplicaciones Web</div>
-            <div class="item-servicio"><span>▣</span> Aplicaciones Cliente-Servidor</div>
-            <div class="item-servicio"><span>▣</span> Desarrollo de Aplicaciones Multimedia</div>
-            <div class="item-servicio"><span>▣</span> Software de Nómina para el control total de sus empleados</div>
-            <div class="item-servicio"><span>▣</span> Aplicaciones móviles para celulares y PDA's</div>
-            <div class="item-servicio"><span>▣</span> Bases de Datos</div>
+
+            <div class="item-servicio">
+              <span>▣</span>
+              Aplicaciones a la Medida
+            </div>
+
+            <div class="item-servicio">
+              <span>▣</span>
+              Aplicaciones Web
+            </div>
+
+            <div class="item-servicio">
+              <span>▣</span>
+              Aplicaciones Cliente-Servidor
+            </div>
+
+            <div class="item-servicio">
+              <span>▣</span>
+              Desarrollo de Aplicaciones Multimedia
+            </div>
+
+            <div class="item-servicio">
+              <span>▣</span>
+              Software de Nómina
+            </div>
+
+            <div class="item-servicio">
+              <span>▣</span>
+              Aplicaciones móviles
+            </div>
+
+            <div class="item-servicio">
+              <span>▣</span>
+              Bases de Datos
+            </div>
+
           </div>
+
         </div>
+
       </div>
 
-      <!-- SECCIONES GENERALES -->
-      <div *ngIf="seccion === 'quienes'" class="content-tab page-section">
-        <h2>¿Quiénes Somos?</h2>
-        <p>ParNet Ingeniería S.A. de C.V. es una empresa enfocada en soluciones integrales de telecomunicaciones, voz, datos, fibra óptica y soporte tecnológico empresarial.</p>
-      </div>
+      <!-- SECCIONES -->
+      <div *ngIf="seccion !== 'inicio'"
+           class="page-section">
 
-      <div *ngIf="seccion === 'clientes'" class="content-tab page-section">
-        <h2>Clientes</h2>
-        <p>Empresas que confían en nuestras soluciones de conectividad, infraestructura y soporte técnico.</p>
-      </div>
+        <h2>{{ seccion | uppercase }}</h2>
 
-      <div *ngIf="seccion === 'servicios'" class="content-tab page-section">
-        <h2>Servicios</h2>
-        <p>Diseño, instalación y mantenimiento de redes, cableado estructurado, telecomunicaciones, fibra óptica y soluciones TI.</p>
-      </div>
+        <p>
+          Contenido dinámico de la sección:
+          {{ seccion }}
+        </p>
 
-      <div *ngIf="seccion === 'productos'" class="content-tab page-section">
-        <h2>Productos</h2>
-        <p>Catálogo de productos tecnológicos, redes, equipos, accesorios y soluciones para empresas.</p>
-      </div>
-
-      <div *ngIf="seccion === 'casos'" class="content-tab page-section">
-        <h2>Casos de Éxito</h2>
-        <p>Implementaciones exitosas de infraestructura tecnológica para distintas organizaciones.</p>
-      </div>
-
-      <div *ngIf="seccion === 'contacto'" class="content-tab page-section">
-        <h2>Contactos</h2>
-        <p>Formulario de contacto y datos generales de atención.</p>
-      </div>
-
-      <div *ngIf="seccion === 'socios'" class="content-tab page-section">
-        <h2>Socios</h2>
-        <p>Aliados tecnológicos y proveedores estratégicos.</p>
-      </div>
-
-      <!-- SECCIONES DEL MENÚ VERTICAL -->
-      <div *ngIf="seccion === 'certificaciones'" class="content-tab page-section">
-        <h2>Certificaciones</h2>
-        <p>Servicios relacionados con certificación de infraestructura, cableado y cumplimiento técnico.</p>
-      </div>
-
-      <div *ngIf="seccion === 'telecomunicaciones'" class="content-tab page-section">
-        <h2>Telecomunicaciones</h2>
-        <p>Soluciones de voz, datos, enlaces, conectividad empresarial y telecomunicaciones.</p>
-      </div>
-
-      <div *ngIf="seccion === 'redes'" class="content-tab page-section">
-        <h2>Redes Eléctricas</h2>
-        <p>Diseño e instalación de redes eléctricas para infraestructura tecnológica.</p>
-      </div>
-
-      <div *ngIf="seccion === 'cctv'" class="content-tab page-section">
-        <h2>Circuito Cerrado TV</h2>
-        <p>Sistemas de videovigilancia, monitoreo y seguridad electrónica.</p>
-      </div>
-
-      <div *ngIf="seccion === 'corriente'" class="content-tab page-section">
-        <h2>Corriente Regulada</h2>
-        <p>Protección energética, reguladores, UPS y soluciones contra variaciones eléctricas.</p>
-      </div>
-
-      <div *ngIf="seccion === 'datacenters'" class="content-tab page-section">
-        <h2>Data Centers</h2>
-        <p>Infraestructura, organización y soporte para centros de datos empresariales.</p>
-      </div>
-
-      <div *ngIf="seccion === 'fibra'" class="content-tab page-section">
-        <h2>Fibra Óptica</h2>
-        <p>Instalación, mantenimiento y certificación de enlaces de fibra óptica.</p>
-      </div>
-
-      <div *ngIf="seccion === 'cables'" class="content-tab page-section">
-        <h2>Cables Estructurados</h2>
-        <p>Diseño e instalación de cableado estructurado para redes LAN/WAN.</p>
-      </div>
-
-      <div *ngIf="seccion === 'polizas'" class="content-tab page-section">
-        <h2>Pólizas</h2>
-        <p>Pólizas de mantenimiento preventivo y correctivo para infraestructura tecnológica.</p>
-      </div>
-
-      <div *ngIf="seccion === 'outsourcing'" class="content-tab page-section">
-        <h2>Outsourcing</h2>
-        <p>Servicios externos de soporte, administración y operación tecnológica.</p>
-      </div>
-
-      <div *ngIf="seccion === 'administracion'" class="content-tab page-section">
-        <h2>Administración</h2>
-        <p>Administración de proyectos, redes, recursos tecnológicos y soporte empresarial.</p>
       </div>
 
     </section>
@@ -234,29 +337,46 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <img src="/assets/footer/bg.png" class="footer-bg">
-    <img src="/assets/footer/linea.png" class="footer-linea">
+
+    <img src="/assets/footer/bg.png"
+         class="footer-bg">
+
+    <img src="/assets/footer/linea.png"
+         class="footer-linea">
 
     <nav class="footer-links">
-      <img src="/assets/footer/Página Principal.png" (click)="seccion='inicio'">
+
+      <img src="/assets/footer/Página Principal.png"
+           (click)="seccion='inicio'">
+
       <img src="/assets/footer/separador.png">
-      <img src="/assets/footer/quienes-somos.png" (click)="seccion='quienes'">
+
+      <img src="/assets/footer/quienes-somos.png"
+           (click)="seccion='quienes'">
+
       <img src="/assets/footer/separador.png">
-      <img src="/assets/footer/clientes.png" (click)="seccion='clientes'">
+
+      <img src="/assets/footer/clientes.png"
+           (click)="seccion='clientes'">
+
       <img src="/assets/footer/separador.png">
-      <img src="/assets/footer/servicios.png" (click)="seccion='servicios'">
+
+      <img src="/assets/footer/servicios.png"
+           (click)="seccion='servicios'">
+
       <img src="/assets/footer/separador.png">
-      <img src="/assets/footer/productos.png" (click)="seccion='productos'">
-      <img src="/assets/footer/separador.png">
-      <img src="/assets/footer/casos-exito.png" (click)="seccion='casos'">
-      <img src="/assets/footer/separador.png">
-      <img src="/assets/footer/contacto.png" (click)="seccion='contacto'">
-      <img src="/assets/footer/separador.png">
-      <img src="/assets/footer/soporte.png" (click)="seccion='soporte'">
+
+      <img src="/assets/footer/productos.png"
+           (click)="seccion='productos'">
+
     </nav>
 
-    <img src="/assets/footer/parnet-logo.png" class="footer-logo">
-    <img src="/assets/footer/vista.png" class="footer-vista">
+    <img src="/assets/footer/parnet-logo.png"
+         class="footer-logo">
+
+    <img src="/assets/footer/vista.png"
+         class="footer-vista">
+
   </footer>
 
 </div>
