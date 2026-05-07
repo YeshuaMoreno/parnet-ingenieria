@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 interface Noticia {
   id: number;
@@ -23,7 +24,8 @@ export class HomeComponent implements OnInit {
   noticias: Noticia[] = [];
   visitas = 7899;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
+
 
   ngOnInit(): void {
     this.registrarVisita();
@@ -32,11 +34,23 @@ export class HomeComponent implements OnInit {
 
   cargarNoticias(): void {
     this.http.get<Noticia[]>('http://127.0.0.1:8000/api/noticias').subscribe({
-      next: res => {
-        this.noticias = res.filter(n => n.estatus === 'Activo').slice(0, 5);
+      next: (res) => {
+        console.log('Noticias recibidas:', res);
+
+        this.noticias = res
+          .filter(n => n.estatus?.trim().toLowerCase() === 'activo')
+          .slice(0, 5);
+
+        console.log('Noticias filtradas:', this.noticias);
       },
-      error: err => console.error('Error cargando noticias', err)
+      error: (err) => {
+        console.error('Error cargando noticias', err);
+      }
     });
+  }
+
+  irLogin(): void {
+    this.router.navigate(['/login']);
   }
 
   registrarVisita(): void {

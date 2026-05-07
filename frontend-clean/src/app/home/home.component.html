@@ -2,20 +2,20 @@
 
   <!-- HEADER -->
   <div class="header">
-    <img src="/assets/header/logotipo.png" class="logo">
-    <img src="/assets/header/titulo.png" class="titulo">
-    <img src="/assets/header/telecomunicaciones.png" class="slogan">
-    <img src="/assets/header/antenas.png" class="antenas">
-    <img src="/assets/header/torre.png" class="torre">
-    <img src="/assets/header/linea.png" class="linea">
+    <img src="/assets/header/logotipo.png" class="logo" alt="">
+    <img src="/assets/header/titulo.png" class="titulo" alt="">
+    <img src="/assets/header/telecomunicaciones.png" class="slogan" alt="">
+    <img src="/assets/header/antenas.png" class="antenas" alt="">
+    <img src="/assets/header/torre.png" class="torre" alt="">
+    <img src="/assets/header/linea.png" class="linea" alt="">
   </div>
 
   <!-- MENSAJE -->
   <div class="mensaje-bar">
-    <img src="/assets/mensaje/linea.png" class="mensaje-bg">
+    <img src="/assets/mensaje/linea.png" class="mensaje-bg" alt="">
 
     <div class="mensaje-viewport">
-      <img src="/assets/mensaje/bienvenido.png" class="mensaje-texto">
+      <img src="/assets/mensaje/bienvenido.png" class="mensaje-texto" alt="">
     </div>
   </div>
 
@@ -41,53 +41,28 @@
       <section class="noticias-section">
 
         <div class="noticias-header">
-          <img src="assets/noticias box/mapa_mundo_left.png" class="noticia-globo">
-
-          <img src="assets/noticias box/noticias.png"
-               class="noticia-titulo-img">
-
-          <img src="assets/noticias box/mapa_mundo_right.png"
-               class="noticia-globo">
+          <img src="assets/noticias box/mapa_mundo_left.png" class="noticia-globo" alt="">
+          <img src="assets/noticias box/noticias.png" class="noticia-titulo-img" alt="">
+          <img src="assets/noticias box/mapa_mundo_right.png" class="noticia-globo" alt="">
         </div>
 
         <div class="noticias-box">
 
           <div class="noticias-move">
 
-            <div *ngFor="let n of noticias"
-                 class="noticia-dinamica">
-
-              <p class="noticia-titulo">
-                {{ n.titulo }}
-              </p>
-
-              <p class="noticia-contenido">
+            <div *ngFor="let n of noticias" class="noticia-dinamica">
+              <p>
+                <b>{{ n.titulo }}</b><br>
                 {{ n.contenido }}
+                <span>[Leer más...]</span>
               </p>
-
-              <span>[Leer más...]</span>
-
-            </div>
-
-            <div *ngIf="noticias.length === 0"
-                 class="noticia-dinamica">
-
-              <p class="noticia-titulo">
-                Sin noticias
-              </p>
-
-              <p class="noticia-contenido">
-                No hay noticias disponibles.
-              </p>
-
             </div>
 
           </div>
 
         </div>
 
-        <img src="assets/noticias box/control_panel.png"
-             class="control-panel-img">
+        <img src="assets/noticias box/control_panel.png" class="control-panel-img" alt="">
 
       </section>
 
@@ -95,63 +70,52 @@
       <section class="areas-panel">
 
         <div class="areas-title">
-          <img src="/assets/menu_vertical/areas_parnet.png">
+          <img src="/assets/menu_vertical/areas_parnet.png" alt="">
         </div>
 
         <div class="areas-buttons">
 
-          <button class="area-btn"
-                  (click)="seccion='certificaciones'">
+          <button class="area-btn" (click)="seccion='certificaciones'">
             Certificaciones
           </button>
 
-          <button class="area-btn"
-                  (click)="seccion='telecomunicaciones'">
+          <button class="area-btn" (click)="seccion='telecomunicaciones'">
             Telecomunicaciones
           </button>
 
-          <button class="area-btn"
-                  (click)="seccion='redes'">
+          <button class="area-btn" (click)="seccion='redes'">
             Redes Eléctricas
           </button>
 
-          <button class="area-btn"
-                  (click)="seccion='cctv'">
+          <button class="area-btn" (click)="seccion='cctv'">
             Circuito Cerrado TV
           </button>
 
-          <button class="area-btn"
-                  (click)="seccion='corriente'">
+          <button class="area-btn" (click)="seccion='corriente'">
             Corriente Regulada
           </button>
 
-          <button class="area-btn"
-                  (click)="seccion='datacenters'">
+          <button class="area-btn" (click)="seccion='datacenters'">
             Data Centers
           </button>
 
-          <button class="area-btn"
-                  (click)="seccion='fibra'">
+          <button class="area-btn" (click)="seccion='fibra'">
             Fibra Óptica
           </button>
 
-          <button class="area-btn"
-                  (click)="seccion='cables'">
+          <button class="area-btn" (click)="seccion='cables'">
             Cables Estructurados
           </button>
 
-          <button class="area-btn"
-                  (click)="seccion='polizas'">
+          <button class="area-btn" (click)="seccion='polizas'">
             Pólizas
           </button>
 
-          <button class="area-btn"
-                  (click)="seccion='outsourcing'">
+          <button class="area-btn" (click)="seccion='outsourcing'">
             Outsourcing
           </button>
 
-          <button class="area-btn"
-                  (click)="seccion='administracion'">
+          <button class="area-btn" (click)="irLogin()">
             Administración
           </button>
 
@@ -215,31 +179,30 @@
     <section class="content-area">
 
       <!-- INICIO -->
-      <div *ngIf="seccion === 'inicio'"
-           class="content-tab">
+      <div *ngIf="seccion === 'inicio'" class="content-tab">
 
-        <img src="/assets/content/Página Principal.png"
-             class="content-title-img">
+        <img src="/assets/content/Página Principal.png" class="content-title-img" alt="">
 
-        <img src="/assets/content/representacion_flash.png"
-             class="hero-flash">
+        <img src="/assets/content/representacion_flash.png" class="hero-flash" alt="">
 
         <!-- BLOQUE 1 -->
         <div class="bloque-info">
 
-          <img src="/assets/content/bloque 1 content/Callcentre.png"
-               class="bloque-img">
+          <img src="/assets/content/bloque 1 content/Callcentre.png" class="bloque-img" alt="">
 
           <div class="bloque-texto">
 
             <img src="/assets/content/bloque 1 content/¿Cual es el objetivo principal de PARNET_.png"
-                 class="titulo-pregunta">
+                 class="titulo-pregunta"
+                 alt="">
 
             <img src="/assets/content/bloque 1 content/Nuestra empresa tiene como objetivo suministrar Soluciones  Int.png"
-                 class="parrafo-img">
+                 class="parrafo-img"
+                 alt="">
 
             <img src="/assets/content/bloque 1 content/Las fibras ópticas y los sistemas de comunicaciones, constituye.png"
-                 class="parrafo-img">
+                 class="parrafo-img"
+                 alt="">
 
           </div>
 
@@ -248,22 +211,25 @@
         <!-- BLOQUE 2 -->
         <div class="bloque-info">
 
-          <img src="/assets/content/bloque 2 content/Imax.png"
-               class="bloque-img">
+          <img src="/assets/content/bloque 2 content/Imax.png" class="bloque-img" alt="">
 
           <div class="bloque-texto">
 
             <img src="/assets/content/bloque 2 content/¿Hay buena energía dentro de su empresa_.png"
-                 class="titulo-pregunta">
+                 class="titulo-pregunta"
+                 alt="">
 
             <img src="/assets/content/bloque 2 content/Normalmente, las personas y los encargados de la informática  e.png"
-                 class="parrafo-img">
+                 class="parrafo-img"
+                 alt="">
 
             <img src="/assets/content/bloque 2 content/Picos, sobrevoltajes, trasientes, interrupciones, apagones y.png"
-                 class="parrafo-img">
+                 class="parrafo-img"
+                 alt="">
 
             <img src="/assets/content/bloque 2 content/distorsiones, entre otros, son algunos de los males más comunes.png"
-                 class="parrafo-img">
+                 class="parrafo-img"
+                 alt="">
 
           </div>
 
@@ -273,7 +239,8 @@
         <div class="bloque-3">
 
           <img src="/assets/content/bloque 3 content/Con el afán de brindarle soluciones integrales, Parnet Ingenier.png"
-               class="titulo-servicios">
+               class="titulo-servicios"
+               alt="">
 
           <div class="lista-servicios">
 
@@ -319,8 +286,7 @@
       </div>
 
       <!-- SECCIONES -->
-      <div *ngIf="seccion !== 'inicio'"
-           class="page-section">
+      <div *ngIf="seccion !== 'inicio'" class="page-section">
 
         <h2>{{ seccion | uppercase }}</h2>
 
@@ -338,44 +304,45 @@
   <!-- FOOTER -->
   <footer class="footer">
 
-    <img src="/assets/footer/bg.png"
-         class="footer-bg">
+    <img src="/assets/footer/bg.png" class="footer-bg" alt="">
 
-    <img src="/assets/footer/linea.png"
-         class="footer-linea">
+    <img src="/assets/footer/linea.png" class="footer-linea" alt="">
 
     <nav class="footer-links">
 
       <img src="/assets/footer/Página Principal.png"
-           (click)="seccion='inicio'">
+           (click)="seccion='inicio'"
+           alt="">
 
-      <img src="/assets/footer/separador.png">
+      <img src="/assets/footer/separador.png" alt="">
 
       <img src="/assets/footer/quienes-somos.png"
-           (click)="seccion='quienes'">
+           (click)="seccion='quienes'"
+           alt="">
 
-      <img src="/assets/footer/separador.png">
+      <img src="/assets/footer/separador.png" alt="">
 
       <img src="/assets/footer/clientes.png"
-           (click)="seccion='clientes'">
+           (click)="seccion='clientes'"
+           alt="">
 
-      <img src="/assets/footer/separador.png">
+      <img src="/assets/footer/separador.png" alt="">
 
       <img src="/assets/footer/servicios.png"
-           (click)="seccion='servicios'">
+           (click)="seccion='servicios'"
+           alt="">
 
-      <img src="/assets/footer/separador.png">
+      <img src="/assets/footer/separador.png" alt="">
 
       <img src="/assets/footer/productos.png"
-           (click)="seccion='productos'">
+           (click)="seccion='productos'"
+           alt="">
 
     </nav>
 
-    <img src="/assets/footer/parnet-logo.png"
-         class="footer-logo">
+    <img src="/assets/footer/parnet-logo.png" class="footer-logo" alt="">
 
-    <img src="/assets/footer/vista.png"
-         class="footer-vista">
+    <img src="/assets/footer/vista.png" class="footer-vista" alt="">
 
   </footer>
 

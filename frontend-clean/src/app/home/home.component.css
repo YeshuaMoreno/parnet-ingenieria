@@ -197,41 +197,50 @@
 }
 
 .noticias-box {
-  position: relative;
-  width: 100%;
-  height: 105px;
-  overflow: hidden;
-  background: #0c4380;
+  position: relative !important;
+  width: 100% !important;
+  height: 110px !important;
+  overflow: hidden !important;
+  background: #0c4380 !important;
 }
 
 .noticias-move {
-  position: absolute;
-  width: 100%;
-  animation: noticiasScroll 12s linear infinite;
+  position: static !important;
+  width: 100% !important;
+  animation: none !important;
+  transform: none !important;
 }
 
-.noticia-img {
-  display: block;
-  max-width: 150px;
-  margin: 12px auto;
+.noticia-dinamica {
+  display: block !important;
+  width: 150px !important;
+  margin: 8px auto !important;
+  color: white !important;
+  font-size: 10px !important;
+  line-height: 1.2 !important;
+  font-style: italic !important;
+}
+
+.noticia-dinamica p,
+.noticia-dinamica b,
+.noticia-dinamica span {
+  color: white !important;
+  display: inline !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 @keyframes noticiasScroll {
-  from {
-    transform: translateY(100%);
+  0% {
+    transform: translateY(0);
   }
-
-  to {
-    transform: translateY(-100%);
+  100% {
+    transform: translateY(-160px);
   }
 }
 
-.control-panel-img {
-  display: block;
-  width: 100%;
-  height: 18px;
-  object-fit: cover;
-  cursor: pointer;
+.noticias-move:hover {
+  animation-play-state: paused;
 }
 
 /* AREAS */
