@@ -19,35 +19,34 @@
     </div>
   </div>
 
-  <!-- MENU -->
+  <!-- MENU SUPERIOR -->
   <nav class="menu-tabs">
-    <button (click)="seccion='inicio'">Página Principal</button>
-    <button (click)="seccion='quienes'">¿Quienes Somos?</button>
-    <button (click)="seccion='clientes'">Clientes</button>
-    <button (click)="seccion='servicios'">Servicios</button>
-    <button (click)="seccion='productos'">Productos</button>
-    <button (click)="seccion='casos'">Casos De Éxito</button>
-    <button (click)="seccion='contacto'">Contactos</button>
-    <button (click)="seccion='socios'">Socios</button>
+    <button type="button" (click)="seccion='inicio'">Página Principal</button>
+    <button type="button" (click)="seccion='quienes'">¿Quienes Somos?</button>
+    <button type="button" (click)="seccion='clientes'">Clientes</button>
+    <button type="button" (click)="seccion='servicios'">Servicios</button>
+    <button type="button" (click)="seccion='productos'">Productos</button>
+    <button type="button" (click)="seccion='casos'">Casos De Éxito</button>
+    <button type="button" (click)="seccion='contacto'">Contactos</button>
+    <button type="button" (click)="seccion='socios'">Socios</button>
   </nav>
 
   <!-- MAIN -->
   <main class="main-layout">
 
-    <!-- SIDEBAR -->
+    <!-- SIDEBAR IZQUIERDO -->
     <aside class="sidebar-left">
 
       <!-- NOTICIAS -->
       <section class="noticias-section">
 
         <div class="noticias-header">
-          <img src="assets/noticias box/mapa_mundo_left.png" class="noticia-globo" alt="">
-          <img src="assets/noticias box/noticias.png" class="noticia-titulo-img" alt="">
-          <img src="assets/noticias box/mapa_mundo_right.png" class="noticia-globo" alt="">
+          <img src="/assets/noticias box/mapa_mundo_left.png" class="noticia-globo" alt="">
+          <img src="/assets/noticias box/noticias.png" class="noticia-titulo-img" alt="">
+          <img src="/assets/noticias box/mapa_mundo_right.png" class="noticia-globo" alt="">
         </div>
 
         <div class="noticias-box">
-
           <div class="noticias-move">
 
             <div *ngFor="let n of noticias" class="noticia-dinamica">
@@ -59,14 +58,16 @@
             </div>
 
           </div>
-
         </div>
 
-        <img src="assets/noticias box/control_panel.png" class="control-panel-img" alt="">
+        <img src="/assets/noticias box/control_panel.png"
+             class="control-panel-img"
+             alt=""
+             (click)="irLogin()">
 
       </section>
 
-      <!-- AREAS -->
+      <!-- AREAS PARNET -->
       <section class="areas-panel">
 
         <div class="areas-title">
@@ -75,47 +76,47 @@
 
         <div class="areas-buttons">
 
-          <button class="area-btn" (click)="seccion='certificaciones'">
+          <button class="area-btn" type="button" (click)="seccion='certificaciones'">
             Certificaciones
           </button>
 
-          <button class="area-btn" (click)="seccion='telecomunicaciones'">
+          <button class="area-btn" type="button" (click)="seccion='telecomunicaciones'">
             Telecomunicaciones
           </button>
 
-          <button class="area-btn" (click)="seccion='redes'">
+          <button class="area-btn" type="button" (click)="seccion='redes'">
             Redes Eléctricas
           </button>
 
-          <button class="area-btn" (click)="seccion='cctv'">
+          <button class="area-btn" type="button" (click)="seccion='cctv'">
             Circuito Cerrado TV
           </button>
 
-          <button class="area-btn" (click)="seccion='corriente'">
+          <button class="area-btn" type="button" (click)="seccion='corriente'">
             Corriente Regulada
           </button>
 
-          <button class="area-btn" (click)="seccion='datacenters'">
+          <button class="area-btn" type="button" (click)="seccion='datacenters'">
             Data Centers
           </button>
 
-          <button class="area-btn" (click)="seccion='fibra'">
+          <button class="area-btn" type="button" (click)="seccion='fibra'">
             Fibra Óptica
           </button>
 
-          <button class="area-btn" (click)="seccion='cables'">
+          <button class="area-btn" type="button" (click)="seccion='cables'">
             Cables Estructurados
           </button>
 
-          <button class="area-btn" (click)="seccion='polizas'">
+          <button class="area-btn" type="button" (click)="seccion='polizas'">
             Pólizas
           </button>
 
-          <button class="area-btn" (click)="seccion='outsourcing'">
+          <button class="area-btn" type="button" (click)="seccion='outsourcing'">
             Outsourcing
           </button>
 
-          <button class="area-btn" (click)="irLogin()">
+          <button class="area-btn" type="button" (click)="irLogin()">
             Administración
           </button>
 
@@ -154,17 +155,13 @@
         </div>
 
         <div class="contador-line">
-
           🏠 Visitas:
 
           <div class="visitas-numeros">
-
             <span *ngFor="let n of visitasArray">
               {{ n }}
             </span>
-
           </div>
-
         </div>
 
         <div class="copyright">
@@ -183,7 +180,26 @@
 
         <img src="/assets/content/Página Principal.png" class="content-title-img" alt="">
 
-        <img src="/assets/content/representacion_flash.png" class="hero-flash" alt="">
+        <!-- SLIDER -->
+        <div class="slider-parnet">
+
+          <button class="slider-btn slider-left"
+                  type="button"
+                  (click)="anteriorSlideManual()">
+            ‹
+          </button>
+
+          <img [src]="slides[slideActual]"
+              class="hero-flash slider-img"
+              alt="">
+
+          <button class="slider-btn slider-right"
+                  type="button"
+                  (click)="siguienteSlideManual()">
+            ›
+          </button>
+
+        </div>
 
         <!-- BLOQUE 1 -->
         <div class="bloque-info">
@@ -285,8 +301,177 @@
 
       </div>
 
-      <!-- SECCIONES -->
-      <div *ngIf="seccion !== 'inicio'" class="page-section">
+      <!-- CLIENTES -->
+      <div *ngIf="seccion === 'clientes'" class="page-section clientes-section">
+
+        <h2>CLIENTES</h2>
+
+        <p>
+          Empresas y marcas relacionadas con soluciones de telecomunicaciones,
+          redes, cableado estructurado y servicios tecnológicos.
+        </p>
+
+        <div class="clientes-grid">
+
+          <a *ngFor="let cliente of clientes"
+             [href]="cliente.url"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="cliente-card">
+
+            <img [src]="cliente.imagen" alt="">
+
+            <span>
+              {{ cliente.nombre }}
+            </span>
+
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- CONTACTO -->
+      <div *ngIf="seccion === 'contacto'" class="page-section form-section">
+
+        <h2>CONTACTO</h2>
+
+        <p>
+          Envíanos tus datos para recibir información sobre productos, servicios
+          y soluciones de ParNet Ingeniería.
+        </p>
+
+        <form class="form-publico" (ngSubmit)="enviarContacto()">
+
+          <input [(ngModel)]="contacto.nombre"
+                 name="contactoNombre"
+                 placeholder="Nombre completo"
+                 aria-label="Nombre completo"
+                 required>
+
+          <input [(ngModel)]="contacto.correo"
+                 name="contactoCorreo"
+                 placeholder="Correo electrónico"
+                 aria-label="Correo electrónico"
+                 required>
+
+          <input [(ngModel)]="contacto.asunto"
+                 name="contactoAsunto"
+                 placeholder="Asunto"
+                 aria-label="Asunto"
+                 required>
+
+          <textarea [(ngModel)]="contacto.mensaje"
+                    name="contactoMensaje"
+                    placeholder="Mensaje"
+                    aria-label="Mensaje"
+                    required></textarea>
+
+          <div class="captcha-box">
+
+            <label>
+              Captcha: ¿Cuánto es {{ captchaA }} + {{ captchaB }}?
+            </label>
+
+            <input [(ngModel)]="captchaRespuesta"
+                   name="captchaContacto"
+                   placeholder="Respuesta"
+                   aria-label="Respuesta del captcha"
+                   required>
+
+            <small *ngIf="captchaError">
+              {{ captchaError }}
+            </small>
+
+          </div>
+
+          <button type="submit">
+            Enviar correo
+          </button>
+
+        </form>
+
+      </div>
+
+      <!-- SERVICIOS -->
+      <div *ngIf="seccion === 'servicios'" class="page-section form-section">
+
+        <h2>SOLICITUD DE SERVICIOS</h2>
+
+        <p>
+          Registra una solicitud de servicio por área y detalle técnico.
+        </p>
+
+        <form class="form-publico" (ngSubmit)="enviarSolicitudServicio()">
+
+          <input [(ngModel)]="servicio.nombre"
+                 name="servicioNombre"
+                 placeholder="Nombre completo"
+                 aria-label="Nombre completo"
+                 required>
+
+          <input [(ngModel)]="servicio.correo"
+                 name="servicioCorreo"
+                 placeholder="Correo electrónico"
+                 aria-label="Correo electrónico"
+                 required>
+
+          <select [(ngModel)]="servicio.area"
+                  name="servicioArea"
+                  aria-label="Área del servicio"
+                  title="Área del servicio"
+                  required>
+
+            <option>Telecomunicaciones</option>
+            <option>Redes Eléctricas</option>
+            <option>Circuito Cerrado TV</option>
+            <option>Corriente Regulada</option>
+            <option>Data Centers</option>
+            <option>Fibra Óptica</option>
+            <option>Cables Estructurados</option>
+
+          </select>
+
+          <textarea [(ngModel)]="servicio.detalle"
+                    name="servicioDetalle"
+                    placeholder="Describe el servicio solicitado"
+                    aria-label="Detalle del servicio solicitado"
+                    required></textarea>
+
+          <div class="captcha-box">
+
+            <label>
+              Captcha: ¿Cuánto es {{ captchaA }} + {{ captchaB }}?
+            </label>
+
+            <input [(ngModel)]="captchaRespuesta"
+                   name="captchaServicio"
+                   placeholder="Respuesta"
+                   aria-label="Respuesta del captcha"
+                   required>
+
+            <small *ngIf="captchaError">
+              {{ captchaError }}
+            </small>
+
+          </div>
+
+          <button type="submit">
+            Registrar solicitud
+          </button>
+
+        </form>
+
+      </div>
+
+      <!-- SECCIONES RESTANTES -->
+      <div *ngIf="
+          seccion !== 'inicio' &&
+          seccion !== 'clientes' &&
+          seccion !== 'contacto' &&
+          seccion !== 'servicios'
+        "
+        class="page-section">
 
         <h2>{{ seccion | uppercase }}</h2>
 
@@ -305,7 +490,6 @@
   <footer class="footer">
 
     <img src="/assets/footer/bg.png" class="footer-bg" alt="">
-
     <img src="/assets/footer/linea.png" class="footer-linea" alt="">
 
     <nav class="footer-links">
@@ -338,10 +522,27 @@
            (click)="seccion='productos'"
            alt="">
 
+      <img src="/assets/footer/separador.png" alt="">
+
+      <img src="/assets/footer/casos-exito.png"
+           (click)="seccion='casos'"
+           alt="">
+
+      <img src="/assets/footer/separador.png" alt="">
+
+      <img src="/assets/footer/contacto.png"
+           (click)="seccion='contacto'"
+           alt="">
+
+      <img src="/assets/footer/separador.png" alt="">
+
+      <img src="/assets/footer/soporte.png"
+           (click)="seccion='soporte'"
+           alt="">
+
     </nav>
 
     <img src="/assets/footer/parnet-logo.png" class="footer-logo" alt="">
-
     <img src="/assets/footer/vista.png" class="footer-vista" alt="">
 
   </footer>
