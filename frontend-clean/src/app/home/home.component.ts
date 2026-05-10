@@ -18,6 +18,14 @@ interface Cliente {
   url: string;
 }
 
+interface ServicioCatalogo {
+  id: number;
+  nombre: string;
+  area: string;
+  descripcion: string;
+  estatus: string;
+}
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -30,9 +38,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   seccion = 'inicio';
 
   noticias: Noticia[] = [];
+  serviciosCatalogo: ServicioCatalogo[] = [];
   visitas = 7899;
 
+  // =========================
   // SLIDER
+  // =========================
+
   slideActual = 0;
   sliderTimer: ReturnType<typeof setInterval> | null = null;
 
@@ -42,7 +54,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     '/assets/content/bloque 2 content/Imax.png'
   ];
 
+  // =========================
   // CLIENTES
+  // =========================
+
   clientes: Cliente[] = [
     {
       nombre: 'Cisco Systems',
@@ -61,7 +76,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   ];
 
-  // CONTACTO
+  // =========================
+  // CONTACTO / SUGERENCIAS
+  // =========================
+
+  modoContacto: 'correo' | 'sugerencia' = 'correo';
+
   contacto = {
     nombre: '',
     correo: '',
@@ -69,7 +89,16 @@ export class HomeComponent implements OnInit, OnDestroy {
     mensaje: ''
   };
 
+  sugerencia = {
+    nombre: '',
+    correo: '',
+    mensaje: ''
+  };
+
+  // =========================
   // SOLICITUD DE SERVICIO
+  // =========================
+
   servicio = {
     nombre: '',
     correo: '',
@@ -77,7 +106,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     detalle: ''
   };
 
+  // =========================
   // CAPTCHA
+  // =========================
+
   captchaA = 0;
   captchaB = 0;
   captchaRespuesta = '';
@@ -92,6 +124,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.registrarVisita();
     this.cargarNoticias();
+    this.cargarServiciosCatalogo();
     this.generarCaptcha();
     this.iniciarSlider();
   }
@@ -131,6 +164,42 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   // =========================
+  // CATÁLOGO DE SERVICIOS
+  // =========================
+
+  cargarServiciosCatalogo(): void {
+    this.http.get<ServicioCatalogo[]>('http://127.0.0.1:8000/api/servicios').subscribe({
+      next: (res) => {
+        this.serviciosCatalogo = res.filter(s =>
+          s.estatus?.trim().toLowerCase() === 'activo'
+        );
+
+        if (this.serviciosCatalogo.length > 0) {
+          this.servicio.area = this.serviciosCatalogo[0].nombre;
+        }
+
+        this.cdr.detectChanges();
+      },
+      error: (err) => {
+        console.error('Error cargando catálogo de servicios', err);
+
+        this.serviciosCatalogo = [
+          {
+            id: 0,
+            nombre: 'Telecomunicaciones',
+            area: 'General',
+            descripcion: '',
+            estatus: 'Activo'
+          }
+        ];
+
+        this.servicio.area = 'Telecomunicaciones';
+        this.cdr.detectChanges();
+      }
+    });
+  }
+
+  // =========================
   // VISITAS
   // =========================
 
@@ -151,50 +220,55 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   // =========================
-// SLIDER
-// =========================
+  // SLIDER
+  // =========================
 
-iniciarSlider(): void {
-  this.detenerSlider();
+  iniciarSlider(): void {
+    this.detenerSlider();
 
-  this.sliderTimer = setInterval(() => {
+    this.sliderTimer = setInterval(() => {
+      this.siguienteSlide();
+      this.cdr.detectChanges();
+    }, 3500);
+  }
+
+  detenerSlider(): void {
+    if (this.sliderTimer) {
+      clearInterval(this.sliderTimer);
+      this.sliderTimer = null;
+    }
+  }
+
+  siguienteSlide(): void {
+    this.slideActual++;
+
+    if (this.slideActual >= this.slides.length) {
+      this.slideActual = 0;
+    }
+  }
+
+  anteriorSlide(): void {
+    this.slideActual--;
+
+    if (this.slideActual < 0) {
+      this.slideActual = this.slides.length - 1;
+    }
+  }
+
+  siguienteSlideManual(): void {
     this.siguienteSlide();
-    this.cdr.detectChanges();
-  }, 3500);
-}
-
-detenerSlider(): void {
-  if (this.sliderTimer) {
-    clearInterval(this.sliderTimer);
-    this.sliderTimer = null;
+    this.iniciarSlider();
   }
-}
 
-siguienteSlide(): void {
-  this.slideActual++;
-
-  if (this.slideActual >= this.slides.length) {
-    this.slideActual = 0;
+  anteriorSlideManual(): void {
+    this.anteriorSlide();
+    this.iniciarSlider();
   }
-}
 
-anteriorSlide(): void {
-  this.slideActual--;
-
-  if (this.slideActual < 0) {
-    this.slideActual = this.slides.length - 1;
+  seleccionarSlide(index: number): void {
+    this.slideActual = index;
+    this.iniciarSlider();
   }
-}
-
-siguienteSlideManual(): void {
-  this.siguienteSlide();
-  this.iniciarSlider();
-}
-
-anteriorSlideManual(): void {
-  this.anteriorSlide();
-  this.iniciarSlider();
-}
 
   // =========================
   // CAPTCHA
@@ -212,8 +286,9 @@ anteriorSlideManual(): void {
     const recibido = Number(this.captchaRespuesta);
 
     if (recibido !== esperado) {
-      this.captchaError = 'Captcha incorrecto. Intenta de nuevo.';
+      const mensaje = 'Captcha incorrecto. Intenta de nuevo.';
       this.generarCaptcha();
+      this.captchaError = mensaje;
       return false;
     }
 
@@ -222,14 +297,10 @@ anteriorSlideManual(): void {
   }
 
   // =========================
-  // CONTACTO
+  // CONTACTO POR CORREO
   // =========================
 
   enviarContacto(): void {
-    if (!this.validarCaptcha()) {
-      return;
-    }
-
     const asunto = encodeURIComponent(
       this.contacto.asunto || 'Contacto desde ParNet Ingeniería'
     );
@@ -249,12 +320,39 @@ anteriorSlideManual(): void {
       asunto: '',
       mensaje: ''
     };
-
-    this.generarCaptcha();
   }
 
   // =========================
-  // SOLICITUD DE SERVICIO
+  // SUGERENCIAS CON CAPTCHA
+  // =========================
+
+  enviarSugerencia(): void {
+    if (!this.validarCaptcha()) {
+      return;
+    }
+
+    this.http.post('http://127.0.0.1:8000/api/sugerencias', this.sugerencia)
+      .subscribe({
+        next: () => {
+          alert('Sugerencia enviada correctamente.');
+
+          this.sugerencia = {
+            nombre: '',
+            correo: '',
+            mensaje: ''
+          };
+
+          this.generarCaptcha();
+        },
+        error: (err) => {
+          console.error('Error enviando sugerencia', err);
+          alert('No se pudo enviar la sugerencia. Revisa el backend.');
+        }
+      });
+  }
+
+  // =========================
+  // SOLICITUD DE SERVICIO CON CAPTCHA
   // =========================
 
   enviarSolicitudServicio(): void {
@@ -262,7 +360,7 @@ anteriorSlideManual(): void {
       return;
     }
 
-    this.http.post('http://127.0.0.1:8000/api/servicios/solicitudes', this.servicio)
+    this.http.post('http://127.0.0.1:8000/api/servicios/solicitar', this.servicio)
       .subscribe({
         next: () => {
           alert('Solicitud de servicio registrada correctamente.');
@@ -270,7 +368,9 @@ anteriorSlideManual(): void {
           this.servicio = {
             nombre: '',
             correo: '',
-            area: 'Telecomunicaciones',
+            area: this.serviciosCatalogo.length > 0
+              ? this.serviciosCatalogo[0].nombre
+              : 'Telecomunicaciones',
             detalle: ''
           };
 

@@ -67,7 +67,7 @@
 
       </section>
 
-      <!-- AREAS PARNET -->
+      <!-- AREAS -->
       <section class="areas-panel">
 
         <div class="areas-title">
@@ -185,16 +185,18 @@
 
           <button class="slider-btn slider-left"
                   type="button"
+                  aria-label="Slide anterior"
                   (click)="anteriorSlideManual()">
             ‹
           </button>
 
           <img [src]="slides[slideActual]"
-              class="hero-flash slider-img"
-              alt="">
+               class="hero-flash slider-img"
+               alt="">
 
           <button class="slider-btn slider-right"
                   type="button"
+                  aria-label="Siguiente slide"
                   (click)="siguienteSlideManual()">
             ›
           </button>
@@ -331,17 +333,36 @@
 
       </div>
 
-      <!-- CONTACTO -->
+      <!-- CONTACTO / SUGERENCIAS -->
       <div *ngIf="seccion === 'contacto'" class="page-section form-section">
 
         <h2>CONTACTO</h2>
 
         <p>
-          Envíanos tus datos para recibir información sobre productos, servicios
-          y soluciones de ParNet Ingeniería.
+          Envíanos tus datos para recibir información sobre productos, servicios,
+          soluciones de ParNet Ingeniería o compartir una sugerencia para la empresa.
         </p>
 
-        <form class="form-publico" (ngSubmit)="enviarContacto()">
+        <div class="contacto-tabs">
+
+          <button type="button"
+                  [class.active]="modoContacto === 'correo'"
+                  (click)="modoContacto='correo'">
+            Enviar correo
+          </button>
+
+          <button type="button"
+                  [class.active]="modoContacto === 'sugerencia'"
+                  (click)="modoContacto='sugerencia'; generarCaptcha()">
+            Enviar sugerencia
+          </button>
+
+        </div>
+
+        <!-- FORMULARIO CORREO SIN CAPTCHA -->
+        <form *ngIf="modoContacto === 'correo'"
+              class="form-publico"
+              (ngSubmit)="enviarContacto()">
 
           <input [(ngModel)]="contacto.nombre"
                  name="contactoNombre"
@@ -367,14 +388,43 @@
                     aria-label="Mensaje"
                     required></textarea>
 
-          <div class="captcha-box">
+          <button type="submit">
+            Enviar correo
+          </button>
+
+        </form>
+
+        <!-- FORMULARIO SUGERENCIA CON CAPTCHA -->
+        <form *ngIf="modoContacto === 'sugerencia'"
+              class="form-publico"
+              (ngSubmit)="enviarSugerencia()">
+
+          <input [(ngModel)]="sugerencia.nombre"
+                 name="sugerenciaNombre"
+                 placeholder="Nombre completo"
+                 aria-label="Nombre completo"
+                 required>
+
+          <input [(ngModel)]="sugerencia.correo"
+                 name="sugerenciaCorreo"
+                 placeholder="Correo electrónico"
+                 aria-label="Correo electrónico"
+                 required>
+
+          <textarea [(ngModel)]="sugerencia.mensaje"
+                    name="sugerenciaMensaje"
+                    placeholder="Escribe tu sugerencia para la empresa"
+                    aria-label="Sugerencia"
+                    required></textarea>
+
+          <div class="captcha-box captcha-compacto">
 
             <label>
-              Captcha: ¿Cuánto es {{ captchaA }} + {{ captchaB }}?
+              Verificación: ¿Cuánto es {{ captchaA }} + {{ captchaB }}?
             </label>
 
             <input [(ngModel)]="captchaRespuesta"
-                   name="captchaContacto"
+                   name="captchaSugerencia"
                    placeholder="Respuesta"
                    aria-label="Respuesta del captcha"
                    required>
@@ -386,7 +436,7 @@
           </div>
 
           <button type="submit">
-            Enviar correo
+            Enviar sugerencia
           </button>
 
         </form>
@@ -399,7 +449,7 @@
         <h2>SOLICITUD DE SERVICIOS</h2>
 
         <p>
-          Registra una solicitud de servicio por área y detalle técnico.
+          Registra una solicitud de servicio seleccionando un servicio del catálogo registrado en administración.
         </p>
 
         <form class="form-publico" (ngSubmit)="enviarSolicitudServicio()">
@@ -418,17 +468,19 @@
 
           <select [(ngModel)]="servicio.area"
                   name="servicioArea"
-                  aria-label="Área del servicio"
-                  title="Área del servicio"
+                  aria-label="Servicio solicitado"
+                  title="Servicio solicitado"
                   required>
 
-            <option>Telecomunicaciones</option>
-            <option>Redes Eléctricas</option>
-            <option>Circuito Cerrado TV</option>
-            <option>Corriente Regulada</option>
-            <option>Data Centers</option>
-            <option>Fibra Óptica</option>
-            <option>Cables Estructurados</option>
+            <option *ngIf="serviciosCatalogo.length === 0"
+                    value="Telecomunicaciones">
+              Telecomunicaciones
+            </option>
+
+            <option *ngFor="let s of serviciosCatalogo"
+                    [value]="s.nombre">
+              {{ s.nombre }} - {{ s.area }}
+            </option>
 
           </select>
 
@@ -438,10 +490,10 @@
                     aria-label="Detalle del servicio solicitado"
                     required></textarea>
 
-          <div class="captcha-box">
+          <div class="captcha-box captcha-compacto">
 
             <label>
-              Captcha: ¿Cuánto es {{ captchaA }} + {{ captchaB }}?
+              Verificación: ¿Cuánto es {{ captchaA }} + {{ captchaB }}?
             </label>
 
             <input [(ngModel)]="captchaRespuesta"

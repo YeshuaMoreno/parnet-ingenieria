@@ -28,17 +28,35 @@
     </div>
   </div>
 
+  <div class="mb-4">
+    <button
+      type="button"
+      (click)="cargarSolicitudes()"
+      class="bg-blue-900 text-white px-4 py-2 rounded-lg font-bold">
+      Recargar solicitudes
+    </button>
+  </div>
+
   <div *ngIf="cargando" class="bg-white p-6 rounded-xl shadow">
     Cargando solicitudes...
   </div>
 
-  <div *ngIf="!cargando && solicitudes.length === 0"
+  <div *ngIf="!cargando && error"
+       class="bg-red-100 text-red-700 p-6 rounded-xl shadow font-bold">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!cargando && !error && solicitudes.length === 0"
        class="bg-white p-6 rounded-xl shadow">
     No hay solicitudes registradas.
   </div>
 
-  <div *ngIf="!cargando && solicitudes.length > 0"
+  <div *ngIf="!cargando && !error && solicitudes.length > 0"
        class="bg-white rounded-xl shadow p-6 overflow-x-auto">
+
+    <div class="mb-4 text-gray-700 font-bold">
+      Total de solicitudes: {{ solicitudes.length }}
+    </div>
 
     <table class="w-full border-collapse">
       <thead>
@@ -49,17 +67,26 @@
           <th class="p-3 text-left">Área</th>
           <th class="p-3 text-left">Detalle</th>
           <th class="p-3 text-left">Fecha</th>
+          <th class="p-3 text-center">Acciones</th>
         </tr>
       </thead>
 
       <tbody>
-        <tr *ngFor="let s of solicitudes" class="border-b">
+        <tr *ngFor="let s of solicitudes" class="border-b hover:bg-gray-50">
           <td class="p-3">{{ s.id }}</td>
           <td class="p-3 font-bold">{{ s.nombre }}</td>
           <td class="p-3">{{ s.correo }}</td>
           <td class="p-3">{{ s.area }}</td>
           <td class="p-3">{{ s.detalle }}</td>
           <td class="p-3">{{ s.fecha | date:'short' }}</td>
+          <td class="p-3 text-center">
+            <button
+              type="button"
+              (click)="eliminarSolicitud(s.id)"
+              class="bg-red-600 text-white px-3 py-2 rounded-lg font-bold">
+              Eliminar
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>

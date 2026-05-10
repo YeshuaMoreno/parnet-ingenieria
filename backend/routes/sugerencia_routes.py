@@ -31,7 +31,6 @@ class SugerenciaCreate(BaseModel):
     nombre: str
     correo: EmailStr
     mensaje: str
-    captcha: str
 
 
 class SugerenciaUpdate(BaseModel):
@@ -40,8 +39,6 @@ class SugerenciaUpdate(BaseModel):
 
 @router.post("/sugerencias")
 def crear_sugerencia(data: SugerenciaCreate, db: Session = Depends(get_db)):
-    if data.captcha.strip() != "1234":
-        raise HTTPException(status_code=400, detail="Captcha incorrecto")
 
     sugerencia = Sugerencia(
         nombre=data.nombre,

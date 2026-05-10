@@ -681,6 +681,35 @@
 }
 
 /* =========================
+   CONTACTO / SUGERENCIAS
+========================= */
+
+.contacto-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.contacto-tabs button {
+  padding: 10px 16px;
+  border: 1px solid #4bb8e8;
+  background: linear-gradient(#0b75bd, #003f76);
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.contacto-tabs button.active {
+  background: linear-gradient(#ffe56a, #c69b00);
+  color: #002b55;
+}
+
+.contacto-tabs button:hover {
+  filter: brightness(1.12);
+}
+
+/* =========================
    FOOTER
 ========================= */
 
