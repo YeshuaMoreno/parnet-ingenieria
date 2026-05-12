@@ -681,6 +681,87 @@
 }
 
 /* =========================
+   QUIÉNES SOMOS
+========================= */
+
+.quienes-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 22px 28px 50px;
+  color: white;
+}
+
+.quienes-header {
+  background: #b9c4d8;
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 10px 48px;
+  margin-bottom: 34px;
+  text-transform: uppercase;
+}
+
+.quienes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.quienes-texto p,
+.quienes-imagen-bloque p,
+.mv-card p {
+  font-size: 16px;
+  line-height: 1.35;
+  text-align: justify;
+  margin-bottom: 18px;
+}
+
+.quienes-img {
+  width: 100%;
+  max-height: 190px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 18px;
+}
+
+.mision-vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 34px;
+}
+
+.mv-title {
+  background: #b9c4d8;
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 10px 48px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.mv-card {
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .quienes-grid,
+  .mision-vision-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quienes-header,
+  .mv-title {
+    padding: 10px 22px;
+    font-size: 22px;
+  }
+}
+
+/* =========================
    CONTACTO / SUGERENCIAS
 ========================= */
 
@@ -773,4 +854,1205 @@
   bottom: 8px;
   width: 55px;
   z-index: 6;
+}
+
+/* =========================
+   SERVICIOS VISUALES
+========================= */
+
+.servicios-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 34px 60px;
+  color: white;
+}
+
+.servicios-section h2 {
+  color: yellow;
+  font-size: 34px;
+  margin-bottom: 18px;
+  font-weight: normal;
+}
+
+.servicios-intro {
+  font-size: 18px;
+  line-height: 1.5;
+  max-width: 900px;
+  margin-bottom: 35px;
+}
+
+.servicios-visual {
+  display: grid;
+  grid-template-columns: repeat(3, 190px);
+  gap: 28px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto 45px;
+}
+
+.servicio-card-img {
+  text-align: center;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.servicio-card-img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.08);
+}
+
+.servicio-card-img img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.servicio-card-img span {
+  display: block;
+  margin-top: 8px;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.solicitud-box {
+  margin-top: 35px;
+  max-width: 720px;
+}
+
+.solicitud-box h3 {
+  color: yellow;
+  font-size: 28px;
+  margin-bottom: 12px;
+  font-weight: normal;
+}
+
+@media (max-width: 900px) {
+  .servicios-visual {
+    grid-template-columns: repeat(2, 170px);
+  }
+
+  .servicio-card-img img {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 600px) {
+  .servicios-visual {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   CASOS DE ÉXITO
+========================= */
+
+.casos-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 34px 70px;
+  color: white;
+}
+
+.casos-section h2 {
+  color: yellow;
+  font-size: 34px;
+  margin-bottom: 18px;
+  font-weight: normal;
+}
+
+.casos-intro {
+  font-size: 18px;
+  line-height: 1.5;
+  max-width: 900px;
+  margin-bottom: 35px;
+}
+
+.casos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  align-items: center;
+}
+
+.caso-card {
+  background: white;
+  min-height: 130px;
+  border-radius: 4px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.caso-card:hover {
+  transform: scale(1.04);
+  filter: brightness(1.04);
+}
+
+.caso-card img {
+  max-width: 100%;
+  max-height: 75px;
+  object-fit: contain;
+  display: block;
+}
+
+.caso-card span {
+  color: #003f76;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .casos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .casos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   CONTACTO ESTILO PARNET ACTUAL
+========================= */
+
+.contacto-legacy-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 34px 70px;
+  color: #222;
+}
+
+.contacto-layout {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.contacto-left,
+.contacto-right {
+  width: 100%;
+}
+
+.contacto-banner {
+  background:
+    linear-gradient(90deg, #17174f 0%, #17174f 55%, rgba(23, 23, 79, 0.75) 100%),
+    url("/assets/content/contacto/contacto-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 18px 45px;
+  margin-bottom: 24px;
+}
+
+.horario-box {
+  background: #e4e4ea;
+  margin-bottom: 16px;
+}
+
+.horario-title,
+.sucursal-title {
+  background: #55558f;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  padding: 6px 12px;
+}
+
+.horario-content {
+  text-align: center;
+  padding: 10px;
+  color: black;
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+.horario-content p {
+  margin: 0;
+}
+
+.contacto-tabs-legacy {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.contacto-tabs-legacy button {
+  border: none;
+  background: #d7d7df;
+  color: #333;
+  padding: 9px 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.contacto-tabs-legacy button.active {
+  background: #55558f;
+  color: white;
+}
+
+.contacto-form-legacy {
+  background: #e9e9e9;
+  padding: 24px 48px 20px;
+  color: #666;
+}
+
+.contacto-form-legacy label {
+  display: block;
+  margin: 10px 0 5px;
+  font-size: 18px;
+}
+
+.contacto-form-legacy input,
+.contacto-form-legacy textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #c8c8c8;
+  background: #f2f2f2;
+  padding: 8px 10px;
+  font-size: 16px;
+  font-style: italic;
+  color: #333;
+}
+
+.contacto-form-legacy textarea {
+  min-height: 105px;
+  resize: vertical;
+}
+
+.btn-enviar-legacy {
+  margin-top: 18px;
+  width: 170px;
+  padding: 8px 0;
+  background: white;
+  border: 1px solid #555;
+  color: #777;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-enviar-legacy:hover {
+  background: #55558f;
+  color: white;
+}
+
+.mapa-box {
+  width: 100%;
+  height: 330px;
+  margin-bottom: 34px;
+  background: #ddd;
+  overflow: hidden;
+}
+
+.mapa-box iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.sucursal-card {
+  width: 80%;
+  margin: 0 auto 18px;
+  background: #e4e4ea;
+  text-align: center;
+  color: black;
+}
+
+.sucursal-content {
+  padding: 10px 12px 14px;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.captcha-contacto {
+  margin-top: 14px;
+  background: #dedee8;
+  border: 1px solid #aaa;
+  color: #333;
+}
+
+.captcha-contacto label {
+  color: #333;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+@media (max-width: 950px) {
+  .contacto-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .sucursal-card {
+    width: 100%;
+  }
+
+  .contacto-form-legacy {
+    padding: 22px;
+  }
+
+  .contacto-banner {
+    font-size: 30px;
+    padding: 16px 28px;
+  }
+}
+
+/* =========================
+   SOCIOS
+========================= */
+
+.socios-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 34px 70px;
+  color: white;
+}
+
+.socios-section h2 {
+  color: yellow;
+  font-size: 34px;
+  margin-bottom: 18px;
+  font-weight: normal;
+}
+
+.socios-intro {
+  font-size: 18px;
+  line-height: 1.5;
+  max-width: 950px;
+  margin-bottom: 28px;
+  text-align: justify;
+}
+
+.socios-card {
+  background: rgba(0, 64, 110, 0.7);
+  border: 1px solid #38a8e8;
+  padding: 22px 26px;
+  margin-bottom: 22px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+}
+
+.socios-card.destacado {
+  background: rgba(0, 82, 135, 0.85);
+}
+
+.socios-card h3 {
+  color: yellow;
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+
+.socios-card h4 {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.socios-card p {
+  font-size: 16px;
+  line-height: 1.45;
+  text-align: justify;
+  margin-bottom: 10px;
+}
+
+.socios-grid-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.socios-grid-info div,
+.alianza-item {
+  background: rgba(255, 255, 255, 0.08);
+  border-left: 4px solid yellow;
+  padding: 14px;
+}
+
+.socios-lista {
+  padding-left: 22px;
+}
+
+.socios-lista li {
+  font-size: 16px;
+  line-height: 1.45;
+  margin-bottom: 10px;
+}
+
+.alianzas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.socios-card.datos {
+  background: rgba(0, 45, 90, 0.9);
+}
+
+@media (max-width: 900px) {
+  .socios-grid-info,
+  .alianzas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .socios-section {
+    padding: 24px 20px 60px;
+  }
+}
+
+/* =========================
+   PRODUCTOS PÚBLICOS
+========================= */
+
+.productos-publicos-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 34px 70px;
+  color: white;
+}
+
+.productos-publicos-section h2 {
+  color: yellow;
+  font-size: 34px;
+  margin-bottom: 18px;
+  font-weight: normal;
+}
+
+.productos-intro {
+  font-size: 18px;
+  line-height: 1.5;
+  max-width: 900px;
+  margin-bottom: 24px;
+}
+
+.productos-search {
+  max-width: 650px;
+  margin-bottom: 28px;
+}
+
+.productos-search input {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1px solid #8ed8ff;
+  background: #eaf7ff;
+  color: #003f76;
+  font-size: 17px;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.productos-empty {
+  background: rgba(0, 64, 110, 0.75);
+  border: 1px solid #38a8e8;
+  padding: 20px;
+  font-weight: bold;
+}
+
+.productos-publicos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.producto-publico-card {
+  background: rgba(0, 64, 110, 0.85);
+  border: 1px solid #38a8e8;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.producto-img-box {
+  height: 170px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.producto-img-box img {
+  max-width: 100%;
+  max-height: 170px;
+  object-fit: contain;
+}
+
+.producto-info {
+  padding: 18px;
+}
+
+.producto-info h3 {
+  color: yellow;
+  font-size: 21px;
+  margin-bottom: 8px;
+}
+
+.producto-categoria {
+  font-weight: bold;
+  color: #bdeaff;
+  margin-bottom: 10px;
+}
+
+.producto-descripcion {
+  font-size: 15px;
+  line-height: 1.35;
+  text-align: justify;
+  min-height: 65px;
+}
+
+.producto-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.precio {
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+}
+
+.estatus {
+  background: #21c45d;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.estatus.agotado {
+  background: #d92525;
+}
+
+.btn-producto-pdf {
+  width: 100%;
+  border: none;
+  background: #7c1fd1;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-producto-pdf:hover {
+  background: #5e12a7;
+}
+
+@media (max-width: 1000px) {
+  .productos-publicos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .productos-publicos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   CERTIFICACIONES
+========================= */
+
+.certificaciones-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 34px 70px;
+  color: white;
+}
+
+.certificaciones-section h2 {
+  color: yellow;
+  font-size: 34px;
+  margin-bottom: 18px;
+  font-weight: normal;
+}
+
+.certificaciones-intro {
+  font-size: 18px;
+  line-height: 1.5;
+  max-width: 950px;
+  margin-bottom: 35px;
+  text-align: justify;
+}
+
+.certificaciones-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  align-items: center;
+}
+
+.certificacion-card {
+  background: white;
+  min-height: 135px;
+  border-radius: 4px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.certificacion-card:hover {
+  transform: scale(1.04);
+  filter: brightness(1.04);
+}
+
+.certificacion-card img {
+  max-width: 100%;
+  max-height: 75px;
+  object-fit: contain;
+  display: block;
+}
+
+.certificacion-card span {
+  color: #003f76;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .certificaciones-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .certificaciones-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   TELECOMUNICACIONES
+========================= */
+
+.telecom-section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 30px 34px 70px;
+  color: white;
+}
+
+.telecom-card {
+  background: transparent;
+  color: white;
+  padding: 0;
+  box-shadow: none;
+}
+
+.telecom-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  margin-bottom: 36px;
+}
+
+.telecom-title-bar {
+  background: #a9b4cc;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 8px 12px;
+  margin-bottom: 22px;
+  text-transform: uppercase;
+}
+
+.telecom-col p {
+  font-size: 16px;
+  line-height: 1.35;
+  text-align: justify;
+  margin-bottom: 18px;
+  color: white;
+}
+
+/* Slider sobre el mismo fondo azul */
+.telecom-slider {
+  position: relative;
+  width: 100%;
+  max-width: 990px;
+  height: 475px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+}
+
+.telecom-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Botones del slider */
+.telecom-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 62px;
+  border: none;
+  background: rgba(0, 63, 118, 0.65);
+  color: white;
+  font-size: 42px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.telecom-btn:hover {
+  background: rgba(0, 63, 118, 0.95);
+}
+
+.telecom-left {
+  left: 18px;
+}
+
+.telecom-right {
+  right: 18px;
+}
+
+.telecom-caption {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 20px;
+  font-weight: bold;
+  color: yellow;
+}
+
+@media (max-width: 950px) {
+  .telecom-top {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .telecom-slider {
+    height: 330px;
+  }
+}
+
+@media (max-width: 600px) {
+  .telecom-slider {
+    height: 230px;
+  }
+
+  .telecom-btn {
+    width: 32px;
+    height: 52px;
+    font-size: 34px;
+  }
+}
+
+/* =========================
+   CORRIENTE REGULADA
+========================= */
+
+.corriente-section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 30px 34px 70px;
+  color: white;
+}
+
+.corriente-card {
+  background: transparent;
+  color: white;
+  padding: 0;
+  box-shadow: none;
+}
+
+.corriente-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  margin-bottom: 36px;
+}
+
+.corriente-title-bar {
+  background: #a9b4cc;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 8px 12px;
+  margin-bottom: 22px;
+  text-transform: uppercase;
+}
+
+.corriente-col p {
+  font-size: 16px;
+  line-height: 1.35;
+  text-align: justify;
+  margin-bottom: 18px;
+  color: white;
+}
+
+.corriente-slider {
+  position: relative;
+  width: 100%;
+  max-width: 990px;
+  height: 475px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+}
+
+.corriente-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Botones del slider */
+.corriente-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 62px;
+  border: none;
+  background: rgba(0, 63, 118, 0.65);
+  color: white;
+  font-size: 42px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.corriente-btn:hover {
+  background: rgba(0, 63, 118, 0.95);
+}
+
+.corriente-left {
+  left: 18px;
+}
+
+.corriente-right {
+  right: 18px;
+}
+
+.corriente-caption {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 20px;
+  font-weight: bold;
+  color: yellow;
+}
+
+@media (max-width: 950px) {
+  .corriente-top {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .corriente-slider {
+    height: 330px;
+  }
+}
+
+@media (max-width: 600px) {
+  .corriente-slider {
+    height: 230px;
+  }
+
+  .corriente-btn {
+    width: 32px;
+    height: 52px;
+    font-size: 34px;
+  }
+}
+
+/* =========================
+   CCTV / CIRCUITO CERRADO TV
+========================= */
+
+.cctv-section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 30px 34px 70px;
+  color: white;
+}
+
+.cctv-card {
+  background: transparent;
+  color: white;
+  padding: 0;
+  box-shadow: none;
+}
+
+.cctv-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  margin-bottom: 36px;
+}
+
+.cctv-title-bar {
+  background: #a9b4cc;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 8px 12px;
+  margin-bottom: 22px;
+  text-transform: uppercase;
+}
+
+.cctv-col p {
+  font-size: 16px;
+  line-height: 1.35;
+  text-align: justify;
+  margin-bottom: 18px;
+  color: white;
+}
+
+.cctv-slider {
+  position: relative;
+  width: 100%;
+  max-width: 990px;
+  height: 475px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+}
+
+.cctv-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Botones del slider */
+.cctv-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 62px;
+  border: none;
+  background: rgba(0, 63, 118, 0.65);
+  color: white;
+  font-size: 42px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.cctv-btn:hover {
+  background: rgba(0, 63, 118, 0.95);
+}
+
+.cctv-left {
+  left: 18px;
+}
+
+.cctv-right {
+  right: 18px;
+}
+
+.cctv-caption {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 20px;
+  font-weight: bold;
+  color: yellow;
+}
+
+@media (max-width: 950px) {
+  .cctv-top {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cctv-slider {
+    height: 330px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cctv-slider {
+    height: 230px;
+  }
+
+  .cctv-btn {
+    width: 32px;
+    height: 52px;
+    font-size: 34px;
+  }
+}
+
+/* =========================
+   REDES ELÉCTRICAS
+========================= */
+
+.redes-section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 30px 34px 70px;
+  color: white;
+}
+
+.redes-card {
+  background: transparent;
+  color: white;
+  padding: 0;
+  box-shadow: none;
+}
+
+.redes-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  margin-bottom: 36px;
+}
+
+.redes-title-bar {
+  background: #a9b4cc;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 8px 12px;
+  margin-bottom: 22px;
+  text-transform: uppercase;
+}
+
+.redes-col h3 {
+  color: yellow;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.redes-col p {
+  font-size: 16px;
+  line-height: 1.35;
+  text-align: justify;
+  margin-bottom: 18px;
+  color: white;
+}
+
+.redes-lista {
+  margin: 45px 0 0 20px;
+  padding: 0;
+}
+
+.redes-lista li {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.redes-slider {
+  position: relative;
+  width: 100%;
+  max-width: 990px;
+  height: 475px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+}
+
+.redes-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #ffffff;
+  display: block;
+}
+
+/* Botones del slider */
+.redes-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 62px;
+  border: none;
+  background: rgba(0, 63, 118, 0.65);
+  color: white;
+  font-size: 42px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.redes-btn:hover {
+  background: rgba(0, 63, 118, 0.95);
+}
+
+.redes-left {
+  left: 18px;
+}
+
+.redes-right {
+  right: 18px;
+}
+
+.redes-caption {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 20px;
+  font-weight: bold;
+  color: yellow;
+}
+
+@media (max-width: 950px) {
+  .redes-top {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .redes-lista {
+    margin-top: 0;
+  }
+
+  .redes-slider {
+    height: 330px;
+  }
+}
+
+@media (max-width: 600px) {
+  .redes-slider {
+    height: 230px;
+  }
+
+  .redes-btn {
+    width: 32px;
+    height: 52px;
+    font-size: 34px;
+  }
 }

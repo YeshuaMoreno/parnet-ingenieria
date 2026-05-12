@@ -192,7 +192,8 @@
 
           <img [src]="slides[slideActual]"
                class="hero-flash slider-img"
-               alt="">
+               alt=""
+               title="Slider principal ParNet">
 
           <button class="slider-btn slider-right"
                   type="button"
@@ -303,6 +304,90 @@
 
       </div>
 
+      <!-- QUIÉNES SOMOS -->
+      <div *ngIf="seccion === 'quienes'" class="page-section quienes-section">
+
+        <div class="quienes-header">
+          ACERCA DE PARNET
+        </div>
+
+        <div class="quienes-grid">
+
+          <div class="quienes-texto">
+            <p>
+              En implementación y diseño de proyectos contamos con un equipo de profesionales
+              especializados y certificados, que le brindan la asesoría necesaria para elegir el
+              equipamiento más adecuado a sus necesidades; asegurando continuidad y confiabilidad
+              en la operación de su red, antes, durante y después de la instalación.
+            </p>
+
+            <p>
+              También ofrecemos servicios de consultoría para estrategias y empleo de tecnologías
+              para mejorar u optimizar los procesos de negocio.
+            </p>
+
+            <p>
+              En la actualidad PARNET INGENIERÍA está presente en las ciudades de Saltillo y Monclova,
+              Coahuila. En estas unidades operativas hemos realizado trabajos sobre diseño e integración
+              de soluciones corporativas de comunicación de voz, datos, fibra óptica, data center, video,
+              CCTV y control de acceso.
+            </p>
+
+            <p>
+              En el área eléctrica se han realizado proyectos de iluminación de naves industriales,
+              sistemas de tierra física, contactos de corriente regulada, conexión de maquinaria y equipos
+              de producción, redes eléctricas independientes reguladas para el área de sistemas a IDF´s.
+            </p>
+          </div>
+
+          <div class="quienes-imagen-bloque">
+            <img src="/assets/content/quienes/parnet.jpg"
+                 alt=""
+                 class="quienes-img">
+
+            <p>
+              Para mantenernos siempre a la vanguardia ofrecemos un extenso portafolio con soluciones
+              de redes para cableado estructurado y sistemas eléctricos, que incluyen las marcas líderes
+              en productos para telecomunicaciones y redes eléctricas.
+            </p>
+
+            <p>
+              Además de estar siempre invirtiendo en la capacitación del personal, certificándonos en las
+              marcas líderes y de conveniencia para nuestros clientes.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="mision-vision-grid">
+
+          <div class="mv-card">
+            <div class="mv-title">MISIÓN</div>
+
+            <p>
+              Nuestro enfoque empresarial está orientado al diseño e implementación de servicios con
+              estricto apego a normas y estándares vigentes para garantizar el funcionamiento óptimo
+              y eficaz en el desempeño de aplicaciones. Otorgando nuestra experiencia técnica para
+              beneficiar a nuestros clientes por medio de tecnología de punta.
+            </p>
+          </div>
+
+          <div class="mv-card">
+            <div class="mv-title">VISIÓN</div>
+
+            <p>
+              Nuestra empresa tiene como objetivo suministrar soluciones integrales en telecomunicaciones,
+              CCTV, control de acceso, audio y corriente regulada, que resuelvan las necesidades de nuestros
+              clientes con productos, aplicaciones, servicios y tecnología de punta, simplificando el trabajo
+              al usuario final y obteniendo una comunicación eficiente, de alta confiabilidad, incrementando
+              los índices de productividad y competitividad de su empresa y del personal de la misma.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
       <!-- CLIENTES -->
       <div *ngIf="seccion === 'clientes'" class="page-section clientes-section">
 
@@ -321,7 +406,7 @@
              rel="noopener noreferrer"
              class="cliente-card">
 
-            <img [src]="cliente.imagen" alt="">
+            <img [src]="cliente.imagen" alt="" title="Cliente ParNet">
 
             <span>
               {{ cliente.nombre }}
@@ -333,195 +418,802 @@
 
       </div>
 
-      <!-- CONTACTO / SUGERENCIAS -->
-      <div *ngIf="seccion === 'contacto'" class="page-section form-section">
+      <!-- SERVICIOS -->
+      <div *ngIf="seccion === 'servicios'" class="page-section servicios-section">
 
-        <h2>CONTACTO</h2>
+        <h2>SERVICIOS</h2>
 
-        <p>
-          Envíanos tus datos para recibir información sobre productos, servicios,
-          soluciones de ParNet Ingeniería o compartir una sugerencia para la empresa.
+        <p class="servicios-intro">
+          ParNet Ingeniería ofrece soluciones integrales en telecomunicaciones,
+          CCTV, control de acceso, corriente regulada, voceo, salas de juntas,
+          cableado estructurado y soporte tecnológico.
         </p>
 
-        <div class="contacto-tabs">
+        <div class="servicios-visual">
 
-          <button type="button"
-                  [class.active]="modoContacto === 'correo'"
-                  (click)="modoContacto='correo'">
-            Enviar correo
-          </button>
-
-          <button type="button"
-                  [class.active]="modoContacto === 'sugerencia'"
-                  (click)="modoContacto='sugerencia'; generarCaptcha()">
-            Enviar sugerencia
-          </button>
+          <div class="servicio-card-img" *ngFor="let item of serviciosVisuales">
+            <img [src]="item.imagen" alt="" title="Servicio ParNet">
+            <span>{{ item.nombre }}</span>
+          </div>
 
         </div>
 
-        <!-- FORMULARIO CORREO SIN CAPTCHA -->
-        <form *ngIf="modoContacto === 'correo'"
-              class="form-publico"
-              (ngSubmit)="enviarContacto()">
+        <div class="solicitud-box">
 
-          <input [(ngModel)]="contacto.nombre"
-                 name="contactoNombre"
-                 placeholder="Nombre completo"
-                 aria-label="Nombre completo"
-                 required>
+          <h3>SOLICITUD DE SERVICIOS</h3>
 
-          <input [(ngModel)]="contacto.correo"
-                 name="contactoCorreo"
-                 placeholder="Correo electrónico"
-                 aria-label="Correo electrónico"
-                 required>
+          <p>
+            Registra una solicitud de servicio seleccionando un servicio del catálogo
+            registrado en administración.
+          </p>
 
-          <input [(ngModel)]="contacto.asunto"
-                 name="contactoAsunto"
-                 placeholder="Asunto"
-                 aria-label="Asunto"
-                 required>
+          <form class="form-publico" (ngSubmit)="enviarSolicitudServicio()">
 
-          <textarea [(ngModel)]="contacto.mensaje"
-                    name="contactoMensaje"
-                    placeholder="Mensaje"
-                    aria-label="Mensaje"
-                    required></textarea>
-
-          <button type="submit">
-            Enviar correo
-          </button>
-
-        </form>
-
-        <!-- FORMULARIO SUGERENCIA CON CAPTCHA -->
-        <form *ngIf="modoContacto === 'sugerencia'"
-              class="form-publico"
-              (ngSubmit)="enviarSugerencia()">
-
-          <input [(ngModel)]="sugerencia.nombre"
-                 name="sugerenciaNombre"
-                 placeholder="Nombre completo"
-                 aria-label="Nombre completo"
-                 required>
-
-          <input [(ngModel)]="sugerencia.correo"
-                 name="sugerenciaCorreo"
-                 placeholder="Correo electrónico"
-                 aria-label="Correo electrónico"
-                 required>
-
-          <textarea [(ngModel)]="sugerencia.mensaje"
-                    name="sugerenciaMensaje"
-                    placeholder="Escribe tu sugerencia para la empresa"
-                    aria-label="Sugerencia"
-                    required></textarea>
-
-          <div class="captcha-box captcha-compacto">
-
-            <label>
-              Verificación: ¿Cuánto es {{ captchaA }} + {{ captchaB }}?
-            </label>
-
-            <input [(ngModel)]="captchaRespuesta"
-                   name="captchaSugerencia"
-                   placeholder="Respuesta"
-                   aria-label="Respuesta del captcha"
+            <input [(ngModel)]="servicio.nombre"
+                   name="servicioNombre"
+                   placeholder="Nombre completo"
+                   aria-label="Nombre completo"
                    required>
 
-            <small *ngIf="captchaError">
-              {{ captchaError }}
-            </small>
+            <input [(ngModel)]="servicio.correo"
+                   name="servicioCorreo"
+                   placeholder="Correo electrónico"
+                   aria-label="Correo electrónico"
+                   required>
 
-          </div>
+            <select [(ngModel)]="servicio.area"
+                    name="servicioArea"
+                    aria-label="Servicio solicitado"
+                    title="Servicio solicitado"
+                    required>
 
-          <button type="submit">
-            Enviar sugerencia
-          </button>
+              <option *ngIf="serviciosCatalogo.length === 0"
+                      value="Telecomunicaciones">
+                Telecomunicaciones
+              </option>
 
-        </form>
+              <option *ngFor="let s of serviciosCatalogo"
+                      [value]="s.nombre">
+                {{ s.nombre }} - {{ s.area }}
+              </option>
+
+            </select>
+
+            <textarea [(ngModel)]="servicio.detalle"
+                      name="servicioDetalle"
+                      placeholder="Describe el servicio solicitado"
+                      aria-label="Detalle del servicio solicitado"
+                      required></textarea>
+
+            <div class="captcha-box captcha-compacto">
+
+              <label>
+                Verificación: ¿Cuánto es {{ captchaA }} + {{ captchaB }}?
+              </label>
+
+              <input [(ngModel)]="captchaRespuesta"
+                     name="captchaServicio"
+                     placeholder="Respuesta"
+                     aria-label="Respuesta del captcha"
+                     required>
+
+              <small *ngIf="captchaError">
+                {{ captchaError }}
+              </small>
+
+            </div>
+
+            <button type="submit">
+              Registrar solicitud
+            </button>
+
+          </form>
+
+        </div>
 
       </div>
 
-      <!-- SERVICIOS -->
-      <div *ngIf="seccion === 'servicios'" class="page-section form-section">
+      <!-- PRODUCTOS -->
+      <div *ngIf="seccion === 'productos'" class="page-section productos-publicos-section">
 
-        <h2>SOLICITUD DE SERVICIOS</h2>
+        <h2>PRODUCTOS</h2>
 
-        <p>
-          Registra una solicitud de servicio seleccionando un servicio del catálogo registrado en administración.
+        <p class="productos-intro">
+          Consulta los productos disponibles en el catálogo de ParNet Ingeniería.
+          Puedes buscar por nombre, categoría, descripción o estatus, además de generar
+          una ficha técnica en PDF.
         </p>
 
-        <form class="form-publico" (ngSubmit)="enviarSolicitudServicio()">
+        <div class="productos-search">
+          <input [(ngModel)]="busquedaProductos"
+                 name="busquedaProductos"
+                 placeholder="Buscar producto..."
+                 aria-label="Buscar producto">
+        </div>
 
-          <input [(ngModel)]="servicio.nombre"
-                 name="servicioNombre"
-                 placeholder="Nombre completo"
-                 aria-label="Nombre completo"
-                 required>
+        <div *ngIf="productosFiltrados.length === 0" class="productos-empty">
+          No hay productos registrados o no se encontraron coincidencias.
+        </div>
 
-          <input [(ngModel)]="servicio.correo"
-                 name="servicioCorreo"
-                 placeholder="Correo electrónico"
-                 aria-label="Correo electrónico"
-                 required>
+        <div class="productos-publicos-grid" *ngIf="productosFiltrados.length > 0">
 
-          <select [(ngModel)]="servicio.area"
-                  name="servicioArea"
-                  aria-label="Servicio solicitado"
-                  title="Servicio solicitado"
-                  required>
+          <div class="producto-publico-card" *ngFor="let p of productosFiltrados">
 
-            <option *ngIf="serviciosCatalogo.length === 0"
-                    value="Telecomunicaciones">
-              Telecomunicaciones
-            </option>
+            <div class="producto-img-box">
+              <img [src]="getImagenProducto(p)" alt="" title="Producto ParNet">
+            </div>
 
-            <option *ngFor="let s of serviciosCatalogo"
-                    [value]="s.nombre">
-              {{ s.nombre }} - {{ s.area }}
-            </option>
+            <div class="producto-info">
+              <h3>{{ p.nombre }}</h3>
 
-          </select>
+              <p class="producto-categoria">
+                {{ p.categoria }}
+              </p>
 
-          <textarea [(ngModel)]="servicio.detalle"
-                    name="servicioDetalle"
-                    placeholder="Describe el servicio solicitado"
-                    aria-label="Detalle del servicio solicitado"
-                    required></textarea>
+              <p class="producto-descripcion">
+                {{ p.descripcion }}
+              </p>
 
-          <div class="captcha-box captcha-compacto">
+              <div class="producto-meta">
+                <span class="precio">
+                  ${{ p.precio }}
+                </span>
 
-            <label>
-              Verificación: ¿Cuánto es {{ captchaA }} + {{ captchaB }}?
-            </label>
+                <span class="estatus"
+                      [class.agotado]="p.estatus.toLowerCase() === 'agotado'">
+                  {{ p.estatus }}
+                </span>
+              </div>
 
-            <input [(ngModel)]="captchaRespuesta"
-                   name="captchaServicio"
-                   placeholder="Respuesta"
-                   aria-label="Respuesta del captcha"
-                   required>
+              <button type="button"
+                      class="btn-producto-pdf"
+                      (click)="abrirPdfProducto(p.id)">
+                Ficha PDF
+              </button>
 
-            <small *ngIf="captchaError">
-              {{ captchaError }}
-            </small>
+            </div>
 
           </div>
 
-          <button type="submit">
-            Registrar solicitud
-          </button>
+        </div>
 
-        </form>
+      </div>
+
+      <!-- CASOS DE ÉXITO -->
+      <div *ngIf="seccion === 'casos'" class="page-section casos-section">
+
+        <h2>CASOS DE ÉXITO</h2>
+
+        <p class="casos-intro">
+          ParNet Ingeniería ha participado en proyectos de telecomunicaciones,
+          redes, infraestructura eléctrica, CCTV, control de acceso y soluciones
+          tecnológicas para empresas del sector industrial y corporativo.
+        </p>
+
+        <div class="casos-grid">
+
+          <div class="caso-card" *ngFor="let caso of casosExito">
+            <img [src]="caso.imagen" alt="" title="Caso de éxito ParNet">
+            <span>{{ caso.nombre }}</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- CONTACTO / SUGERENCIAS -->
+      <div *ngIf="seccion === 'contacto'" class="page-section contacto-legacy-section">
+
+        <div class="contacto-layout">
+
+          <div class="contacto-left">
+
+            <div class="contacto-banner">
+              Contacto
+            </div>
+
+            <div class="horario-box">
+              <div class="horario-title">
+                Horario de atención
+              </div>
+
+              <div class="horario-content">
+                <p>8:00 am - 2:00 pm</p>
+                <p>3:00 pm - 6:00 pm</p>
+              </div>
+            </div>
+
+            <div class="contacto-tabs contacto-tabs-legacy">
+
+              <button type="button"
+                      [class.active]="modoContacto === 'correo'"
+                      (click)="modoContacto='correo'">
+                Formulario de contacto
+              </button>
+
+              <button type="button"
+                      [class.active]="modoContacto === 'sugerencia'"
+                      (click)="modoContacto='sugerencia'; generarCaptcha()">
+                Enviar sugerencia
+              </button>
+
+            </div>
+
+            <form *ngIf="modoContacto === 'correo'"
+                  class="contacto-form-legacy"
+                  (ngSubmit)="enviarContacto()">
+
+              <label>Empresa:</label>
+              <input [(ngModel)]="contacto.empresa"
+                     name="contactoEmpresa"
+                     placeholder="Introducir empresa"
+                     aria-label="Empresa"
+                     required>
+
+              <label>Nombre:</label>
+              <input [(ngModel)]="contacto.nombre"
+                     name="contactoNombre"
+                     placeholder="Introducir nombre"
+                     aria-label="Nombre"
+                     required>
+
+              <label>Teléfono del trabajo:</label>
+              <input [(ngModel)]="contacto.telefono"
+                     name="contactoTelefono"
+                     placeholder="Introducir teléfono"
+                     aria-label="Teléfono del trabajo"
+                     required>
+
+              <label>Correo electrónico:</label>
+              <input [(ngModel)]="contacto.correo"
+                     name="contactoCorreo"
+                     placeholder="Introducir correo electr."
+                     aria-label="Correo electrónico"
+                     required>
+
+              <label>Mensaje:</label>
+              <textarea [(ngModel)]="contacto.mensaje"
+                        name="contactoMensaje"
+                        placeholder="Escriba su mensaje"
+                        aria-label="Mensaje"
+                        required></textarea>
+
+              <button type="submit" class="btn-enviar-legacy">
+                Enviar
+              </button>
+
+            </form>
+
+            <form *ngIf="modoContacto === 'sugerencia'"
+                  class="contacto-form-legacy"
+                  (ngSubmit)="enviarSugerencia()">
+
+              <label>Nombre:</label>
+              <input [(ngModel)]="sugerencia.nombre"
+                     name="sugerenciaNombre"
+                     placeholder="Introducir nombre"
+                     aria-label="Nombre"
+                     required>
+
+              <label>Correo electrónico:</label>
+              <input [(ngModel)]="sugerencia.correo"
+                     name="sugerenciaCorreo"
+                     placeholder="Introducir correo electr."
+                     aria-label="Correo electrónico"
+                     required>
+
+              <label>Sugerencia:</label>
+              <textarea [(ngModel)]="sugerencia.mensaje"
+                        name="sugerenciaMensaje"
+                        placeholder="Escriba su sugerencia"
+                        aria-label="Sugerencia"
+                        required></textarea>
+
+              <div class="captcha-box captcha-contacto">
+                <label>
+                  Verificación: ¿Cuánto es {{ captchaA }} + {{ captchaB }}?
+                </label>
+
+                <input [(ngModel)]="captchaRespuesta"
+                       name="captchaSugerencia"
+                       placeholder="Respuesta"
+                       aria-label="Respuesta del captcha"
+                       required>
+
+                <small *ngIf="captchaError">
+                  {{ captchaError }}
+                </small>
+              </div>
+
+              <button type="submit" class="btn-enviar-legacy">
+                Enviar
+              </button>
+
+            </form>
+
+          </div>
+
+          <div class="contacto-right">
+
+            <div class="mapa-box">
+              <iframe
+                title="Ubicación ParNet Matriz Saltillo"
+                src="https://maps.google.com/maps?q=Calle%20Gral.%20Ram%C3%B3n%20Corona%201131%2C%20Zona%20Centro%2C%20Saltillo%2C%20Coahuila&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                loading="lazy">
+              </iframe>
+            </div>
+
+            <div class="sucursal-card">
+              <div class="sucursal-title">
+                Matriz Saltillo
+              </div>
+
+              <div class="sucursal-content">
+                <b>Conmutador:</b><br>
+                (844) 414.27.07, 08 y 09<br>
+                ventas.saltillo@parnetmx.com
+              </div>
+            </div>
+
+            <div class="sucursal-card">
+              <div class="sucursal-title">
+                Filial Monclova
+              </div>
+
+              <div class="sucursal-content">
+                <b>Teléfono:</b><br>
+                (866) 695.32.99<br>
+                ventas.monclova@parnetmx.com
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- SOCIOS -->
+      <div *ngIf="seccion === 'socios'" class="page-section socios-section">
+
+        <h2>SOCIOS Y EMPRESAS RELACIONADAS</h2>
+
+        <p class="socios-intro">
+          En el sector de ingeniería, telecomunicaciones, consultoría y suministro tecnológico
+          existen empresas y aliados estratégicos con nombres o enfoques similares. Esta sección
+          presenta información de referencia sobre entidades relacionadas, socios comerciales y
+          alianzas estratégicas del sector.
+        </p>
+
+        <div class="socios-card destacado">
+          <h3>PARTNER Ingeniería, Consultorías y Suministros SAS</h3>
+
+          <p>
+            Empresa colombiana conformada por un equipo multidisciplinario de profesionales con
+            más de 25 años de trayectoria, enfocada en proyectos de ingeniería, procesos productivos,
+            mantenimiento industrial, gestión ambiental y comercialización de equipos.
+          </p>
+
+          <div class="socios-grid-info">
+            <div>
+              <h4>Enfoque</h4>
+              <p>
+                Proyectos de ingeniería, procesos productivos, mantenimiento industrial,
+                gestión ambiental y comercialización de equipos.
+              </p>
+            </div>
+
+            <div>
+              <h4>Sectores</h4>
+              <p>
+                Cemento, fibrocemento, alimentos, plástico y sector papelero.
+              </p>
+            </div>
+
+            <div>
+              <h4>Experiencia</h4>
+              <p>
+                Alta gerencia, dirección de proyectos y montaje de maquinaria industrial.
+              </p>
+            </div>
+
+            <div>
+              <h4>Ubicación</h4>
+              <p>
+                Cali, Valle del Cauca, Colombia.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="socios-card">
+          <h3>Directivos clave</h3>
+
+          <ul class="socios-lista">
+            <li>
+              <b>Wilmer Ríos, MBA:</b> Gerente General.
+            </li>
+
+            <li>
+              <b>Saulo Rivera Campo, MSc:</b> Director de Operaciones y Proyectos.
+            </li>
+          </ul>
+        </div>
+
+        <div class="socios-card">
+          <h3>Alianzas estratégicas</h3>
+
+          <div class="alianzas-grid">
+
+            <div class="alianza-item">
+              <h4>FROLICH &amp; CÍA</h4>
+              <p>
+                Alianza para ingeniería de procesos en industrias de fibrocemento,
+                papel y azúcar.
+              </p>
+            </div>
+
+            <div class="alianza-item">
+              <h4>INGEFORT SAS</h4>
+              <p>
+                Colaboración en sistemas constructivos livianos y proyectos de economía circular.
+              </p>
+            </div>
+
+            <div class="alianza-item">
+              <h4>ROTOPLAST</h4>
+              <p>
+                Representante comercial autorizado para productos de manejo de aguas
+                en el suroccidente colombiano.
+              </p>
+            </div>
+
+            <div class="alianza-item">
+              <h4>MASTER – CONTROLS LTDA</h4>
+              <p>
+                Aliado para suministro de bombas, instrumentación y sistemas hidráulicos.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="socios-card">
+          <h3>Otras entidades relacionadas</h3>
+
+          <ul class="socios-lista">
+            <li>
+              <b>ParNet Ingeniería, S.A. de C.V.:</b>
+              empresa mexicana enfocada en venta, instalación y soluciones de alta tecnología,
+              con matriz en Saltillo y sucursal en Monclova.
+            </li>
+
+            <li>
+              <b>Partner Engineering and Science, Inc.:</b>
+              proveedor global de consultoría en ingeniería, medio ambiente y construcción
+              para el sector inmobiliario.
+            </li>
+          </ul>
+        </div>
+
+        <div class="socios-card datos">
+          <h3>Datos de identificación</h3>
+
+          <p>
+            <b>NIT:</b> 901253748
+          </p>
+
+          <p>
+            <b>Tipo de sociedad:</b> Sociedad por Acciones Simplificada, SAS.
+          </p>
+
+          <p>
+            Para verificar información legal, accionaria o corporativa oficial, se recomienda
+            consultar las cámaras de comercio locales o registros oficiales correspondientes.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- CERTIFICACIONES -->
+      <div *ngIf="seccion === 'certificaciones'" class="page-section certificaciones-section">
+
+        <h2>CERTIFICACIONES</h2>
+
+        <p class="certificaciones-intro">
+          ParNet Ingeniería trabaja con marcas líderes en soluciones de telecomunicaciones,
+          cableado estructurado, seguridad electrónica, control de acceso e infraestructura
+          tecnológica, manteniendo capacitación y conocimiento técnico para ofrecer
+          servicios confiables a sus clientes.
+        </p>
+
+        <div class="certificaciones-grid">
+
+          <div class="certificacion-card" *ngFor="let c of certificaciones">
+            <img [src]="c.imagen" alt="" title="Certificación ParNet">
+            <span>{{ c.nombre }}</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- TELECOMUNICACIONES -->
+      <div *ngIf="seccion === 'telecomunicaciones'" class="page-section telecom-section">
+
+        <div class="telecom-card">
+
+          <div class="telecom-top">
+
+            <div class="telecom-col">
+              <div class="telecom-title-bar">
+                TELECOMUNICACIONES
+              </div>
+
+              <p>
+                ParNet cuenta con personal certificado en las marcas líderes del mercado
+                de cableado estructurado para los servicios de data center, fibra óptica,
+                planta interna, planta externa, voz y datos.
+              </p>
+            </div>
+
+            <div class="telecom-col">
+              <p>
+                Brindamos la garantía de nuestros proyectos, ya que todos los trabajos
+                se realizan en apego a las normas de la TIA/EIA, validando cada uno de
+                los enlaces de cobre y fibra óptica con equipos de medición recomendados
+                por la industria de las telecomunicaciones.
+              </p>
+
+              <p>
+                De esta manera aseguramos al cliente la entrega de servicios garantizados
+                y certificados.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="telecom-slider">
+
+            <button type="button"
+                    class="telecom-btn telecom-left"
+                    aria-label="Anterior imagen de telecomunicaciones"
+                    (click)="anteriorTelecomManual()">
+              ‹
+            </button>
+
+            <img [src]="telecomSlides[telecomActual].imagen"
+                 alt="Imagen del slider de telecomunicaciones"
+                 title="Slider de telecomunicaciones"
+                 class="telecom-img">
+
+            <button type="button"
+                    class="telecom-btn telecom-right"
+                    aria-label="Siguiente imagen de telecomunicaciones"
+                    (click)="siguienteTelecomManual()">
+              ›
+            </button>
+
+          </div>
+
+          <div class="telecom-caption">
+            {{ telecomSlides[telecomActual].titulo }}
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- CORRIENTE REGULADA -->
+      <div *ngIf="seccion === 'corriente'" class="page-section corriente-section">
+
+        <div class="corriente-card">
+
+          <div class="corriente-top">
+
+            <div class="corriente-col">
+              <div class="corriente-title-bar">
+                CORRIENTE REGULADA
+              </div>
+
+              <p>
+                Las empresas que invierten en corriente regulada y tienen instalaciones
+                bien diseñadas, cuentan por lo menos con un par de circuitos eléctricos:
+                el primero suministrado por CFE y el segundo respaldado por los UPS,
+                proveniente de las siglas Uninterruptible Power Supply o respaldo de
+                energía ininterrumpible.
+              </p>
+
+              <p>
+                Sin embargo, el nombre más utilizado es “No Break”, que significa sin
+                interrupciones.
+              </p>
+            </div>
+
+            <div class="corriente-col">
+              <p>
+                Las aplicaciones más comunes se utilizan para conectar aquellos dispositivos
+                electrónicos que son críticos para la operación de la empresa, como equipo
+                de cómputo, equipo de red y comunicaciones, equipo de seguridad interna,
+                lámparas de emergencia, consumo, controles de acceso, entre otros.
+              </p>
+
+              <p>
+                En ParNet contamos con el apoyo de las marcas más reconocidas en este ramo,
+                para recomendar a nuestros clientes la mejor alternativa a cada una de las
+                aplicaciones requeridas.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="corriente-slider">
+
+            <button type="button"
+                    class="corriente-btn corriente-left"
+                    aria-label="Anterior imagen de corriente regulada"
+                    (click)="anteriorCorrienteManual()">
+              ‹
+            </button>
+
+            <img [src]="corrienteSlides[corrienteActual].imagen"
+                alt="Imagen del slider de corriente regulada"
+                title="Slider de corriente regulada"
+                class="corriente-img">
+
+            <button type="button"
+                    class="corriente-btn corriente-right"
+                    aria-label="Siguiente imagen de corriente regulada"
+                    (click)="siguienteCorrienteManual()">
+              ›
+            </button>
+
+          </div>
+
+          <div class="corriente-caption">
+            {{ corrienteSlides[corrienteActual].titulo }}
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- CCTV -->
+      <div *ngIf="seccion === 'cctv'" class="page-section cctv-section">
+
+        <div class="cctv-card">
+
+          <div class="cctv-top">
+
+            <div class="cctv-col">
+              <div class="cctv-title-bar">
+                CIRCUITO CERRADO DE TELEVISIÓN
+              </div>
+
+              <p>
+                En la actualidad existe la necesidad de vigilar y proteger tanto bienes
+                materiales como humanos, en la industria y residencias, por lo cual
+                proveemos a nuestros clientes el equipamiento adecuado a cada una de
+                las necesidades, recomendando siempre las mejores marcas, aplicaciones
+                y tecnología de punta.
+              </p>
+            </div>
+
+            <div class="cctv-col">
+              <p>
+                En esta área también se cuenta con personal certificado para ofrecer
+                al cliente una instalación confiable, segura y garantizada.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="cctv-slider">
+
+            <button type="button"
+                    class="cctv-btn cctv-left"
+                    aria-label="Anterior imagen de CCTV"
+                    (click)="anteriorCctvManual()">
+              ‹
+            </button>
+
+            <img [src]="cctvSlides[cctvActual].imagen"
+                alt="Imagen del slider de circuito cerrado de televisión"
+                title="Slider de CCTV"
+                class="cctv-img">
+
+            <button type="button"
+                    class="cctv-btn cctv-right"
+                    aria-label="Siguiente imagen de CCTV"
+                    (click)="siguienteCctvManual()">
+              ›
+            </button>
+
+          </div>
+
+          <div class="cctv-caption">
+            {{ cctvSlides[cctvActual].titulo }}
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- REDES ELÉCTRICAS -->
+      <div *ngIf="seccion === 'redes'" class="page-section redes-section">
+
+        <div class="redes-card">
+
+          <div class="redes-top">
+
+            <div class="redes-col">
+              <div class="redes-title-bar">
+                REDES ELÉCTRICAS
+              </div>
+
+              <h3>{{ redesSlides[redesActual].titulo }}</h3>
+
+              <p>
+                {{ redesSlides[redesActual].descripcion }}
+              </p>
+            </div>
+
+            <div class="redes-col">
+              <ul class="redes-lista">
+                <li *ngFor="let punto of redesSlides[redesActual].puntos">
+                  {{ punto }}
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div class="redes-slider">
+
+            <button type="button"
+                    class="redes-btn redes-left"
+                    aria-label="Anterior imagen de redes eléctricas"
+                    (click)="anteriorRedesManual()">
+              ‹
+            </button>
+
+            <img [src]="redesSlides[redesActual].imagen"
+                alt="Imagen del slider de redes eléctricas"
+                title="Slider de redes eléctricas"
+                class="redes-img">
+
+            <button type="button"
+                    class="redes-btn redes-right"
+                    aria-label="Siguiente imagen de redes eléctricas"
+                    (click)="siguienteRedesManual()">
+              ›
+            </button>
+
+          </div>
+
+          <div class="redes-caption">
+            {{ redesSlides[redesActual].titulo }}
+          </div>
+
+        </div>
 
       </div>
 
       <!-- SECCIONES RESTANTES -->
       <div *ngIf="
           seccion !== 'inicio' &&
+          seccion !== 'quienes' &&
           seccion !== 'clientes' &&
+          seccion !== 'servicios' &&
+          seccion !== 'productos' &&
+          seccion !== 'casos' &&
           seccion !== 'contacto' &&
-          seccion !== 'servicios'
+          seccion !== 'socios' &&
+          seccion !== 'certificaciones' &&
+          seccion !== 'corriente' &&
+          seccion !== 'cctv' &&
+          seccion !== 'redes' &&
+          seccion !== 'telecomunicaciones'
         "
         class="page-section">
 
@@ -548,49 +1240,57 @@
 
       <img src="/assets/footer/Página Principal.png"
            (click)="seccion='inicio'"
-           alt="">
+           alt=""
+           title="Página Principal">
 
       <img src="/assets/footer/separador.png" alt="">
 
       <img src="/assets/footer/quienes-somos.png"
            (click)="seccion='quienes'"
-           alt="">
+           alt=""
+           title="¿Quiénes somos?">
 
       <img src="/assets/footer/separador.png" alt="">
 
       <img src="/assets/footer/clientes.png"
            (click)="seccion='clientes'"
-           alt="">
+           alt=""
+           title="Clientes">
 
       <img src="/assets/footer/separador.png" alt="">
 
       <img src="/assets/footer/servicios.png"
            (click)="seccion='servicios'"
-           alt="">
+           alt=""
+           title="Servicios">
 
       <img src="/assets/footer/separador.png" alt="">
 
       <img src="/assets/footer/productos.png"
            (click)="seccion='productos'"
-           alt="">
+           alt=""
+           title="Productos">
 
       <img src="/assets/footer/separador.png" alt="">
 
       <img src="/assets/footer/casos-exito.png"
            (click)="seccion='casos'"
-           alt="">
+           alt=""
+           title="Casos de éxito">
 
       <img src="/assets/footer/separador.png" alt="">
 
       <img src="/assets/footer/contacto.png"
            (click)="seccion='contacto'"
-           alt="">
+           alt=""
+           title="Contacto">
 
       <img src="/assets/footer/separador.png" alt="">
 
       <img src="/assets/footer/soporte.png"
            (click)="seccion='soporte'"
-           alt="">
+           alt=""
+           title="Soporte">
 
     </nav>
 
