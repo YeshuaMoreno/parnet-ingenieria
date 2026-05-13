@@ -413,22 +413,25 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.registrarVisita();
-    this.cargarNoticias();
-    this.cargarServiciosCatalogo();
-    this.cargarProductos();
-    this.iniciarTelecomSlider();
-    this.generarCaptcha();
-    this.iniciarSlider();
-    this.iniciarCorrienteSlider();
-    this.iniciarCctvSlider();
-    this.iniciarRedesSlider();
-  }
+  this.registrarVisita();
+  this.cargarNoticias();
+  this.cargarServiciosCatalogo();
+  this.cargarProductos();
+  this.iniciarTelecomSlider();
+  this.generarCaptcha();
+  this.iniciarSlider();
+  this.iniciarCorrienteSlider();
+  this.iniciarCctvSlider();
+  this.iniciarRedesSlider();
+  this.iniciarDatacentersSlider();
+}
+
   ngOnDestroy(): void {
     this.detenerSlider();
     this.detenerTelecomSlider();
     this.detenerCorrienteSlider();
     this.detenerCctvSlider();
+    this.detenerDatacentersSlider();
     this.detenerRedesSlider();
   }
 
@@ -600,6 +603,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   // =========================
 
   enviarContacto(): void {
+    const correoDestino = 'rylm04@outlook.com';
+
     const asunto = encodeURIComponent(
       this.contacto.asunto || 'Contacto desde ParNet Ingeniería'
     );
@@ -607,13 +612,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     const cuerpo = encodeURIComponent(
       `Empresa: ${this.contacto.empresa}\n` +
       `Nombre: ${this.contacto.nombre}\n` +
-      `Teléfono del trabajo: ${this.contacto.telefono}\n` +
+      `Teléfono: ${this.contacto.telefono}\n` +
       `Correo: ${this.contacto.correo}\n\n` +
       `Mensaje:\n${this.contacto.mensaje}`
     );
 
     window.location.href =
-      `mailto:ventas.saltillo@parnetmx.com?subject=${asunto}&body=${cuerpo}`;
+      `mailto:${correoDestino}?subject=${asunto}&body=${cuerpo}`;
 
     this.contacto = {
       empresa: '',
@@ -905,5 +910,48 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.anteriorRedesSlide();
     this.iniciarRedesSlider();
   }
+
+  iniciarDatacentersSlider(): void {
+    this.detenerDatacentersSlider();
+
+    this.datacentersTimer = setInterval(() => {
+      this.siguienteDatacentersSlide();
+      this.cdr.detectChanges();
+    }, 3500);
+  }
+
+  detenerDatacentersSlider(): void {
+    if (this.datacentersTimer) {
+      clearInterval(this.datacentersTimer);
+      this.datacentersTimer = null;
+    }
+  }
+
+  siguienteDatacentersSlide(): void {
+    this.datacentersActual++;
+
+    if (this.datacentersActual >= this.datacentersSlides.length) {
+      this.datacentersActual = 0;
+    }
+  }
+
+  anteriorDatacentersSlide(): void {
+    this.datacentersActual--;
+
+    if (this.datacentersActual < 0) {
+      this.datacentersActual = this.datacentersSlides.length - 1;
+    }
+  }
+
+  siguienteDatacentersManual(): void {
+    this.siguienteDatacentersSlide();
+    this.iniciarDatacentersSlider();
+  }
+
+  anteriorDatacentersManual(): void {
+    this.anteriorDatacentersSlide();
+    this.iniciarDatacentersSlider();
+  }
+
 
 }

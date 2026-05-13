@@ -119,7 +119,6 @@ def reporte_sugerencias_pdf(db: Session = Depends(get_db)):
             contenido.append(Paragraph(f"Correo: {s.correo}", styles["Normal"]))
             contenido.append(Paragraph(f"Mensaje: {s.mensaje}", styles["Normal"]))
             contenido.append(Paragraph(f"Estatus: {s.estatus}", styles["Normal"]))
-            contenido.append(Paragraph(f"Fecha: {s.fecha}", styles["Normal"]))
             contenido.append(Spacer(1, 10))
 
     doc.build(contenido)
@@ -140,7 +139,7 @@ def reporte_sugerencias_excel(db: Session = Depends(get_db)):
     ws = wb.active
     ws.title = "Sugerencias"
 
-    encabezados = ["ID", "Nombre", "Correo", "Mensaje", "Estatus", "Fecha"]
+    encabezados = ["ID", "Nombre", "Correo", "Mensaje", "Estatus"]
     ws.append(encabezados)
 
     for cell in ws[1]:
@@ -149,7 +148,13 @@ def reporte_sugerencias_excel(db: Session = Depends(get_db)):
         cell.alignment = Alignment(horizontal="center", vertical="center")
 
     for s in sugerencias:
-        ws.append([s.id, s.nombre, s.correo, s.mensaje, s.estatus, str(s.fecha)])
+        ws.append([
+            s.id,
+            s.nombre,
+            s.correo,
+            s.mensaje,
+            s.estatus
+        ])
 
     for column in ws.columns:
         max_length = 0

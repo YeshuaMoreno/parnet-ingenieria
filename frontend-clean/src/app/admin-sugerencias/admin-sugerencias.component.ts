@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 
 interface Sugerencia {
   id: number;
@@ -8,7 +7,7 @@ interface Sugerencia {
   correo: string;
   mensaje: string;
   estatus: string;
-  fecha: string;
+  fecha?: string;
 }
 
 @Component({
@@ -22,64 +21,77 @@ export class AdminSugerenciasComponent implements OnInit {
   apiUrl = 'http://127.0.0.1:8000/api/sugerencias';
 
   sugerencias: Sugerencia[] = [];
-  total = 0;
+  cargando = true;
+
+  // Tu HTML usa "pagina + 1", por eso pagina empieza en 0
   pagina = 0;
-  limit = 5;
-  eliminandoId: number | null = null;
+  limite = 5;
+  total = 0;
 
-  constructor(private http: HttpClient) {}
-
-  ngOnInit(): void {
-    this.cargar();
+  async ngOnInit(): Promise<void> {
+    await this.cargarSugerencias();
   }
 
-  cargar(): void {
-    const skip = this.pagina * this.limit;
+  async cargarSugerencias(): Promise<void> {
+    this.cargando = true;
 
-    this.http.get<any>(`${this.apiUrl}?skip=${skip}&limit=${this.limit}`).subscribe({
-      next: (res) => {
-        this.sugerencias = res.sugerencias;
-        this.total = res.total;
+    try {
+      const response = await fetch(this.apiUrl);
+
+      if (!response.ok) {
+        throw new Error('Error HTTP: ' + response.status);
       }
-    });
+
+      const data = await response.json();
+
+      console.log('SUGERENCIAS RECIBIDAS:', data);
+
+      if (Array.isArray(data)) {
+        this.sugerencias = data;
+        this.total = data.length;
+      } else if (Array.isArray(data.sugerencias)) {
+        this.sugerencias = data.sugerencias;
+        this.total = data.total ?? data.sugerencias.length;
+      } else {
+        this.sugerencias = [];
+        this.total = 0;
+      }
+
+      if (this.pagina > this.totalPaginas - 1) {
+        this.pagina = Math.max(this.totalPaginas - 1, 0);
+      }
+
+    } catch (error) {
+      console.error('ERROR CARGANDO SUGERENCIAS:', error);
+      this.sugerencias = [];
+      this.total = 0;
+      alert('No se pudieron cargar las sugerencias.');
+    } finally {
+      this.cargando = false;
+    }
   }
 
-  siguiente(): void {
-    if ((this.pagina + 1) * this.limit >= this.total) return;
-    this.pagina++;
-    this.cargar();
+  get totalPaginas(): number {
+    return Math.max(1, Math.ceil(this.total / this.limite));
+  }
+
+  get sugerenciasPaginadas(): Sugerencia[] {
+    const inicio = this.pagina * this.limite;
+    const fin = inicio + this.limite;
+
+    return this.sugerencias.slice(inicio, fin);
   }
 
   anterior(): void {
-    if (this.pagina === 0) return;
-    this.pagina--;
-    this.cargar();
+    if (this.pagina > 0) {
+      this.pagina--;
+    }
   }
 
-  cambiarEstatus(id: number, estatus: string): void {
-    this.http.put(`${this.apiUrl}/${id}`, { estatus }).subscribe({
-      next: () => this.cargar()
-    });
-  }
-
-eliminar(id: number): void {
-    if (!id || this.eliminandoId === id) return;
-
-    if (!confirm('¿Eliminar sugerencia?')) return;
-
-    this.eliminandoId = id;
-
-    this.http.delete(`${this.apiUrl}/${id}`).subscribe({
-      next: () => {
-        this.sugerencias = this.sugerencias.filter(s => s.id !== id);
-        this.total = Math.max(0, this.total - 1);
-        this.eliminandoId = null;
-      },
-      error: (err) => {
-        console.error('Error eliminando sugerencia', err);
-        this.eliminandoId = null;
-      }
-    });
+  siguiente(): void {
+    if (this.pagina < this.totalPaginas - 1) {
+      this.pagina++;
+    }
   }
 
   abrirPdf(): void {
@@ -88,5 +100,74 @@ eliminar(id: number): void {
 
   abrirExcel(): void {
     window.open(`${this.apiUrl}/reporte/excel`, '_blank');
+  }
+
+  async cambiarEstatus(id: number, nuevoEstatus: string): Promise<void> {
+    const sugerencia = this.sugerencias.find(s => s.id === id);
+
+    if (!sugerencia) {
+      alert('No se encontró la sugerencia.');
+      return;
+    }
+
+    const payload = {
+      nombre: sugerencia.nombre,
+      correo: sugerencia.correo,
+      mensaje: sugerencia.mensaje,
+      estatus: nuevoEstatus
+    };
+
+    try {
+      const response = await fetch(`${this.apiUrl}/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        throw new Error('Error HTTP: ' + response.status);
+      }
+
+      sugerencia.estatus = nuevoEstatus;
+
+      alert('Estatus actualizado correctamente.');
+
+    } catch (error) {
+      console.error('ERROR CAMBIANDO ESTATUS:', error);
+      alert('No se pudo cambiar el estatus.');
+    }
+  }
+
+  async eliminar(id: number): Promise<void> {
+    const confirmar = confirm('¿Deseas eliminar esta sugerencia?');
+
+    if (!confirmar) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`${this.apiUrl}/${id}`, {
+        method: 'DELETE'
+      });
+
+      if (!response.ok) {
+        throw new Error('Error HTTP: ' + response.status);
+      }
+
+      this.sugerencias = this.sugerencias.filter(s => s.id !== id);
+      this.total = this.sugerencias.length;
+
+      if (this.pagina > this.totalPaginas - 1) {
+        this.pagina = Math.max(this.totalPaginas - 1, 0);
+      }
+
+      alert('Sugerencia eliminada correctamente.');
+
+    } catch (error) {
+      console.error('ERROR ELIMINANDO SUGERENCIA:', error);
+      alert('No se pudo eliminar la sugerencia.');
+    }
   }
 }

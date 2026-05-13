@@ -2056,3 +2056,1422 @@
     font-size: 34px;
   }
 }
+
+/* =========================
+   DATA CENTERS
+========================= */
+
+.datacenters-section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 30px 34px 70px;
+  color: white;
+}
+
+.datacenters-card {
+  background: transparent;
+  color: white;
+  padding: 0;
+  box-shadow: none;
+}
+
+.datacenters-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  margin-bottom: 36px;
+}
+
+.datacenters-title-bar {
+  background: #a9b4cc;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 8px 12px;
+  margin-bottom: 22px;
+  text-transform: uppercase;
+}
+
+.datacenters-col p {
+  font-size: 16px;
+  line-height: 1.35;
+  text-align: justify;
+  margin-bottom: 18px;
+  color: white;
+}
+
+.datacenters-slider {
+  position: relative;
+  width: 100%;
+  max-width: 990px;
+  height: 475px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+}
+
+.datacenters-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #ffffff;
+  display: block;
+}
+
+.datacenters-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 62px;
+  border: none;
+  background: rgba(0, 63, 118, 0.65);
+  color: white;
+  font-size: 42px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.datacenters-btn:hover {
+  background: rgba(0, 63, 118, 0.95);
+}
+
+.datacenters-left {
+  left: 18px;
+}
+
+.datacenters-right {
+  right: 18px;
+}
+
+.datacenters-caption {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 20px;
+  font-weight: bold;
+  color: yellow;
+}
+
+@media (max-width: 950px) {
+  .datacenters-top {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .datacenters-slider {
+    height: 330px;
+  }
+}
+
+@media (max-width: 600px) {
+  .datacenters-slider {
+    height: 230px;
+  }
+
+  .datacenters-btn {
+    width: 32px;
+    height: 52px;
+    font-size: 34px;
+  }
+}
+
+.video-home-section {
+  margin: 55px auto 40px auto;
+  padding-bottom: 40px;
+  color: white;
+  text-align: center;
+  width: 100%;
+  max-width: 950px;
+}
+
+.video-home-section h2 {
+  color: yellow !important;
+  font-size: 28px;
+  font-weight: normal;
+  margin: 0 auto 16px auto;
+  text-align: center;
+}
+
+.video-home-section p {
+  max-width: 850px;
+  font-size: 17px;
+  line-height: 1.4;
+  margin: 0 auto 22px auto;
+  text-align: center;
+}
+
+.video-home-container {
+  width: 100%;
+  max-width: 850px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  background: #003f76;
+  border: 2px solid #0a5d91;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-home-container iframe {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  border: 0;
+}
+
+@media (max-width: 700px) {
+  .video-home-section {
+    max-width: 100%;
+    padding: 0 12px 35px 12px;
+  }
+
+  .video-home-section h2 {
+    font-size: 24px;
+  }
+
+  .video-home-section p {
+    font-size: 15px;
+  }
+
+  .video-home-container {
+    max-width: 100%;
+  }
+}
+/* =========================================================
+   RESPONSIVE GENERAL - TABLET / MÓVIL
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  /* =========================
+     BASE GENERAL
+     ========================= */
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .page {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    background: #087f99;
+  }
+
+
+  /* =========================
+     HEADER
+     ========================= */
+
+  .header {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 180px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(#6bb2d4, #005197);
+  }
+
+  .header img {
+    max-width: 100%;
+  }
+
+  .logo {
+    position: relative !important;
+    display: block !important;
+    width: 70% !important;
+    max-width: 310px !important;
+    height: auto !important;
+    margin: 15px auto 5px auto !important;
+    left: auto !important;
+    top: auto !important;
+  }
+
+  .titulo {
+    position: relative !important;
+    display: block !important;
+    width: 90% !important;
+    max-width: 360px !important;
+    height: auto !important;
+    margin: 0 auto 8px auto !important;
+    left: auto !important;
+    top: auto !important;
+  }
+
+  .slogan {
+    position: relative !important;
+    display: block !important;
+    width: 90% !important;
+    max-width: 340px !important;
+    height: auto !important;
+    margin: 0 auto 10px auto !important;
+    left: auto !important;
+    top: auto !important;
+  }
+
+  .antenas,
+  .torre,
+  .linea {
+    display: none !important;
+  }
+
+
+  /* =========================
+     BARRA DE BIENVENIDA
+     ========================= */
+
+  .mensaje-bar,
+  .mensaje-viewport {
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .mensaje-texto {
+    width: auto !important;
+    max-width: none !important;
+  }
+
+
+  /* =========================
+     MENÚ SUPERIOR
+     ========================= */
+
+  .menu-tabs {
+    width: 100% !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    padding: 6px 4px !important;
+    overflow: visible !important;
+  }
+
+  .menu-tabs button {
+    width: calc(50% - 8px) !important;
+    min-width: 145px !important;
+    height: auto !important;
+    padding: 9px 6px !important;
+    font-size: 14px !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+
+  /* =========================
+     LAYOUT PRINCIPAL
+     ========================= */
+
+  .main-layout {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    overflow-x: hidden !important;
+  }
+
+  .content-area {
+    order: 1;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    padding: 18px 12px 30px 12px !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+    background: #087f99 !important;
+  }
+
+  .sidebar-left {
+    order: 2;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  .page-section,
+  .content-tab {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .page-section h1,
+  .page-section h2,
+  .content-tab h1,
+  .content-tab h2 {
+    font-size: 26px !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    margin: 18px auto !important;
+  }
+
+  .page-section p,
+  .content-tab p {
+    font-size: 15px !important;
+    line-height: 1.45 !important;
+    text-align: justify !important;
+  }
+
+
+  /* =========================
+     IMÁGENES Y SLIDERS
+     ========================= */
+
+  .content-area img,
+  .page-section img,
+  .content-tab img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .slider,
+  .home-slider,
+  .telecom-slider,
+  .corriente-slider,
+  .cctv-slider,
+  .redes-slider,
+  .datacenters-slider {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 200px !important;
+    margin: 15px auto !important;
+    overflow: hidden !important;
+  }
+
+  .slider img,
+  .home-slider img,
+  .telecom-slider img,
+  .corriente-slider img,
+  .cctv-slider img,
+  .redes-slider img,
+  .datacenters-slider img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  .slider-btn,
+  .telecom-btn,
+  .corriente-btn,
+  .cctv-btn,
+  .redes-btn,
+  .datacenters-btn {
+    width: 34px !important;
+    height: 48px !important;
+    font-size: 32px !important;
+  }
+
+
+  /* =========================
+     SIDEBAR EN MÓVIL
+     ========================= */
+
+  .noticias-section,
+  .areas-panel,
+  .marcas-panel,
+  .contador-panel {
+    width: 100% !important;
+    max-width: 390px !important;
+    margin: 8px auto !important;
+  }
+
+  .areas-buttons {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+  }
+
+  .area-btn {
+    width: 100% !important;
+    font-size: 14px !important;
+    padding: 7px 4px !important;
+    white-space: normal !important;
+  }
+
+
+  /* =========================
+     VIDEO
+     ========================= */
+
+  .video-home-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 35px auto !important;
+    padding: 0 8px 35px 8px !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .video-home-section h2 {
+    font-size: 23px !important;
+    text-align: center !important;
+  }
+
+  .video-home-section p {
+    font-size: 15px !important;
+    text-align: justify !important;
+  }
+
+  .video-home-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    margin: 0 auto !important;
+  }
+
+  .video-home-container iframe {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+
+  /* =========================
+     FOOTER
+     ========================= */
+
+  .footer {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    text-align: center !important;
+  }
+
+  .footer-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    padding: 8px !important;
+  }
+
+  .footer-links img {
+    max-width: 110px !important;
+    height: auto !important;
+  }
+
+  .footer-logo,
+  .footer-vista {
+    max-width: 120px !important;
+    height: auto !important;
+  }
+}
+
+
+/* =========================================================
+   CELULAR CHICO
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .header {
+    min-height: 160px;
+  }
+
+  .logo {
+    width: 78% !important;
+  }
+
+  .titulo,
+  .slogan {
+    width: 92% !important;
+  }
+
+  .menu-tabs button {
+    width: 100% !important;
+    min-width: 0 !important;
+    font-size: 14px !important;
+  }
+
+  .content-area {
+    padding: 15px 10px 25px 10px !important;
+  }
+
+  .page-section h1,
+  .page-section h2,
+  .content-tab h1,
+  .content-tab h2 {
+    font-size: 24px !important;
+  }
+
+  .areas-buttons {
+    grid-template-columns: 1fr !important;
+  }
+
+  .slider,
+  .home-slider,
+  .telecom-slider,
+  .corriente-slider,
+  .cctv-slider,
+  .redes-slider,
+  .datacenters-slider {
+    min-height: 170px !important;
+  }
+}
+
+/* =========================
+   FIBRA ÓPTICA
+========================= */
+
+.fibra-section {
+  color: white;
+  padding-bottom: 60px;
+}
+
+.fibra-section h2 {
+  color: yellow;
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 28px;
+}
+
+.fibra-content {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 35px;
+  max-width: 1050px;
+  margin-bottom: 35px;
+}
+
+.fibra-text h3,
+.fibra-box h3,
+.fibra-note h3 {
+  color: yellow;
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
+.fibra-text p,
+.fibra-note p {
+  font-size: 17px;
+  line-height: 1.45;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+.fibra-box {
+  background: rgba(0, 63, 118, 0.45);
+  border: 1px solid #38bdf8;
+  padding: 22px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.fibra-box ul {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.fibra-box li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.fibra-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  max-width: 1050px;
+  margin: 20px 0 35px;
+}
+
+.fibra-card {
+  background: rgba(0, 70, 130, 0.55);
+  border: 1px solid #1898d4;
+  padding: 18px;
+  min-height: 145px;
+}
+
+.fibra-card h4 {
+  color: yellow;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.fibra-card p {
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+.fibra-note {
+  max-width: 1050px;
+  background: rgba(0, 63, 118, 0.35);
+  border-left: 5px solid yellow;
+  padding: 22px;
+}
+
+.fibra-contact-btn {
+  margin-top: 12px;
+  background: #00558c;
+  color: white;
+  border: 1px solid #38bdf8;
+  padding: 10px 22px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.fibra-contact-btn:hover {
+  background: #0076b8;
+}
+
+@media (max-width: 900px) {
+  .fibra-content {
+    grid-template-columns: 1fr;
+  }
+
+  .fibra-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fibra-section h2,
+  .fibra-text h3,
+  .fibra-box h3,
+  .fibra-note h3 {
+    text-align: center;
+  }
+}
+
+/* =========================================================
+   CABLES ESTRUCTURADOS
+   ========================================================= */
+
+.cables-section {
+  color: white;
+  padding-bottom: 60px;
+}
+
+.cables-section h2 {
+  color: yellow;
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 28px;
+}
+
+
+/* =========================
+   INTRODUCCIÓN
+   ========================= */
+
+.cables-intro {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 35px;
+  max-width: 1050px;
+  margin-bottom: 35px;
+}
+
+.cables-text h3,
+.cables-box h3,
+.cables-process h3,
+.cables-note h3 {
+  color: yellow;
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
+.cables-text p,
+.cables-note p {
+  font-size: 17px;
+  line-height: 1.45;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+
+/* =========================
+   CAJA DE SERVICIOS
+   ========================= */
+
+.cables-box {
+  background: rgba(0, 63, 118, 0.45);
+  border: 1px solid #38bdf8;
+  padding: 22px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.cables-box ul {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.cables-box li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+
+/* =========================
+   TARJETAS
+   ========================= */
+
+.cables-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  max-width: 1050px;
+  margin: 20px 0 35px;
+}
+
+.cables-card {
+  background: rgba(0, 70, 130, 0.55);
+  border: 1px solid #1898d4;
+  padding: 18px;
+  min-height: 145px;
+}
+
+.cables-card h4 {
+  color: yellow;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.cables-card p {
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+
+/* =========================
+   PROCESO DE TRABAJO
+   ========================= */
+
+.cables-process {
+  max-width: 1050px;
+  margin-bottom: 35px;
+}
+
+.cables-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.cables-step {
+  background: rgba(0, 63, 118, 0.45);
+  border: 1px solid #38bdf8;
+  padding: 16px;
+  text-align: center;
+}
+
+.cables-step span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  background: yellow;
+  color: #003f76;
+  font-weight: bold;
+}
+
+.cables-step p {
+  font-size: 15px;
+  line-height: 1.35;
+  margin: 0;
+}
+
+
+/* =========================
+   NOTA FINAL / CONTACTO
+   ========================= */
+
+.cables-note {
+  max-width: 1050px;
+  background: rgba(0, 63, 118, 0.35);
+  border-left: 5px solid yellow;
+  padding: 22px;
+}
+
+.cables-contact-btn {
+  margin-top: 12px;
+  background: #00558c;
+  color: white;
+  border: 1px solid #38bdf8;
+  padding: 10px 22px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cables-contact-btn:hover {
+  background: #0076b8;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .cables-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .cables-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cables-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cables-section h2,
+  .cables-text h3,
+  .cables-box h3,
+  .cables-process h3,
+  .cables-note h3 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 520px) {
+
+  .cables-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   CABLES ESTRUCTURADOS
+   ========================================================= */
+
+.cables-section {
+  color: white;
+  padding-bottom: 60px;
+}
+
+.cables-section h2 {
+  color: yellow;
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 28px;
+}
+
+
+/* =========================
+   INTRODUCCIÓN
+   ========================= */
+
+.cables-intro {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 35px;
+  max-width: 1050px;
+  margin-bottom: 35px;
+}
+
+.cables-text h3,
+.cables-box h3,
+.cables-process h3,
+.cables-note h3 {
+  color: yellow;
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
+.cables-text p,
+.cables-note p {
+  font-size: 17px;
+  line-height: 1.45;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+
+/* =========================
+   CAJA DE SERVICIOS
+   ========================= */
+
+.cables-box {
+  background: rgba(0, 63, 118, 0.45);
+  border: 1px solid #38bdf8;
+  padding: 22px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.cables-box ul {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.cables-box li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+
+/* =========================
+   TARJETAS
+   ========================= */
+
+.cables-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  max-width: 1050px;
+  margin: 20px 0 35px;
+}
+
+.cables-card {
+  background: rgba(0, 70, 130, 0.55);
+  border: 1px solid #1898d4;
+  padding: 18px;
+  min-height: 145px;
+}
+
+.cables-card h4 {
+  color: yellow;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.cables-card p {
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+
+/* =========================
+   PROCESO DE TRABAJO
+   ========================= */
+
+.cables-process {
+  max-width: 1050px;
+  margin-bottom: 35px;
+}
+
+.cables-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.cables-step {
+  background: rgba(0, 63, 118, 0.45);
+  border: 1px solid #38bdf8;
+  padding: 16px;
+  text-align: center;
+}
+
+.cables-step span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  background: yellow;
+  color: #003f76;
+  font-weight: bold;
+}
+
+.cables-step p {
+  font-size: 15px;
+  line-height: 1.35;
+  margin: 0;
+}
+
+
+/* =========================
+   NOTA FINAL / CONTACTO
+   ========================= */
+
+.cables-note {
+  max-width: 1050px;
+  background: rgba(0, 63, 118, 0.35);
+  border-left: 5px solid yellow;
+  padding: 22px;
+}
+
+.cables-contact-btn {
+  margin-top: 12px;
+  background: #00558c;
+  color: white;
+  border: 1px solid #38bdf8;
+  padding: 10px 22px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cables-contact-btn:hover {
+  background: #0076b8;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .cables-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .cables-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cables-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cables-section h2,
+  .cables-text h3,
+  .cables-box h3,
+  .cables-process h3,
+  .cables-note h3 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 520px) {
+
+  .cables-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   PÓLIZAS
+========================= */
+
+.polizas-section {
+  color: white;
+  padding-bottom: 60px;
+}
+
+.polizas-section h2 {
+  color: yellow;
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 28px;
+}
+
+.polizas-intro {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 35px;
+  max-width: 1050px;
+  margin-bottom: 35px;
+}
+
+.polizas-text h3,
+.polizas-box h3,
+.polizas-types h3,
+.polizas-note h3 {
+  color: yellow;
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
+.polizas-text p,
+.polizas-note p {
+  font-size: 17px;
+  line-height: 1.45;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+.polizas-box {
+  background: rgba(0, 63, 118, 0.45);
+  border: 1px solid #38bdf8;
+  padding: 22px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.polizas-box ul {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.polizas-box li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.polizas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  max-width: 1050px;
+  margin: 20px 0 35px;
+}
+
+.polizas-card {
+  background: rgba(0, 70, 130, 0.55);
+  border: 1px solid #1898d4;
+  padding: 18px;
+  min-height: 135px;
+}
+
+.polizas-card h4 {
+  color: yellow;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.polizas-card p {
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+.polizas-types {
+  max-width: 1050px;
+  margin-bottom: 35px;
+}
+
+.polizas-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.polizas-step {
+  background: rgba(0, 63, 118, 0.45);
+  border: 1px solid #38bdf8;
+  padding: 18px;
+}
+
+.polizas-step span {
+  display: inline-block;
+  color: yellow;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.polizas-step h4 {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.polizas-step p {
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: justify;
+  margin: 0;
+}
+
+.polizas-note {
+  max-width: 1050px;
+  background: rgba(0, 63, 118, 0.35);
+  border-left: 5px solid yellow;
+  padding: 22px;
+}
+
+.polizas-contact-btn {
+  margin-top: 12px;
+  background: #00558c;
+  color: white;
+  border: 1px solid #38bdf8;
+  padding: 10px 22px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.polizas-contact-btn:hover {
+  background: #0076b8;
+}
+
+@media (max-width: 900px) {
+  .polizas-intro,
+  .polizas-grid,
+  .polizas-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .polizas-section h2,
+  .polizas-text h3,
+  .polizas-box h3,
+  .polizas-types h3,
+  .polizas-note h3 {
+    text-align: center;
+  }
+}
+
+/* =========================
+   OUTSOURCING
+========================= */
+
+.outsourcing-section {
+  color: white;
+  padding-bottom: 60px;
+}
+
+.outsourcing-section h2 {
+  color: yellow;
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 28px;
+}
+
+.outsourcing-intro {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 35px;
+  max-width: 1050px;
+  margin-bottom: 35px;
+}
+
+.outsourcing-text h3,
+.outsourcing-box h3,
+.outsourcing-services h3,
+.outsourcing-note h3 {
+  color: yellow;
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
+.outsourcing-text p,
+.outsourcing-note p {
+  font-size: 17px;
+  line-height: 1.45;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+.outsourcing-box {
+  background: rgba(0, 63, 118, 0.45);
+  border: 1px solid #38bdf8;
+  padding: 22px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.outsourcing-box ul {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.outsourcing-box li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.outsourcing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  max-width: 1050px;
+  margin: 20px 0 35px;
+}
+
+.outsourcing-card {
+  background: rgba(0, 70, 130, 0.55);
+  border: 1px solid #1898d4;
+  padding: 18px;
+  min-height: 140px;
+}
+
+.outsourcing-card h4 {
+  color: yellow;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.outsourcing-card p {
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+.outsourcing-services {
+  max-width: 1050px;
+  margin-bottom: 35px;
+}
+
+.outsourcing-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.outsourcing-item {
+  background: rgba(0, 63, 118, 0.45);
+  border: 1px solid #38bdf8;
+  padding: 18px;
+}
+
+.outsourcing-item span {
+  display: block;
+  color: yellow;
+  font-size: 19px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.outsourcing-item p {
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: justify;
+  margin: 0;
+}
+
+.outsourcing-note {
+  max-width: 1050px;
+  background: rgba(0, 63, 118, 0.35);
+  border-left: 5px solid yellow;
+  padding: 22px;
+}
+
+.outsourcing-contact-btn {
+  margin-top: 12px;
+  background: #00558c;
+  color: white;
+  border: 1px solid #38bdf8;
+  padding: 10px 22px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.outsourcing-contact-btn:hover {
+  background: #0076b8;
+}
+
+@media (max-width: 900px) {
+  .outsourcing-intro,
+  .outsourcing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .outsourcing-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .outsourcing-section h2,
+  .outsourcing-text h3,
+  .outsourcing-box h3,
+  .outsourcing-services h3,
+  .outsourcing-note h3 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .outsourcing-list {
+    grid-template-columns: 1fr;
+  }
+}

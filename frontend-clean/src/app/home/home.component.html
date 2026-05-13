@@ -302,6 +302,30 @@
 
         </div>
 
+        <!-- VIDEO EXPLICATIVO -->
+        <div class="video-home-section">
+
+          <h2>VIDEO EXPLICATIVO</h2>
+
+          <p>
+            Video explicativo sobre el objetivo del sitio web de ParNet Ingeniería,
+            su finalidad, el uso de calidad en los proyectos y la importancia de
+            contar con una plataforma digital para mostrar servicios, productos,
+            contacto y administración.
+          </p>
+
+          <div class="video-home-container">
+            <iframe
+              src="https://youtu.be/P6xCELe16xo?si=LkuS31f_Gq1j7Duf"
+              title="Video explicativo del proyecto ParNet Ingeniería"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+        </div>
+
       </div>
 
       <!-- QUIÉNES SOMOS -->
@@ -1199,6 +1223,573 @@
 
       </div>
 
+      <!-- DATA CENTERS -->
+      <div *ngIf="seccion === 'datacenters'" class="page-section datacenters-section">
+
+        <div class="datacenters-card">
+
+          <div class="datacenters-top">
+
+            <div class="datacenters-col">
+
+              <div class="datacenters-title-bar">
+                DATA CENTERS
+              </div>
+
+              <p>
+                ParNet Ingeniería ofrece soluciones para la instalación, organización
+                y mantenimiento de espacios destinados a servidores, equipos de red,
+                comunicaciones y sistemas críticos de operación empresarial.
+              </p>
+
+              <p>
+                Dentro de estas soluciones se consideran gabinetes, switches,
+                climatización, distribución de cableado y elementos necesarios para
+                mantener una infraestructura tecnológica confiable.
+              </p>
+
+            </div>
+
+            <div class="datacenters-col">
+
+              <p>
+                Un centro de datos requiere condiciones adecuadas de energía,
+                ventilación, ordenamiento físico, seguridad y conectividad para
+                asegurar la continuidad de los servicios informáticos.
+              </p>
+
+              <p>
+                En ParNet se integran componentes de telecomunicaciones, cableado
+                estructurado, energía regulada y soporte técnico para entregar
+                soluciones funcionales y escalables.
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="datacenters-slider">
+
+            <button type="button"
+                    class="datacenters-btn datacenters-left"
+                    aria-label="Anterior imagen de data centers"
+                    (click)="anteriorDatacentersManual()">
+              ‹
+            </button>
+
+            <img
+              [src]="datacentersSlides[datacentersActual].imagen"
+              alt="Imagen del slider de Data Centers"
+              title="Imagen del slider de Data Centers"
+              class="datacenters-img">
+
+            <button type="button"
+                    class="datacenters-btn datacenters-right"
+                    aria-label="Siguiente imagen de data centers"
+                    (click)="siguienteDatacentersManual()">
+              ›
+            </button>
+
+          </div>
+
+          <div class="datacenters-caption">
+            {{ datacentersSlides[datacentersActual].titulo }}
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- FIBRA ÓPTICA -->
+      <div *ngIf="seccion === 'fibra'" class="page-section fibra-section">
+
+        <h2>FIBRA ÓPTICA</h2>
+
+        <div class="fibra-content">
+
+          <div class="fibra-text">
+
+            <h3>Soluciones en fibra óptica</h3>
+
+            <p>
+              En PARNET Ingeniería ofrecemos servicios de instalación, mantenimiento
+              y diagnóstico de enlaces de fibra óptica para empresas que requieren
+              comunicación estable, rápida y confiable.
+            </p>
+
+            <p>
+              La fibra óptica permite transmitir grandes volúmenes de información a
+              alta velocidad, reduciendo interferencias y mejorando la continuidad de
+              los servicios de voz, datos, video y telecomunicaciones.
+            </p>
+
+            <p>
+              Nuestro enfoque está orientado a brindar soluciones integrales para
+              cableado, enlaces internos, enlaces externos, distribución de red y
+              soporte técnico en infraestructura de comunicación.
+            </p>
+
+          </div>
+
+          <div class="fibra-box">
+
+            <h3>Servicios principales</h3>
+
+            <ul>
+              <li>Instalación de enlaces de fibra óptica.</li>
+              <li>Organización y canalización de cableado.</li>
+              <li>Diagnóstico de fallas de comunicación.</li>
+              <li>Mantenimiento preventivo y correctivo.</li>
+              <li>Integración con redes de voz, datos y video.</li>
+              <li>Soporte para infraestructura empresarial.</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+        <div class="fibra-grid">
+
+          <div class="fibra-card">
+            <h4>Alta velocidad</h4>
+            <p>
+              Ideal para empresas que necesitan transmisión rápida de datos,
+              comunicación interna eficiente y servicios tecnológicos estables.
+            </p>
+          </div>
+
+          <div class="fibra-card">
+            <h4>Confiabilidad</h4>
+            <p>
+              Reduce problemas por interferencia eléctrica y mejora la calidad de los
+              enlaces de comunicación en áreas críticas.
+            </p>
+          </div>
+
+          <div class="fibra-card">
+            <h4>Escalabilidad</h4>
+            <p>
+              Permite crecer la infraestructura de red conforme aumentan las
+              necesidades de operación de la empresa.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="fibra-note">
+
+          <h3>Aplicaciones comunes</h3>
+
+          <p>
+            La fibra óptica puede utilizarse en oficinas, plantas industriales, data
+            centers, sistemas de videovigilancia, enlaces entre edificios, redes de
+            voz y datos, así como en proyectos donde se requiere alta disponibilidad.
+          </p>
+
+          <button type="button" class="fibra-contact-btn" (click)="cambiarSeccion('contacto')">
+            Solicitar información
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- CABLES ESTRUCTURADOS -->
+      <div *ngIf="seccion === 'cables'" class="page-section cables-section">
+
+        <h2>CABLES ESTRUCTURADOS</h2>
+
+        <div class="cables-intro">
+
+          <div class="cables-text">
+            <h3>Infraestructura de red organizada y confiable</h3>
+
+            <p>
+              En PARNET Ingeniería desarrollamos soluciones de cableado estructurado
+              para empresas que requieren una red ordenada, segura y preparada para
+              soportar servicios de voz, datos, video, internet y telecomunicaciones.
+            </p>
+
+            <p>
+              El cableado estructurado permite centralizar y organizar la comunicación
+              interna de una empresa, facilitando el mantenimiento, la identificación
+              de fallas y la ampliación futura de la infraestructura tecnológica.
+            </p>
+
+            <p>
+              Nuestro enfoque está orientado a entregar instalaciones funcionales,
+              limpias y documentadas, utilizando materiales adecuados para cada tipo
+              de proyecto y necesidad operativa.
+            </p>
+          </div>
+
+          <div class="cables-box">
+            <h3>Servicios incluidos</h3>
+
+            <ul>
+              <li>Instalación de cableado UTP y fibra óptica.</li>
+              <li>Canalización, tubería, charolas y organización física.</li>
+              <li>Instalación de nodos de red y puntos de usuario.</li>
+              <li>Configuración de racks, patch panels y gabinetes.</li>
+              <li>Pruebas de conectividad y diagnóstico de fallas.</li>
+              <li>Mantenimiento preventivo y correctivo de cableado.</li>
+            </ul>
+          </div>
+
+        </div>
+
+
+        <div class="cables-grid">
+
+          <div class="cables-card">
+            <h4>Orden y control</h4>
+            <p>
+              Una instalación ordenada facilita la administración de la red,
+              reduce tiempos de diagnóstico y evita conexiones improvisadas.
+            </p>
+          </div>
+
+          <div class="cables-card">
+            <h4>Escalabilidad</h4>
+            <p>
+              La infraestructura queda preparada para agregar nuevos equipos,
+              usuarios, cámaras, teléfonos IP o servicios tecnológicos.
+            </p>
+          </div>
+
+          <div class="cables-card">
+            <h4>Menos fallas</h4>
+            <p>
+              Un cableado bien instalado reduce pérdidas de señal, desconexiones,
+              interferencias y problemas de comunicación interna.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="cables-process">
+
+          <h3>Proceso de trabajo</h3>
+
+          <div class="cables-steps">
+
+            <div class="cables-step">
+              <span>1</span>
+              <p>Levantamiento de necesidades y revisión del área.</p>
+            </div>
+
+            <div class="cables-step">
+              <span>2</span>
+              <p>Diseño de rutas, puntos de red y distribución del cableado.</p>
+            </div>
+
+            <div class="cables-step">
+              <span>3</span>
+              <p>Instalación física de cableado, canalización y gabinetes.</p>
+            </div>
+
+            <div class="cables-step">
+              <span>4</span>
+              <p>Pruebas de conectividad, organización y entrega del proyecto.</p>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="cables-note">
+
+          <h3>Aplicaciones comunes</h3>
+
+          <p>
+            El cableado estructurado se utiliza en oficinas, plantas industriales,
+            centros de datos, escuelas, comercios, edificios administrativos y
+            cualquier organización que necesite comunicación estable entre equipos,
+            servidores, cámaras, teléfonos, switches y usuarios.
+          </p>
+
+          <button
+            type="button"
+            class="cables-contact-btn"
+            (click)="cambiarSeccion('contacto')">
+            Solicitar información
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- PÓLIZAS -->
+      <div *ngIf="seccion === 'polizas'" class="page-section polizas-section">
+
+        <h2>PÓLIZAS DE MANTENIMIENTO</h2>
+
+        <div class="polizas-intro">
+
+          <div class="polizas-text">
+
+            <h3>Soporte técnico preventivo y correctivo</h3>
+
+            <p>
+              En PARNET Ingeniería ofrecemos pólizas de mantenimiento diseñadas para
+              conservar en buen estado la infraestructura tecnológica de nuestros
+              clientes, reduciendo fallas, tiempos muertos y gastos imprevistos.
+            </p>
+
+            <p>
+              Estas pólizas permiten dar seguimiento periódico a equipos, redes,
+              cableado, sistemas de comunicación, energía regulada y soluciones de
+              seguridad electrónica instaladas en la empresa.
+            </p>
+
+            <p>
+              El objetivo principal es mantener la continuidad operativa mediante
+              revisiones programadas, atención técnica y diagnóstico oportuno de
+              posibles problemas.
+            </p>
+
+          </div>
+
+          <div class="polizas-box">
+
+            <h3>Incluye</h3>
+
+            <ul>
+              <li>Revisión preventiva de infraestructura tecnológica.</li>
+              <li>Diagnóstico de fallas en redes y comunicaciones.</li>
+              <li>Mantenimiento a cableado, gabinetes y equipos de red.</li>
+              <li>Soporte técnico presencial o remoto.</li>
+              <li>Recomendaciones de mejora y actualización.</li>
+              <li>Reporte de actividades realizadas.</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+        <div class="polizas-grid">
+
+          <div class="polizas-card">
+            <h4>Prevención</h4>
+            <p>
+              Permite detectar problemas antes de que afecten la operación diaria de
+              la empresa.
+            </p>
+          </div>
+
+          <div class="polizas-card">
+            <h4>Continuidad</h4>
+            <p>
+              Ayuda a mantener activos los servicios de red, comunicación, energía y
+              seguridad tecnológica.
+            </p>
+          </div>
+
+          <div class="polizas-card">
+            <h4>Ahorro</h4>
+            <p>
+              Reduce gastos por emergencias, reparaciones mayores o interrupciones no
+              planificadas.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="polizas-types">
+
+          <h3>Tipos de atención</h3>
+
+          <div class="polizas-steps">
+
+            <div class="polizas-step">
+              <span>01</span>
+              <h4>Mantenimiento preventivo</h4>
+              <p>
+                Revisiones programadas para limpiar, verificar, organizar y validar
+                el funcionamiento de la infraestructura.
+              </p>
+            </div>
+
+            <div class="polizas-step">
+              <span>02</span>
+              <h4>Mantenimiento correctivo</h4>
+              <p>
+                Atención a fallas detectadas en equipos, cableado, red, energía,
+                comunicación o sistemas instalados.
+              </p>
+            </div>
+
+            <div class="polizas-step">
+              <span>03</span>
+              <h4>Soporte técnico</h4>
+              <p>
+                Apoyo para resolver incidencias, realizar ajustes y orientar al
+                cliente sobre el uso adecuado de sus sistemas.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="polizas-note">
+
+          <h3>Beneficio para la empresa</h3>
+
+          <p>
+            Una póliza de mantenimiento ayuda a que la empresa tenga mayor control
+            sobre su infraestructura tecnológica, evitando que las fallas aparezcan
+            hasta el momento crítico. Con revisiones constantes, soporte y reportes,
+            el cliente puede tomar mejores decisiones sobre sus equipos y servicios.
+          </p>
+
+          <button type="button" class="polizas-contact-btn" (click)="cambiarSeccion('contacto')">
+            Solicitar póliza
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- OUTSOURCING -->
+      <div *ngIf="seccion === 'outsourcing'" class="page-section outsourcing-section">
+
+        <h2>OUTSOURCING TI</h2>
+
+        <div class="outsourcing-intro">
+
+          <div class="outsourcing-text">
+
+            <h3>Personal técnico especializado para su empresa</h3>
+
+            <p>
+              En PARNET Ingeniería ofrecemos servicios de outsourcing tecnológico
+              para empresas que requieren apoyo especializado en operación, soporte,
+              mantenimiento e implementación de soluciones de telecomunicaciones,
+              redes, cableado, energía regulada y seguridad electrónica.
+            </p>
+
+            <p>
+              Este servicio permite que nuestros clientes cuenten con personal técnico
+              capacitado sin necesidad de incrementar directamente su plantilla interna,
+              ayudando a reducir costos operativos y mejorar la atención a incidencias.
+            </p>
+
+            <p>
+              El objetivo es brindar acompañamiento continuo en las actividades
+              tecnológicas de la empresa, asegurando que los sistemas críticos se
+              mantengan disponibles, organizados y funcionando correctamente.
+            </p>
+
+          </div>
+
+          <div class="outsourcing-box">
+
+            <h3>Áreas de apoyo</h3>
+
+            <ul>
+              <li>Soporte técnico a usuarios y equipos.</li>
+              <li>Administración básica de redes empresariales.</li>
+              <li>Mantenimiento de infraestructura tecnológica.</li>
+              <li>Supervisión de cableado, racks y gabinetes.</li>
+              <li>Apoyo en instalaciones y proyectos especiales.</li>
+              <li>Atención a incidencias y levantamiento de reportes.</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+        <div class="outsourcing-grid">
+
+          <div class="outsourcing-card">
+            <h4>Flexibilidad</h4>
+            <p>
+              El cliente puede solicitar apoyo técnico de acuerdo con sus necesidades,
+              proyectos, horarios o carga de trabajo.
+            </p>
+          </div>
+
+          <div class="outsourcing-card">
+            <h4>Especialización</h4>
+            <p>
+              Se cuenta con personal orientado a redes, telecomunicaciones,
+              mantenimiento, soporte y soluciones tecnológicas.
+            </p>
+          </div>
+
+          <div class="outsourcing-card">
+            <h4>Respuesta rápida</h4>
+            <p>
+              Ayuda a atender fallas, solicitudes e instalaciones sin detener las
+              operaciones normales de la empresa.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="outsourcing-services">
+
+          <h3>Servicios que se pueden cubrir</h3>
+
+          <div class="outsourcing-list">
+
+            <div class="outsourcing-item">
+              <span>Soporte</span>
+              <p>
+                Atención a usuarios, revisión de equipos, diagnóstico inicial y
+                seguimiento de incidencias.
+              </p>
+            </div>
+
+            <div class="outsourcing-item">
+              <span>Infraestructura</span>
+              <p>
+                Apoyo en cableado estructurado, racks, gabinetes, switches,
+                canalización y puntos de red.
+              </p>
+            </div>
+
+            <div class="outsourcing-item">
+              <span>Proyectos</span>
+              <p>
+                Participación en instalaciones, migraciones, ampliaciones y mejoras
+                tecnológicas dentro de la empresa.
+              </p>
+            </div>
+
+            <div class="outsourcing-item">
+              <span>Monitoreo</span>
+              <p>
+                Revisión periódica de equipos, servicios e infraestructura para
+                detectar problemas antes de que escalen.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="outsourcing-note">
+
+          <h3>Ventaja para el cliente</h3>
+
+          <p>
+            El outsourcing tecnológico permite que la empresa se enfoque en sus
+            actividades principales mientras PARNET Ingeniería apoya en la operación
+            técnica, mantenimiento, soporte y mejora continua de su infraestructura.
+          </p>
+
+          <button type="button" class="outsourcing-contact-btn" (click)="cambiarSeccion('contacto')">
+            Solicitar outsourcing
+          </button>
+
+        </div>
+
+      </div>
+
       <!-- SECCIONES RESTANTES -->
       <div *ngIf="
           seccion !== 'inicio' &&
@@ -1213,6 +1804,11 @@
           seccion !== 'corriente' &&
           seccion !== 'cctv' &&
           seccion !== 'redes' &&
+          seccion !== 'datacenters' &&
+          seccion !== 'fibra' &&
+          seccion !== 'cables' &&
+          seccion !== 'polizas' &&
+          seccion !== 'outsourcing' &&
           seccion !== 'telecomunicaciones'
         "
         class="page-section">
