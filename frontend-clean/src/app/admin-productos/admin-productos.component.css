@@ -1,0 +1,19 @@
+select {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #dcdfe6;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: white;
+  color: #111827;
+  outline: none;
+  box-sizing: border-box;
+}
+
+select:focus {
+  border: 2px solid #111827;
+}
+
+select option {
+  color: #111827;
+}

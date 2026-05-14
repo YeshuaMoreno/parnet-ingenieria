@@ -3475,3 +3475,178 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================
+   SOPORTE
+========================= */
+
+.soporte-section {
+  color: white;
+  padding-bottom: 60px;
+}
+
+.soporte-section h2 {
+  color: yellow;
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 28px;
+}
+
+.soporte-intro {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 35px;
+  max-width: 1050px;
+  margin-bottom: 35px;
+}
+
+.soporte-text h3,
+.soporte-box h3,
+.soporte-process h3,
+.soporte-note h3 {
+  color: yellow;
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
+.soporte-text p,
+.soporte-note p {
+  font-size: 17px;
+  line-height: 1.45;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+.soporte-box {
+  background: rgba(0, 63, 118, 0.45);
+  border: 1px solid #38bdf8;
+  padding: 22px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.soporte-box ul {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.soporte-box li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.soporte-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  max-width: 1050px;
+  margin: 20px 0 35px;
+}
+
+.soporte-card {
+  background: rgba(0, 70, 130, 0.55);
+  border: 1px solid #1898d4;
+  padding: 18px;
+  min-height: 145px;
+}
+
+.soporte-card h4 {
+  color: yellow;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.soporte-card p {
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+.soporte-process {
+  max-width: 1050px;
+  margin-bottom: 35px;
+}
+
+.soporte-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.soporte-step {
+  background: rgba(0, 63, 118, 0.45);
+  border: 1px solid #38bdf8;
+  padding: 18px;
+}
+
+.soporte-step span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: yellow;
+  color: #003f76;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.soporte-step h4 {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.soporte-step p {
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: justify;
+  margin: 0;
+}
+
+.soporte-note {
+  max-width: 1050px;
+  background: rgba(0, 63, 118, 0.35);
+  border-left: 5px solid yellow;
+  padding: 22px;
+}
+
+.soporte-contact-btn {
+  margin-top: 12px;
+  background: #00558c;
+  color: white;
+  border: 1px solid #38bdf8;
+  padding: 10px 22px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.soporte-contact-btn:hover {
+  background: #0076b8;
+}
+
+@media (max-width: 900px) {
+  .soporte-intro,
+  .soporte-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .soporte-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .soporte-section h2,
+  .soporte-text h3,
+  .soporte-box h3,
+  .soporte-process h3,
+  .soporte-note h3 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .soporte-steps {
+    grid-template-columns: 1fr;
+  }
+}

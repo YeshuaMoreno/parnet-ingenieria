@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from backend.models import solicitud_servicio
 from backend.database import engine, Base
+from backend.routes.conectados_routes import router as conectados_router
 
 from backend.routes import (
     auth_routes,
@@ -46,3 +47,4 @@ app.include_router(servicio_routes.router, prefix="/api")
 app.include_router(sugerencia_routes.router, prefix="/api")
 app.include_router(noticia_routes.router, prefix="/api")
 app.include_router(dashboard_routes.router, prefix="/api")
+app.include_router(conectados_router, prefix="/api")

@@ -150,8 +150,9 @@
       <section class="contador-panel">
 
         <div class="contador-line">
-          👥 Conectados:
-          <b>674</b>
+          <p class="contador-conectados">
+            👥 Conectados: <strong>{{ conectados }}</strong>
+          </p>
         </div>
 
         <div class="contador-line">
@@ -316,7 +317,7 @@
 
           <div class="video-home-container">
             <iframe
-              src="https://youtu.be/P6xCELe16xo?si=LkuS31f_Gq1j7Duf"
+              src="https://www.youtube.com/embed/v-tNV9svA1A"
               title="Video explicativo del proyecto ParNet Ingeniería"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -1790,6 +1791,150 @@
 
       </div>
 
+      <!-- SOPORTE -->
+      <div *ngIf="seccion === 'soporte'" class="page-section soporte-section">
+
+        <h2>SOPORTE TÉCNICO</h2>
+
+        <div class="soporte-intro">
+
+          <div class="soporte-text">
+
+            <h3>Atención y seguimiento a incidencias tecnológicas</h3>
+
+            <p>
+              En PARNET Ingeniería brindamos soporte técnico para empresas que requieren
+              atención a fallas, revisión de infraestructura, mantenimiento de equipos,
+              diagnóstico de red y acompañamiento en la operación de sus sistemas.
+            </p>
+
+            <p>
+              Nuestro servicio de soporte está orientado a mantener la continuidad de
+              las actividades del cliente, atendiendo problemas relacionados con redes,
+              telecomunicaciones, cableado estructurado, energía regulada, CCTV,
+              control de acceso y equipos tecnológicos.
+            </p>
+
+            <p>
+              El objetivo es resolver incidencias de forma organizada, documentada y
+              con seguimiento, evitando interrupciones prolongadas en los procesos de
+              la empresa.
+            </p>
+
+          </div>
+
+          <div class="soporte-box">
+
+            <h3>Soporte disponible</h3>
+
+            <ul>
+              <li>Diagnóstico de fallas en red y conectividad.</li>
+              <li>Revisión de cableado, switches, racks y gabinetes.</li>
+              <li>Soporte a sistemas de CCTV y control de acceso.</li>
+              <li>Revisión de energía regulada y equipos críticos.</li>
+              <li>Atención a reportes de usuarios.</li>
+              <li>Seguimiento y documentación de incidencias.</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+        <div class="soporte-grid">
+
+          <div class="soporte-card">
+            <h4>Diagnóstico</h4>
+            <p>
+              Se identifican las causas de la falla mediante revisión técnica,
+              pruebas de conexión y validación del funcionamiento de los equipos.
+            </p>
+          </div>
+
+          <div class="soporte-card">
+            <h4>Atención</h4>
+            <p>
+              Se aplican acciones correctivas para restablecer el servicio afectado
+              y reducir el impacto en la operación del cliente.
+            </p>
+          </div>
+
+          <div class="soporte-card">
+            <h4>Seguimiento</h4>
+            <p>
+              Se documenta la incidencia y se dan recomendaciones para prevenir
+              problemas similares en el futuro.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="soporte-process">
+
+          <h3>Proceso de atención</h3>
+
+          <div class="soporte-steps">
+
+            <div class="soporte-step">
+              <span>1</span>
+              <h4>Recepción del reporte</h4>
+              <p>
+                El cliente describe la falla, área afectada, equipo involucrado y nivel
+                de urgencia del problema.
+              </p>
+            </div>
+
+            <div class="soporte-step">
+              <span>2</span>
+              <h4>Revisión técnica</h4>
+              <p>
+                Se analiza la situación, se realizan pruebas y se identifica el posible
+                origen de la incidencia.
+              </p>
+            </div>
+
+            <div class="soporte-step">
+              <span>3</span>
+              <h4>Solución</h4>
+              <p>
+                Se corrige la falla, se valida el funcionamiento y se confirma la
+                recuperación del servicio.
+              </p>
+            </div>
+
+            <div class="soporte-step">
+              <span>4</span>
+              <h4>Reporte final</h4>
+              <p>
+                Se registra la actividad realizada y se proponen acciones preventivas
+                para mejorar la infraestructura.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="soporte-note">
+
+          <h3>¿Por qué es importante?</h3>
+
+          <p>
+            Contar con soporte técnico permite que una empresa mantenga sus sistemas
+            funcionando correctamente, reduzca tiempos muertos y atienda fallas antes
+            de que se conviertan en problemas mayores. Un servicio técnico oportuno
+            ayuda a proteger la productividad, la información y la continuidad del
+            negocio.
+          </p>
+
+          <button type="button" class="soporte-contact-btn" (click)="cambiarSeccion('contacto')">
+            Solicitar soporte
+          </button>
+
+        </div>
+
+      </div>
+
+
       <!-- SECCIONES RESTANTES -->
       <div *ngIf="
           seccion !== 'inicio' &&
@@ -1809,6 +1954,7 @@
           seccion !== 'cables' &&
           seccion !== 'polizas' &&
           seccion !== 'outsourcing' &&
+          seccion !== 'soporte' &&
           seccion !== 'telecomunicaciones'
         "
         class="page-section">

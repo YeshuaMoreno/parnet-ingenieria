@@ -1,8 +1,32 @@
 <div class="min-h-screen bg-gray-100 p-8">
 
-  <h1 class="text-3xl font-bold text-blue-900 mb-6">
+  <div class="flex justify-between items-center mb-6">
+
+  <h1 class="text-4xl font-bold text-blue-900">
     Administración de Productos
   </h1>
+
+  <div class="flex gap-3">
+    <a
+      routerLink="/dashboard"
+      class="bg-gray-700 text-white px-5 py-3 rounded-lg font-bold hover:bg-gray-800">
+      Dashboard
+    </a>
+
+    <a
+      routerLink="/admin-servicios"
+      class="bg-purple-700 text-white px-5 py-3 rounded-lg font-bold hover:bg-purple-800">
+      Servicios
+    </a>
+
+    <a
+      routerLink="/admin-sugerencias"
+      class="bg-green-700 text-white px-5 py-3 rounded-lg font-bold hover:bg-green-800">
+      Sugerencias
+    </a>
+  </div>
+
+</div>
 
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
@@ -17,9 +41,50 @@
                class="w-full border p-3 rounded-lg"
                placeholder="Nombre del producto" required>
 
-        <input [(ngModel)]="producto.categoria" name="categoria"
-               class="w-full border p-3 rounded-lg"
-               placeholder="Categoría" required>
+        <select [(ngModel)]="producto.categoria"
+              name="categoria"
+              class="w-full border p-3 rounded-lg bg-white"
+              aria-label="Categoría del producto"
+              title="Categoría del producto"
+              required>
+
+          <option value="" disabled>
+            Selecciona una categoría
+          </option>
+
+          <option value="Cableado estructurado">
+            Cableado estructurado
+          </option>
+
+          <option value="Telecomunicaciones">
+            Telecomunicaciones
+          </option>
+
+          <option value="CCTV">
+            CCTV
+          </option>
+
+          <option value="Redes">
+            Redes
+          </option>
+
+          <option value="Corriente regulada">
+            Corriente regulada
+          </option>
+
+          <option value="Data centers">
+            Data centers
+          </option>
+
+          <option value="Seguridad electrónica">
+            Seguridad electrónica
+          </option>
+
+          <option value="Servicios de ingeniería">
+            Servicios de ingeniería
+          </option>
+
+        </select>
 
         <textarea [(ngModel)]="producto.descripcion" name="descripcion"
                   class="w-full border p-3 rounded-lg"
@@ -30,16 +95,18 @@
                class="w-full border p-3 rounded-lg"
                placeholder="Precio">
 
-        <select [(ngModel)]="producto.estatus" name="estatus"
-                class="w-full border p-3 rounded-lg">
-          <option value="Existencia">Existencia</option>
-          <option value="Agotado">Agotado</option>
-        </select>
+        <select [(ngModel)]="producto.estatus"
+              name="estatus"
+              class="w-full border p-3 rounded-lg"
+              aria-label="Estatus del producto"
+              title="Estatus del producto">
 
         <input type="file"
-              accept="image/*"
-              (change)="subirImagen($event)"
-              class="w-full border p-3 rounded-lg">
+            accept="image/*"
+            (change)="subirImagen($event)"
+            class="w-full border p-3 rounded-lg"
+            aria-label="Seleccionar imagen del producto"
+            title="Seleccionar imagen del producto">
 
         <input [(ngModel)]="producto.imagen"
               name="imagen"
@@ -48,10 +115,13 @@
               readonly>
 
         <img *ngIf="imagenPreview"
-            [src]="imagenPreview"
-            class="w-full h-40 object-cover rounded-lg border">
+          [src]="imagenPreview"
+          alt="Vista previa de la imagen del producto"
+          title="Vista previa de la imagen del producto"
+          class="w-full h-40 object-cover rounded-lg border">
 
-        <button class="w-full bg-blue-900 text-white p-3 rounded-lg font-bold">
+        <button type="submit"
+                class="w-full bg-blue-900 text-white p-3 rounded-lg font-bold">
           {{ editando ? 'Actualizar' : 'Guardar' }}
         </button>
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 interface Sugerencia {
   id: number;
@@ -13,7 +14,7 @@ interface Sugerencia {
 @Component({
   selector: 'app-admin-sugerencias',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './admin-sugerencias.component.html'
 })
 export class AdminSugerenciasComponent implements OnInit {

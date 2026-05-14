@@ -46,6 +46,11 @@ interface Producto {
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
+  conectados = 1;
+  private apiUrl = 'http://127.0.0.1:8000/api';
+  private conectadoTimer: any = null;
+  private clienteIdStorageKey = 'parnet_cliente_id';
+
   seccion = 'inicio';
 
   noticias: Noticia[] = [];
@@ -424,6 +429,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   this.iniciarCctvSlider();
   this.iniciarRedesSlider();
   this.iniciarDatacentersSlider();
+  this.iniciarContadorConectados();
 }
 
   ngOnDestroy(): void {
@@ -433,6 +439,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.detenerCctvSlider();
     this.detenerDatacentersSlider();
     this.detenerRedesSlider();
+    this.detenerContadorConectados();
   }
 
   // =========================
@@ -953,5 +960,57 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.iniciarDatacentersSlider();
   }
 
+
+  obtenerClienteId(): string {
+  let clienteId = localStorage.getItem(this.clienteIdStorageKey);
+
+  if (!clienteId) {
+    if (crypto && crypto.randomUUID) {
+      clienteId = crypto.randomUUID();
+    } else {
+      clienteId = `${Date.now()}-${Math.random()}`;
+    }
+
+    localStorage.setItem(this.clienteIdStorageKey, clienteId);
+  }
+
+  return clienteId;
+}
+
+  iniciarContadorConectados(): void {
+    this.actualizarConectados();
+
+    this.conectadoTimer = setInterval(() => {
+      this.actualizarConectados();
+    }, 15000);
+  }
+
+  detenerContadorConectados(): void {
+    if (this.conectadoTimer) {
+      clearInterval(this.conectadoTimer);
+      this.conectadoTimer = null;
+    }
+  }
+
+  actualizarConectados(): void {
+    const cliente_id = this.obtenerClienteId();
+
+    this.http.post<{ cliente_id: string; conectados: number }>(
+      `${this.apiUrl}/conectados/ping`,
+      { cliente_id }
+    ).subscribe({
+      next: (res) => {
+        this.conectados = res.conectados || 1;
+
+        if (res.cliente_id) {
+          localStorage.setItem(this.clienteIdStorageKey, res.cliente_id);
+        }
+      },
+      error: (err) => {
+        console.error('Error actualizando conectados:', err);
+        this.conectados = 1;
+      }
+    });
+  }
 
 }
